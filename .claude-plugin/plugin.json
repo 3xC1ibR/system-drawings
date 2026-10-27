@@ -1,0 +1,10 @@
+{
+  "name": "system-drawings",
+  "version": "0.1.0",
+  "description": "Explorable three-dimensional technical drawings of any system: overview first, drill into sub-assemblies, trace requests step by step, in a minimal 1970s engineering-documentation style.",
+  "license": "MIT",
+  "author": {
+    "name": "r",
+    "email": "hi@rquinonez.com"
+  }
+}

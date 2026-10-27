@@ -1,0 +1,809 @@
+{
+ "schema": "system-drawings/1",
+ "project": "PASSENGER CAR · GENERAL ARRANGEMENT",
+ "revision": "A",
+ "date": "2026-10-27",
+ "root": "car",
+ "sheets": [
+  {
+   "id": "car",
+   "short": "CAR",
+   "title": "How a car works",
+   "purpose": "A gasoline car turns fuel into motion. The engine makes torque, the drivetrain carries it to the wheels, and the driver controls both through pedals and steering.",
+   "parts": [
+    {
+     "id": "driver",
+     "shape": "column",
+     "at": [
+      -11,
+      1
+     ],
+     "status": "V",
+     "label": "DRIVER",
+     "sub": "PEDALS · WHEEL · KEY",
+     "what": "The person issuing commands: how much power, which direction, when to stop.",
+     "why": "Every trace on this sheet starts with a human input."
+    },
+    {
+     "id": "controls",
+     "shape": "box",
+     "at": [
+      -6.5,
+      1
+     ],
+     "status": "V",
+     "label": "PEDALS AND STEERING",
+     "sub": "DRIVER INPUTS",
+     "what": "Accelerator, brake and clutch pedals, and the steering wheel. In most modern cars the accelerator is a position sensor rather than a cable (drive-by-wire).",
+     "params": [
+      [
+       "ACCELERATOR",
+       "POSITION SENSOR"
+      ],
+      [
+       "BRAKE",
+       "HYDRAULIC, POWER-ASSISTED"
+      ]
+     ]
+    },
+    {
+     "id": "ecu",
+     "shape": "box",
+     "at": [
+      -6.5,
+      -4.5
+     ],
+     "status": "V",
+     "label": "ENGINE CONTROL UNIT",
+     "sub": "METERS FUEL AND SPARK",
+     "what": "A computer that reads the pedal and engine sensors and decides throttle opening, fuel quantity and spark timing for every cycle.",
+     "why": "The driver asks for power; the ECU decides how the engine produces it."
+    },
+    {
+     "id": "fuel",
+     "shape": "slab",
+     "at": [
+      -2,
+      -4.5
+     ],
+     "status": "V",
+     "label": "FUEL TANK",
+     "sub": "GASOLINE SUPPLY",
+     "what": "Stores gasoline. An in-tank pump sends it under pressure to the injectors."
+    },
+    {
+     "id": "battery",
+     "shape": "slab",
+     "at": [
+      2.5,
+      -4.5
+     ],
+     "status": "V",
+     "label": "BATTERY",
+     "sub": "12 V ELECTRICAL SUPPLY",
+     "what": "Supplies the starter motor and electronics while the engine is off; the alternator recharges it once the engine runs.",
+     "params": [
+      [
+       "NOMINAL VOLTAGE",
+       "12 V"
+      ]
+     ]
+    },
+    {
+     "id": "engine",
+     "shape": "tall",
+     "at": [
+      -2,
+      1
+     ],
+     "status": "V",
+     "label": "ENGINE",
+     "sub": "UNDER THE HOOD",
+     "drill": "engine",
+     "what": "Burns fuel with air in closed cylinders and turns the pressure into rotation of a crankshaft."
+    },
+    {
+     "id": "transmission",
+     "shape": "box",
+     "at": [
+      2.5,
+      1
+     ],
+     "status": "V",
+     "label": "TRANSMISSION",
+     "sub": "SELECTS THE GEAR RATIO",
+     "what": "Trades speed for torque. Low gears multiply torque to start moving; high gears let the engine turn slowly at cruising speed.",
+     "why": "An engine only produces useful power over a limited speed range; gears keep it there."
+    },
+    {
+     "id": "wheels",
+     "shape": "box",
+     "at": [
+      7,
+      1
+     ],
+     "status": "V",
+     "label": "DRIVEN WHEELS",
+     "sub": "TYRES MEET THE ROAD",
+     "what": "Receive torque through the differential, which lets the left and right wheels turn at different speeds in a corner."
+    },
+    {
+     "id": "exhaust",
+     "shape": "slab",
+     "at": [
+      2.5,
+      7
+     ],
+     "status": "V",
+     "label": "EXHAUST SYSTEM",
+     "sub": "CATALYST · MUFFLER",
+     "what": "Carries burnt gas away. The catalytic converter reduces harmful emissions; the muffler reduces noise."
+    },
+    {
+     "id": "windshield",
+     "shape": "slab",
+     "at": [
+      -11,
+      7
+     ],
+     "status": "V",
+     "label": "WINDSHIELD",
+     "sub": "LAMINATED SAFETY GLASS",
+     "what": "Two layers of glass bonded to a plastic interlayer, so it cracks without shattering into the cabin.",
+     "why": "Bonded into the body, it also stiffens the roof structure and gives the passenger airbag something to push against."
+    },
+    {
+     "id": "body",
+     "shape": "box",
+     "at": [
+      -6.5,
+      7
+     ],
+     "status": "V",
+     "label": "BODY STRUCTURE",
+     "sub": "UNIBODY SHELL",
+     "what": "The welded steel shell that everything mounts to. Crumple zones at front and rear absorb crash energy; the cabin cell resists deformation."
+    },
+    {
+     "id": "doors",
+     "shape": "slab",
+     "at": [
+      -2,
+      7
+     ],
+     "status": "V",
+     "label": "DOORS",
+     "sub": "SIDE-IMPACT BEAMS · LATCHES",
+     "what": "Hinged panels with steel intrusion beams inside, latched into the body so they stay closed in a crash."
+    }
+   ],
+   "links": [
+    {
+     "from": "driver",
+     "to": "controls",
+     "label": "PRESSES · TURNS"
+    },
+    {
+     "from": "controls",
+     "to": "ecu",
+     "label": "PEDAL POSITION"
+    },
+    {
+     "from": "ecu",
+     "to": "engine",
+     "label": "INJECTION · SPARK"
+    },
+    {
+     "from": "fuel",
+     "to": "engine",
+     "label": "FUEL",
+     "toOffset": [
+      -0.6,
+      0
+     ]
+    },
+    {
+     "from": "battery",
+     "to": "engine",
+     "label": "STARTER CURRENT",
+     "route": "z",
+     "toOffset": [
+      0.6,
+      0
+     ]
+    },
+    {
+     "from": "engine",
+     "to": "transmission",
+     "label": "TORQUE"
+    },
+    {
+     "from": "transmission",
+     "to": "wheels",
+     "label": "TORQUE AT WHEEL SPEED"
+    },
+    {
+     "from": "engine",
+     "to": "exhaust",
+     "label": "EXHAUST GAS",
+     "route": "z"
+    },
+    {
+     "from": "windshield",
+     "to": "body",
+     "label": "BONDED IN"
+    },
+    {
+     "from": "doors",
+     "to": "body",
+     "label": "HINGED ON"
+    }
+   ],
+   "traces": [
+    {
+     "id": "A",
+     "label": "PRESS THE ACCELERATOR",
+     "steps": [
+      {
+       "part": "driver",
+       "text": "The driver presses the accelerator pedal."
+      },
+      {
+       "link": "driver>controls",
+       "text": "The pedal moves; a sensor measures how far."
+      },
+      {
+       "link": "controls>ecu",
+       "text": "The position goes to the engine control unit as a signal, not a cable."
+      },
+      {
+       "part": "ecu",
+       "text": "The ECU opens the throttle further and calculates how much more fuel to inject."
+      },
+      {
+       "link": "ecu>engine",
+       "text": "Injection and spark commands go to the engine every cycle."
+      },
+      {
+       "part": "engine",
+       "text": "More air and fuel per cycle means more pressure on the pistons: more torque. (Open the engine to see how.)"
+      },
+      {
+       "link": "engine>transmission",
+       "text": "Torque leaves the engine through the flywheel."
+      },
+      {
+       "part": "transmission",
+       "text": "In a low gear the transmission multiplies the torque.",
+       "mark": [
+        "transmission",
+        "GEAR 2"
+       ]
+      },
+      {
+       "link": "transmission>wheels",
+       "text": "The differential splits it between the driven wheels."
+      },
+      {
+       "part": "wheels",
+       "text": "The tyres push against the road and the car accelerates."
+      }
+     ]
+    },
+    {
+     "id": "B",
+     "label": "START THE ENGINE",
+     "steps": [
+      {
+       "part": "battery",
+       "text": "Turning the key or pressing start connects the battery to the starter motor."
+      },
+      {
+       "link": "battery>engine",
+       "text": "The starter spins the crankshaft so the cylinders begin to draw air."
+      },
+      {
+       "link": "fuel>engine",
+       "text": "The fuel pump delivers gasoline to the injectors."
+      },
+      {
+       "link": "ecu>engine",
+       "text": "The ECU times injection and spark from the crankshaft position."
+      },
+      {
+       "part": "engine",
+       "text": "Combustion takes over and the starter disengages.",
+       "mark": [
+        "engine",
+        "RUNNING"
+       ]
+      },
+      {
+       "link": "engine>exhaust",
+       "text": "Burnt gas leaves through the catalytic converter and muffler."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "engine",
+   "short": "ENGINE",
+   "title": "Inside the engine",
+   "purpose": "A four-cylinder, four-stroke gasoline engine. Air and fuel burn in the cylinders, pistons push a crankshaft, and a camshaft driven at half crankshaft speed opens the valves in time.",
+   "parts": [
+    {
+     "id": "intake",
+     "shape": "box",
+     "at": [
+      -9,
+      0
+     ],
+     "status": "V",
+     "label": "AIR INTAKE",
+     "sub": "FILTER · THROTTLE BODY",
+     "what": "Filters incoming air and meters it with the throttle plate, which the ECU opens in proportion to the pedal."
+    },
+    {
+     "id": "injectors",
+     "shape": "slab",
+     "at": [
+      -4.5,
+      -5
+     ],
+     "status": "V",
+     "label": "FUEL INJECTORS",
+     "sub": "ONE PER CYLINDER",
+     "what": "Electrically opened nozzles that spray a measured quantity of fuel each cycle; the ECU sets how long they stay open."
+    },
+    {
+     "id": "block",
+     "shape": "tall",
+     "at": [
+      -4.5,
+      0
+     ],
+     "status": "V",
+     "label": "CYLINDER BLOCK",
+     "sub": "4 CYLINDERS IN LINE",
+     "drill": "cylinder",
+     "what": "Four cylinders, each with a piston. They fire in a staggered order so that one of them is always on its power stroke."
+    },
+    {
+     "id": "ignition",
+     "shape": "box",
+     "at": [
+      -4.5,
+      5
+     ],
+     "status": "V",
+     "label": "IGNITION",
+     "sub": "COILS · SPARK PLUGS",
+     "what": "Coils step battery voltage up to tens of thousands of volts and fire each spark plug at the moment the ECU chooses."
+    },
+    {
+     "id": "crank",
+     "shape": "box",
+     "at": [
+      0,
+      0
+     ],
+     "status": "V",
+     "label": "CRANKSHAFT",
+     "sub": "PUSH → ROTATION",
+     "what": "Offset throws turn the up-and-down motion of the pistons into rotation, like pedals on a bicycle."
+    },
+    {
+     "id": "camshaft",
+     "shape": "box",
+     "at": [
+      0,
+      -5
+     ],
+     "status": "V",
+     "label": "CAMSHAFT",
+     "sub": "OPENS THE VALVES",
+     "what": "Lobes on a shaft push the intake and exhaust valves open at the right moment in each cylinder's cycle.",
+     "why": "A four-stroke cycle takes two crankshaft revolutions, so the camshaft is geared to turn at exactly half crankshaft speed.",
+     "params": [
+      [
+       "SPEED",
+       "1/2 × CRANKSHAFT"
+      ],
+      [
+       "DRIVE",
+       "TIMING BELT OR CHAIN"
+      ]
+     ]
+    },
+    {
+     "id": "manifold",
+     "shape": "slab",
+     "at": [
+      0,
+      5
+     ],
+     "status": "V",
+     "label": "EXHAUST MANIFOLD",
+     "sub": "COLLECTS BURNT GAS",
+     "what": "Gathers exhaust from all four cylinders into one pipe leading to the catalytic converter."
+    },
+    {
+     "id": "flywheel",
+     "shape": "column",
+     "at": [
+      4.5,
+      0
+     ],
+     "status": "V",
+     "label": "FLYWHEEL",
+     "sub": "SMOOTHS POWER PULSES",
+     "what": "A heavy disc on the end of the crankshaft. Its inertia carries the engine between power strokes."
+    },
+    {
+     "id": "output",
+     "shape": "slab",
+     "at": [
+      9,
+      0
+     ],
+     "status": "V",
+     "label": "TO TRANSMISSION",
+     "sub": "TORQUE OUT",
+     "what": "Where engine torque leaves for the clutch or torque converter and the gearbox."
+    }
+   ],
+   "links": [
+    {
+     "from": "intake",
+     "to": "block",
+     "label": "AIR"
+    },
+    {
+     "from": "injectors",
+     "to": "block",
+     "label": "FUEL SPRAY"
+    },
+    {
+     "from": "ignition",
+     "to": "block",
+     "label": "SPARK",
+     "fromOffset": [
+      -0.6,
+      0
+     ],
+     "toOffset": [
+      -0.6,
+      0
+     ]
+    },
+    {
+     "from": "block",
+     "to": "crank",
+     "label": "PISTON FORCE"
+    },
+    {
+     "from": "crank",
+     "to": "camshaft",
+     "label": "TIMING CHAIN · 1/2 SPEED",
+     "fromOffset": [
+      0.6,
+      0
+     ],
+     "toOffset": [
+      0.6,
+      0
+     ]
+    },
+    {
+     "from": "camshaft",
+     "to": "block",
+     "label": "VALVE TIMING",
+     "route": "z",
+     "fromOffset": [
+      -0.6,
+      0
+     ],
+     "toOffset": [
+      0.6,
+      0
+     ]
+    },
+    {
+     "from": "block",
+     "to": "manifold",
+     "label": "EXHAUST GAS",
+     "route": "z",
+     "fromOffset": [
+      0.6,
+      0
+     ]
+    },
+    {
+     "from": "crank",
+     "to": "flywheel",
+     "label": "ROTATION"
+    },
+    {
+     "from": "flywheel",
+     "to": "output",
+     "label": "TORQUE"
+    }
+   ],
+   "traces": [
+    {
+     "id": "T",
+     "label": "FROM AIR TO TORQUE",
+     "steps": [
+      {
+       "link": "intake>block",
+       "text": "Air enters through the filter and throttle."
+      },
+      {
+       "link": "injectors>block",
+       "text": "Fuel is sprayed into the incoming air."
+      },
+      {
+       "link": "ignition>block",
+       "text": "The spark plug ignites the compressed mixture. (Open the cylinder block for one cylinder's four strokes.)"
+      },
+      {
+       "link": "block>crank",
+       "text": "Expanding gas drives the piston down and turns the crankshaft."
+      },
+      {
+       "link": "crank>flywheel",
+       "text": "The flywheel smooths the separate power pulses into steady rotation."
+      },
+      {
+       "link": "flywheel>output",
+       "text": "Torque leaves for the transmission."
+      }
+     ]
+    },
+    {
+     "id": "V",
+     "label": "VALVE TIMING",
+     "steps": [
+      {
+       "part": "crank",
+       "text": "The crankshaft turns twice per four-stroke cycle."
+      },
+      {
+       "link": "crank>camshaft",
+       "text": "A belt or chain drives the camshaft at exactly half that speed."
+      },
+      {
+       "link": "camshaft>block",
+       "text": "Each cam lobe opens its valve once per cycle, in step with the piston."
+      },
+      {
+       "link": "block>manifold",
+       "text": "Opened exhaust valves release burnt gas into the manifold."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cylinder",
+   "short": "ONE CYLINDER",
+   "title": "One cylinder, four strokes",
+   "purpose": "Intake, compression, power, exhaust. The piston moves down, up, down, up; only the power stroke produces work, and the cycle takes two crankshaft revolutions.",
+   "parts": [
+    {
+     "id": "inlet",
+     "shape": "box",
+     "at": [
+      -5,
+      -4.5
+     ],
+     "status": "V",
+     "label": "INTAKE VALVE",
+     "sub": "OPEN ON STROKE 1",
+     "what": "Opens while the piston moves down so the cylinder fills with air and fuel."
+    },
+    {
+     "id": "plug",
+     "shape": "column",
+     "at": [
+      0,
+      -4.5
+     ],
+     "status": "V",
+     "label": "SPARK PLUG",
+     "sub": "FIRES NEAR TOP OF STROKE 2",
+     "what": "Produces the spark that ignites the mixture just before the piston reaches the top."
+    },
+    {
+     "id": "outlet",
+     "shape": "box",
+     "at": [
+      5,
+      -4.5
+     ],
+     "status": "V",
+     "label": "EXHAUST VALVE",
+     "sub": "OPEN ON STROKE 4",
+     "what": "Opens while the piston rises the second time so it can push the burnt gas out."
+    },
+    {
+     "id": "chamber",
+     "shape": "box",
+     "at": [
+      0,
+      0
+     ],
+     "status": "V",
+     "label": "COMBUSTION CHAMBER",
+     "sub": "WHERE THE FUEL BURNS",
+     "what": "The space above the piston. Compression squeezes the mixture to about a tenth of its volume before ignition.",
+     "params": [
+      [
+       "TYPICAL COMPRESSION RATIO",
+       "≈ 10 : 1 (GASOLINE)"
+      ]
+     ]
+    },
+    {
+     "id": "piston",
+     "shape": "layered",
+     "at": [
+      0,
+      5.5
+     ],
+     "status": "V",
+     "label": "PISTON",
+     "sub": "RINGS SEAL THE GAS",
+     "what": "A sliding plug that is pushed by the burning gas. Piston rings seal it against the cylinder wall."
+    },
+    {
+     "id": "rod",
+     "shape": "box",
+     "at": [
+      0,
+      11
+     ],
+     "status": "V",
+     "label": "CONNECTING ROD",
+     "sub": "PISTON → CRANK THROW",
+     "what": "Links the piston to an offset throw on the crankshaft, converting straight-line force into torque."
+    },
+    {
+     "id": "throw",
+     "shape": "column",
+     "at": [
+      5,
+      11
+     ],
+     "status": "V",
+     "label": "CRANK THROW",
+     "sub": "TURNS THE CRANKSHAFT",
+     "what": "The offset journal on the crankshaft that the rod pushes around."
+    }
+   ],
+   "links": [
+    {
+     "from": "inlet",
+     "to": "chamber",
+     "label": "AIR-FUEL IN",
+     "route": "z",
+     "toOffset": [
+      -0.7,
+      0
+     ]
+    },
+    {
+     "from": "plug",
+     "to": "chamber",
+     "label": "SPARK"
+    },
+    {
+     "from": "chamber",
+     "to": "outlet",
+     "label": "BURNT GAS OUT",
+     "route": "z",
+     "fromOffset": [
+      0.7,
+      0
+     ]
+    },
+    {
+     "from": "chamber",
+     "to": "piston",
+     "label": "PRESSURE"
+    },
+    {
+     "from": "piston",
+     "to": "rod",
+     "label": "FORCE"
+    },
+    {
+     "from": "rod",
+     "to": "throw",
+     "label": "ROTATION"
+    }
+   ],
+   "traces": [
+    {
+     "id": "S",
+     "label": "FOUR STROKES",
+     "steps": [
+      {
+       "link": "inlet>chamber",
+       "text": "**1 · INTAKE.** The piston moves down with the intake valve open; air and fuel are drawn in.",
+       "mark": [
+        "inlet",
+        "OPEN"
+       ]
+      },
+      {
+       "part": "chamber",
+       "text": "**2 · COMPRESSION.** Both valves close and the rising piston squeezes the mixture to about a tenth of its volume.",
+       "mark": [
+        "chamber",
+        "COMPRESSED"
+       ]
+      },
+      {
+       "link": "plug>chamber",
+       "text": "**3 · POWER.** The spark plug fires just before the piston reaches the top."
+      },
+      {
+       "link": "chamber>piston",
+       "text": "Burning gas expands and pushes the piston down hard."
+      },
+      {
+       "link": "piston>rod",
+       "text": "The connecting rod carries that force…"
+      },
+      {
+       "link": "rod>throw",
+       "text": "…to the crank throw, turning the crankshaft. This is the only stroke that does work."
+      },
+      {
+       "link": "chamber>outlet",
+       "text": "**4 · EXHAUST.** The exhaust valve opens and the rising piston pushes the burnt gas out. Two crankshaft revolutions per cycle.",
+       "mark": [
+        "outlet",
+        "OPEN"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "notes": [
+  {
+   "id": "about",
+   "button": "ABOUT",
+   "ref": "NOTE A",
+   "title": "About this drawing set",
+   "blocks": [
+    {
+     "p": "A minimal example for the system-drawings skill: three sheets, from the whole car down to one cylinder."
+    },
+    {
+     "kv": [
+      [
+       "SHEETS",
+       "3"
+      ],
+      [
+       "DEPTH",
+       "CAR → ENGINE → CYLINDER"
+      ],
+      [
+       "SOURCE",
+       "GENERAL AUTOMOTIVE PRACTICE"
+      ]
+     ]
+    },
+    {
+     "note": "Typical values are marked as typical; individual engines differ."
+    }
+   ]
+  }
+ ]
+}

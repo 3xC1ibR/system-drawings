@@ -1,0 +1,24 @@
+{
+  "name": "system-drawings",
+  "version": "0.1.0",
+  "description": "Explorable three-dimensional technical drawings of any system: overview first, drill into sub-assemblies, trace requests step by step, in a minimal 1970s engineering-documentation style.",
+  "author": {
+    "name": "r",
+    "email": "hi@rquinonez.com"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "System Drawings",
+    "shortDescription": "Explorable 3D technical drawings: overview, drill-down, and request traces.",
+    "longDescription": "Turns a system, project, mechanism, or concept into a self-contained HTML drawing set in the style of 1970s IBM and NASA documentation. Readers orbit and rearrange line-drawn solids, open data sheets, descend into sub-assemblies, and follow requests step by step. Includes a validator, a builder, and a headless-Chrome inspector with a layout audit.",
+    "developerName": "r",
+    "category": "Productivity",
+    "capabilities": [
+      "Hierarchical drill-down system drawings",
+      "Step-by-step request traces",
+      "Data sheets with live dials",
+      "Layout validation and screenshot audit"
+    ],
+    "defaultPrompt": "Use $system-drawings to build an explorable drawing set that explains how this system works."
+  }
+}

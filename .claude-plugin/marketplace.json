@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "system-drawings",
+  "description": "Explorable three-dimensional technical drawings of systems",
+  "owner": {
+    "name": "r",
+    "email": "hi@rquinonez.com"
+  },
+  "plugins": [
+    {
+      "name": "system-drawings",
+      "description": "Explorable three-dimensional technical drawings of any system: overview first, drill into sub-assemblies, trace requests step by step, in a minimal 1970s engineering-documentation style.",
+      "author": {
+        "name": "r",
+        "email": "hi@rquinonez.com"
+      },
+      "category": "productivity",
+      "source": "."
+    }
+  ]
+}

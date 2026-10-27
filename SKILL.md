@@ -1,0 +1,1 @@
+skills/system-drawings/SKILL.md
