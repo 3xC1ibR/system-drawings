@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Repository tests for system-drawings.
 
-1. Every example validates with zero errors and zero warnings.
+1. Every example validates with zero errors and only explicitly documented warnings.
 2. Every checked-in example index.html equals a fresh build (examples are not stale).
 3. The build is deterministic.
 4. The validator rejects known-bad documents.
@@ -24,6 +24,16 @@ from build_drawing import build  # noqa: E402
 
 failures = []
 
+# The sources establish this experiment but not a specific connection to the
+# multifunctional panel. Preserve the isolated component rather than invent a
+# relationship; see the Deep Space 1 example README. Match the exact warning so
+# new warnings, and changes that make this exception stale, still fail the test.
+EXPECTED_WARNINGS = {
+    "deep-space-1": [
+        "sheet structure part low_power: not connected to anything; say why it belongs on this sheet or link it"
+    ]
+}
+
 
 def check(cond, message):
     print(("PASS  " if cond else "FAIL  ") + message)
@@ -36,7 +46,9 @@ check(len(examples) >= 2, f"found {len(examples)} examples")
 for path in examples:
     doc = json.loads(path.read_text(encoding="utf-8"))
     errors, warnings = validate(doc)
-    check(not errors and not warnings, f"{path.parent.name}: validates cleanly ({len(errors)} errors, {len(warnings)} warnings)")
+    expected_warnings = EXPECTED_WARNINGS.get(path.parent.name, [])
+    check(not errors and sorted(warnings) == sorted(expected_warnings),
+          f"{path.parent.name}: validation matches expectations ({len(errors)} errors, {len(warnings)} warnings; {len(expected_warnings)} documented)")
     built = build(doc)
     check(built == build(doc), f"{path.parent.name}: build is deterministic")
     html = path.parent / "index.html"

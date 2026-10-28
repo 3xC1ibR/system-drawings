@@ -1,0 +1,3112 @@
+{
+  "schema": "system-drawings/1",
+  "project": "DEEP SPACE 1 · SYSTEM DRAWINGS",
+  "revision": "A",
+  "date": "2026-10-27",
+  "root": "spacecraft",
+  "camera": {
+    "yaw": -0.42,
+    "pitch": 0.83
+  },
+  "sheets": [
+    {
+      "id": "spacecraft",
+      "short": "DEEP SPACE 1",
+      "title": "DEEP SPACE 1",
+      "purpose": "NASA / JPL · 1998–2001. Explore the spacecraft, then follow energy, xenon, observations and commands. Functional arrangement; geometry is not to scale.",
+      "parts": [
+        {
+          "id": "sun",
+          "label": "SUN",
+          "at": [
+            -10,
+            -5
+          ],
+          "what": "Incident solar radiation supplies the electrical energy used by the spacecraft.",
+          "sub": "EXTERNAL ENERGY SOURCE",
+          "shape": "column",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "power",
+          "label": "ELECTRICAL POWER",
+          "at": [
+            -5,
+            -5
+          ],
+          "what": "SCARLET concentrator arrays, battery and power distribution supply the spacecraft and its ion propulsion system.",
+          "sub": "SCARLET · BATTERY · DISTRIBUTION",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "drill": "power"
+        },
+        {
+          "id": "propulsion",
+          "label": "ION PROPULSION",
+          "at": [
+            0,
+            -5
+          ],
+          "what": "A single NSTAR xenon ion thruster provides sustained interplanetary acceleration.",
+          "sub": "XENON · ELECTRIC ACCELERATION",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "drill": "propulsion"
+        },
+        {
+          "id": "attitude",
+          "label": "NAVIGATION AND ATTITUDE",
+          "at": [
+            5,
+            -5
+          ],
+          "what": "AutoNav estimates the trajectory; attitude control points the vehicle, using sensors, hydrazine thrusters and the ion-engine gimbal.",
+          "sub": "POSITION · ORIENTATION",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Navigation",
+              "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "drill": "navigation"
+        },
+        {
+          "id": "science",
+          "label": "INSTRUMENTS",
+          "at": [
+            -10,
+            1
+          ],
+          "what": "MICAS collects images and spectra; PEPE measures charged particles. MICAS also supplies optical navigation observations.",
+          "sub": "MICAS · PEPE",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ],
+            [
+              "JPL MICAS technology report",
+              "https://www.jpl.nasa.gov/nmp/ds1/tech/micas.html"
+            ]
+          ],
+          "drill": "instruments"
+        },
+        {
+          "id": "computer",
+          "label": "AVIONICS",
+          "at": [
+            -5,
+            1
+          ],
+          "what": "The integrated electronics module houses most spacecraft electronics and supports command execution, software and data handling.",
+          "sub": "IEM",
+          "shape": "tall",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "note": "Software boxes elsewhere in this drawing are logical functions, not separate flight computers."
+        },
+        {
+          "id": "radio",
+          "label": "RADIO SYSTEM",
+          "at": [
+            0,
+            1
+          ],
+          "what": "The small deep-space transponder connects onboard data handling to X-band and Ka-band radio hardware.",
+          "sub": "SDST",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Telecommunications, 2001",
+              "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+            ]
+          ],
+          "drill": "telecommunications"
+        },
+        {
+          "id": "ground",
+          "label": "GROUND",
+          "at": [
+            5,
+            1
+          ],
+          "what": "Earth stations receive telemetry and radiometric observations and send spacecraft commands.",
+          "sub": "EARTH STATIONS",
+          "shape": "column",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Telecommunications, 2001",
+              "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "autonomy",
+          "label": "AUTONOMY SOFTWARE",
+          "at": [
+            -5,
+            7
+          ],
+          "what": "Remote Agent and Beacon Monitor demonstrated onboard planning, execution, diagnosis and compact health reporting.",
+          "sub": "SELECTED TECHNOLOGY TESTS",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "note": "Remote Agent and Beacon Monitor were experiments, not continuous replacements for the operations team.",
+          "drill": "autonomy"
+        },
+        {
+          "id": "structure",
+          "label": "STRUCTURE",
+          "at": [
+            0,
+            7
+          ],
+          "what": "An aluminum bus supports the flight hardware; insulation, heaters and radiators regulate temperature.",
+          "sub": "THERMAL CONTROL",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "LAUNCH MASS",
+              "486 kg"
+            ],
+            [
+              "DRY MASS",
+              "373 kg"
+            ],
+            [
+              "XENON / HYDRAZINE",
+              "82 kg / 31 kg"
+            ]
+          ],
+          "drill": "structure"
+        }
+      ],
+      "links": [
+        {
+          "from": "sun",
+          "to": "power",
+          "label": "SUNLIGHT"
+        },
+        {
+          "from": "power",
+          "to": "propulsion",
+          "label": "ELECTRICAL POWER"
+        },
+        {
+          "from": "attitude",
+          "to": "propulsion",
+          "label": "POINTING AND THRUST COMMANDS"
+        },
+        {
+          "from": "power",
+          "to": "computer",
+          "label": "SPACECRAFT POWER"
+        },
+        {
+          "from": "science",
+          "to": "computer",
+          "label": "OBSERVATIONS"
+        },
+        {
+          "from": "computer",
+          "to": "radio",
+          "label": "TELEMETRY"
+        },
+        {
+          "from": "radio",
+          "to": "ground",
+          "label": "RADIO DOWNLINK"
+        },
+        {
+          "from": "autonomy",
+          "to": "computer",
+          "label": "SOFTWARE COMMANDS"
+        },
+        {
+          "from": "structure",
+          "to": "computer",
+          "label": "MOUNTING AND THERMAL CONTROL",
+          "route": "z",
+          "toOffset": [
+            0.6,
+            0
+          ]
+        },
+        {
+          "from": "ground",
+          "to": "radio",
+          "label": "X-BAND COMMAND UPLINK",
+          "dashed": true,
+          "fromOffset": [
+            0,
+            0.6
+          ],
+          "toOffset": [
+            0,
+            0.6
+          ]
+        },
+        {
+          "from": "computer",
+          "to": "attitude",
+          "label": "CONTROL AND NAVIGATION",
+          "dashed": true,
+          "via": [
+            [
+              -6.7,
+              3.7
+            ],
+            [
+              8,
+              3.7
+            ],
+            [
+              8,
+              -5
+            ]
+          ],
+          "fromOffset": [
+            0,
+            0.5
+          ]
+        }
+      ],
+      "traces": [
+        {
+          "id": "A",
+          "label": "SUNLIGHT TO THRUST",
+          "steps": [
+            {
+              "part": "sun",
+              "text": "Illustrative energy path: sunlight reaches the deployed solar wings."
+            },
+            {
+              "link": "sun>power",
+              "text": "SCARLET concentrates light onto photovoltaic cells."
+            },
+            {
+              "part": "power",
+              "text": "Electrical power is shared between flight equipment and propulsion."
+            },
+            {
+              "link": "power>propulsion",
+              "text": "The propulsion power processor supplies the engine electrical loads."
+            },
+            {
+              "part": "propulsion",
+              "text": "Accelerated xenon carries momentum away and changes the spacecraft trajectory. Open this sheet for the propellant and engine detail."
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": "SCIENCE TO EARTH",
+          "steps": [
+            {
+              "part": "science",
+              "text": "Illustrative data path: MICAS or PEPE acquires an observation."
+            },
+            {
+              "link": "science>computer",
+              "text": "The observation enters spacecraft data handling."
+            },
+            {
+              "link": "computer>radio",
+              "text": "Telemetry is delivered to the small deep-space transponder."
+            },
+            {
+              "link": "radio>ground",
+              "text": "The selected antenna transmits the encoded signal to Earth."
+            },
+            {
+              "part": "ground",
+              "text": "The Deep Space Network delivers the received data for mission processing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "short": "ELECTRICAL POWER",
+      "title": "ELECTRICAL POWER",
+      "purpose": "Two four-panel SCARLET wings supply about 2.5 kW at 1 AU. A nickel-hydrogen battery supports deployment and transient loads.",
+      "parts": [
+        {
+          "id": "sunlight",
+          "label": "SUNLIGHT",
+          "at": [
+            -7.5,
+            -5
+          ],
+          "what": "Sunlight is the input to the concentrator array.",
+          "sub": "INCIDENT RADIATION",
+          "shape": "column",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "lenses",
+          "label": "FRESNEL LENSES",
+          "at": [
+            -2.5,
+            -5
+          ],
+          "what": "Cylindrical silicone Fresnel lenses concentrate light onto narrow solar-cell strips.",
+          "sub": "SCARLET OPTICS",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "TOTAL LENSES",
+              "720"
+            ]
+          ]
+        },
+        {
+          "id": "cells",
+          "label": "SOLAR CELLS",
+          "at": [
+            2.5,
+            -5
+          ],
+          "what": "Photovoltaic cells convert the concentrated radiation to electrical power.",
+          "sub": "TWO WINGS · EIGHT PANELS",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "TOTAL CELLS",
+              "3,600"
+            ],
+            [
+              "POWER AT 1 AU",
+              "About 2.5 kW at mission start"
+            ],
+            [
+              "DEPLOYED SPAN",
+              "11.8 m"
+            ],
+            [
+              "ONE PANEL",
+              "About 1.13 × 1.60 m"
+            ]
+          ],
+          "note": "Output varies with solar distance, orientation and aging. The solar-array figure is not power delivered entirely to propulsion."
+        },
+        {
+          "id": "gimbals",
+          "label": "ARRAY GIMBALS",
+          "at": [
+            -2.5,
+            1
+          ],
+          "what": "A single-axis gimbal on each wing controls pointing along the more sensitive array axis.",
+          "sub": "POINT SOLAR WINGS",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ]
+          ],
+          "why": "Concentrating optics require controlled solar illumination."
+        },
+        {
+          "id": "distribution",
+          "label": "POWER DISTRIBUTION",
+          "at": [
+            2.5,
+            1
+          ],
+          "what": "Power conditioning and distribution deliver electrical power to the spacecraft loads.",
+          "sub": "CONVERTERS · DISTRIBUTION",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "battery",
+          "label": "BATTERY",
+          "at": [
+            7.5,
+            1
+          ],
+          "what": "Nickel-hydrogen storage powers the spacecraft before array deployment and supplements the arrays during load transients or unfavorable pointing.",
+          "sub": "NICKEL-HYDROGEN",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "CAPACITY",
+              "24 Ah"
+            ]
+          ]
+        },
+        {
+          "id": "loads",
+          "label": "FLIGHT EQUIPMENT",
+          "at": [
+            -2.5,
+            7
+          ],
+          "what": "Flight electronics, instruments, telecommunications and heaters draw from the spacecraft electrical system.",
+          "sub": "SPACECRAFT LOADS",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "processor",
+          "label": "PROPULSION POWER",
+          "at": [
+            2.5,
+            7
+          ],
+          "what": "The propulsion power processing unit converts its input into the electrical supplies required by the ion engine.",
+          "sub": "TO ION PROPULSION",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "switches",
+          "label": "SWITCH EXPERIMENT",
+          "at": [
+            7.5,
+            7
+          ],
+          "what": "The Power Actuation and Switching Module demonstrated voltage/current sensing and current limiting.",
+          "sub": "PASM TECHNOLOGY TEST",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "SWITCHES / LOADS",
+              "Eight switches / four loads"
+            ]
+          ],
+          "note": "Shown as a technology experiment; it is not asserted to be the sole power switch for every flight load."
+        }
+      ],
+      "links": [
+        {
+          "from": "sunlight",
+          "to": "lenses",
+          "label": "LIGHT"
+        },
+        {
+          "from": "lenses",
+          "to": "cells",
+          "label": "CONCENTRATED LIGHT"
+        },
+        {
+          "from": "gimbals",
+          "to": "lenses",
+          "label": "ARRAY ORIENTATION"
+        },
+        {
+          "from": "cells",
+          "to": "distribution",
+          "label": "ARRAY OUTPUT"
+        },
+        {
+          "from": "battery",
+          "to": "distribution",
+          "label": "STORED ENERGY",
+          "fromOffset": [
+            0,
+            0.5
+          ],
+          "toOffset": [
+            0,
+            0.5
+          ]
+        },
+        {
+          "from": "distribution",
+          "to": "battery",
+          "label": "CHARGE",
+          "dashed": true,
+          "fromOffset": [
+            0,
+            -0.5
+          ],
+          "toOffset": [
+            0,
+            -0.5
+          ]
+        },
+        {
+          "from": "distribution",
+          "to": "loads",
+          "label": "LOAD POWER",
+          "route": "z",
+          "fromOffset": [
+            -0.6,
+            0
+          ]
+        },
+        {
+          "from": "distribution",
+          "to": "processor",
+          "label": "PROPULSION INPUT"
+        },
+        {
+          "from": "distribution",
+          "to": "switches",
+          "label": "TEST LOAD POWER",
+          "route": "z",
+          "fromOffset": [
+            0.6,
+            0
+          ]
+        }
+      ],
+      "traces": [
+        {
+          "id": "A",
+          "label": "GENERATE ELECTRICAL POWER",
+          "steps": [
+            {
+              "part": "sunlight",
+              "text": "Illustrative energy path through the deployed array."
+            },
+            {
+              "link": "sunlight>lenses",
+              "text": "Incoming rays enter the cylindrical concentrator lenses."
+            },
+            {
+              "link": "lenses>cells",
+              "text": "The lenses focus the light onto photovoltaic strips."
+            },
+            {
+              "link": "cells>distribution",
+              "text": "The electrical output reaches power conditioning and distribution."
+            },
+            {
+              "link": "distribution>processor",
+              "text": "Available propulsion power is allocated after spacecraft needs are met."
+            },
+            {
+              "part": "processor",
+              "text": "The power processor supplies the ion engine. Its operating point depends on the available power."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "propulsion",
+      "short": "ION PROPULSION",
+      "title": "ION PROPULSION",
+      "purpose": "NSTAR uses electrical energy to accelerate xenon. Propellant feed, power processing and control are distinct functions.",
+      "parts": [
+        {
+          "id": "tank",
+          "label": "XENON STORAGE",
+          "at": [
+            -7.5,
+            -4
+          ],
+          "what": "The xenon supply provides reaction mass for the ion propulsion system.",
+          "sub": "PROPELLANT RESERVOIR",
+          "shape": "column",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "XENON AT LAUNCH",
+              "82 kg"
+            ]
+          ]
+        },
+        {
+          "id": "feed",
+          "label": "XENON FEED",
+          "at": [
+            -2.5,
+            -4
+          ],
+          "what": "The feed system regulates xenon delivery to the engine discharge chamber and cathodes.",
+          "sub": "REGULATE AND METER",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "engine",
+          "label": "NSTAR THRUSTER",
+          "at": [
+            2.5,
+            -4
+          ],
+          "what": "A discharge ionizes xenon; electrostatic grids accelerate the ions; a separate cathode neutralizes the exiting beam.",
+          "sub": "OPEN ENGINE MECHANISM",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "NOMINAL THRUSTER DIAMETER",
+              "30 cm"
+            ],
+            [
+              "DESIGN THRUST RANGE",
+              "19–92 mN"
+            ],
+            [
+              "MAXIMUM THRUSTER POWER",
+              "2.3 kW"
+            ]
+          ],
+          "note": "These are design endpoints reported in the primary-mission paper. They are not a claim that maximum thrust was sustained throughout the flight.",
+          "drill": "thruster"
+        },
+        {
+          "id": "exhaust",
+          "label": "EXHAUST",
+          "at": [
+            7.5,
+            -4
+          ],
+          "what": "The outgoing xenon beam carries momentum; its reaction accelerates the spacecraft.",
+          "sub": "MOMENTUM TO SPACE",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "control",
+          "label": "ENGINE CONTROL",
+          "at": [
+            -2.5,
+            2
+          ],
+          "what": "The ion-engine controller sequences starts, operating settings and shutdowns under spacecraft commands.",
+          "sub": "SEQUENCING AND TELEMETRY",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "processor",
+          "label": "POWER PROCESSOR",
+          "at": [
+            2.5,
+            2
+          ],
+          "what": "The PPU supplies the electrical operating conditions for the discharge, cathodes and ion optics.",
+          "sub": "FROM ELECTRICAL POWER",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "MAXIMUM PPU INPUT",
+              "About 2.5 kW (design)"
+            ]
+          ]
+        },
+        {
+          "id": "gimbal",
+          "label": "THRUSTER GIMBAL",
+          "at": [
+            7.5,
+            2
+          ],
+          "what": "Two-axis gimbaling steers the thrust vector and supplies attitude-control torque while thrusting.",
+          "sub": "VECTOR CONTROL",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Telecommunications, 2001",
+              "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+            ],
+            [
+              "JPL DESCANSO: DS1 Navigation",
+              "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+            ]
+          ],
+          "note": "The gimbal does not provide all three attitude-control axes; hydrazine is still needed."
+        },
+        {
+          "id": "diagnostics",
+          "label": "PLUME DIAGNOSTICS",
+          "at": [
+            2.5,
+            8
+          ],
+          "what": "Ion Propulsion System Diagnostic Subsystem sensors observe plume interactions with the spacecraft.",
+          "sub": "IDS MEASUREMENTS",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "why": "Tests address contamination, erosion and the compatibility of electric propulsion with instruments."
+        }
+      ],
+      "links": [
+        {
+          "from": "tank",
+          "to": "feed",
+          "label": "XENON"
+        },
+        {
+          "from": "feed",
+          "to": "engine",
+          "label": "METERED XENON"
+        },
+        {
+          "from": "engine",
+          "to": "exhaust",
+          "label": "ACCELERATED BEAM"
+        },
+        {
+          "from": "control",
+          "to": "feed",
+          "label": "FEED COMMANDS"
+        },
+        {
+          "from": "control",
+          "to": "processor",
+          "label": "OPERATING SETTINGS"
+        },
+        {
+          "from": "processor",
+          "to": "engine",
+          "label": "ELECTRICAL SUPPLIES"
+        },
+        {
+          "from": "gimbal",
+          "to": "engine",
+          "label": "THRUST VECTOR"
+        },
+        {
+          "from": "engine",
+          "to": "diagnostics",
+          "label": "PLUME ENVIRONMENT",
+          "route": "z",
+          "fromOffset": [
+            0.6,
+            0
+          ],
+          "toOffset": [
+            0.6,
+            0
+          ],
+          "via": [
+            [
+              3.1,
+              -7
+            ],
+            [
+              10,
+              -7
+            ],
+            [
+              10,
+              8
+            ]
+          ]
+        }
+      ],
+      "traces": [
+        {
+          "id": "A",
+          "label": "FOLLOW THE XENON",
+          "steps": [
+            {
+              "part": "tank",
+              "text": "Illustrative propellant path for a normal ion-engine operating interval."
+            },
+            {
+              "link": "tank>feed",
+              "text": "Xenon leaves storage through the feed system."
+            },
+            {
+              "part": "feed",
+              "text": "Regulation and metering establish the required flows."
+            },
+            {
+              "link": "feed>engine",
+              "text": "Gas enters the discharge and cathode systems."
+            },
+            {
+              "part": "engine",
+              "text": "Electron impact creates positive xenon ions; the grids extract and accelerate them."
+            },
+            {
+              "link": "engine>exhaust",
+              "text": "Xenon exits in a beam neutralized by electrons from the neutralizer."
+            },
+            {
+              "part": "exhaust",
+              "text": "Continuous low thrust accumulates velocity change over long operating periods."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thruster",
+      "short": "NSTAR ENGINE MECHANISM",
+      "title": "NSTAR ENGINE MECHANISM",
+      "purpose": "Schematic physical mechanism, not an assembly section. The discharge cathode and beam neutralizer perform different jobs.",
+      "parts": [
+        {
+          "id": "xenon",
+          "label": "NEUTRAL XENON",
+          "at": [
+            -7.5,
+            -3
+          ],
+          "what": "Neutral xenon atoms enter the engine from the metered feed system.",
+          "sub": "FROM FEED SYSTEM",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "discharge",
+          "label": "DISCHARGE CHAMBER",
+          "at": [
+            -2.5,
+            -3
+          ],
+          "what": "Energetic electrons collide with xenon atoms, producing positive xenon ions and additional electrons in the discharge plasma.",
+          "sub": "ELECTRON-IMPACT IONIZATION",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "grids",
+          "label": "ION OPTICS",
+          "at": [
+            2.5,
+            -3
+          ],
+          "what": "A pair of perforated molybdenum grids establishes the electric field that extracts and accelerates positive xenon ions.",
+          "sub": "SCREEN AND ACCELERATOR",
+          "shape": "layered",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "NOMINAL THRUSTER DIAMETER",
+              "30 cm"
+            ]
+          ]
+        },
+        {
+          "id": "beam",
+          "label": "OUTGOING BEAM",
+          "at": [
+            7.5,
+            -3
+          ],
+          "what": "Fast xenon ions carry momentum away from the thruster.",
+          "sub": "REACTION PRODUCES THRUST",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "cathode",
+          "label": "DISCHARGE CATHODE",
+          "at": [
+            -7.5,
+            3
+          ],
+          "what": "This hollow cathode emits the electrons that sustain ionization inside the discharge chamber.",
+          "sub": "ELECTRONS INTO CHAMBER",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "magnets",
+          "label": "MAGNETIC CONFINEMENT",
+          "at": [
+            -2.5,
+            3
+          ],
+          "what": "Magnets prolong electron residence in the discharge, increasing the opportunity for ionizing collisions.",
+          "sub": "CONFINE ELECTRONS",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "supply",
+          "label": "POWER SUPPLIES",
+          "at": [
+            2.5,
+            3
+          ],
+          "what": "The external power processor establishes the discharge and grid potentials and powers the cathode circuits.",
+          "sub": "FROM PPU",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "neutralizer",
+          "label": "NEUTRALIZER CATHODE",
+          "at": [
+            7.5,
+            3
+          ],
+          "what": "A separate cathode emits electrons into the exiting ion beam to balance charge and prevent excessive spacecraft charging.",
+          "sub": "ELECTRONS INTO EXHAUST",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "why": "Momentum transfer comes from accelerated xenon; the neutralizer maintains charge balance.",
+          "note": "Beam neutralization does not require every xenon ion to recombine into an individual neutral atom."
+        }
+      ],
+      "links": [
+        {
+          "from": "xenon",
+          "to": "discharge",
+          "label": "NEUTRAL GAS"
+        },
+        {
+          "from": "cathode",
+          "to": "discharge",
+          "label": "IONIZING ELECTRONS",
+          "route": "z",
+          "toOffset": [
+            -0.6,
+            0
+          ]
+        },
+        {
+          "from": "magnets",
+          "to": "discharge",
+          "label": "ELECTRON CONFINEMENT"
+        },
+        {
+          "from": "discharge",
+          "to": "grids",
+          "label": "POSITIVE XENON IONS"
+        },
+        {
+          "from": "supply",
+          "to": "grids",
+          "label": "GRID POTENTIALS"
+        },
+        {
+          "from": "grids",
+          "to": "beam",
+          "label": "ACCELERATED IONS"
+        },
+        {
+          "from": "supply",
+          "to": "neutralizer",
+          "label": "CATHODE SUPPLY"
+        },
+        {
+          "from": "neutralizer",
+          "to": "beam",
+          "label": "NEUTRALIZING ELECTRONS"
+        }
+      ],
+      "traces": [
+        {
+          "id": "A",
+          "label": "ACCELERATE AN ION",
+          "steps": [
+            {
+              "part": "xenon",
+              "text": "Illustrative particle path, with geometry simplified for explanation."
+            },
+            {
+              "link": "xenon>discharge",
+              "text": "A neutral xenon atom enters the discharge chamber."
+            },
+            {
+              "part": "discharge",
+              "text": "An energetic electron removes an atomic electron; the xenon becomes a positive ion."
+            },
+            {
+              "link": "discharge>grids",
+              "text": "The ion reaches the extraction region."
+            },
+            {
+              "link": "grids>beam",
+              "text": "The electric field accelerates it outward through the aligned grid apertures."
+            },
+            {
+              "part": "beam",
+              "text": "A separate electron population supplied by the neutralizer balances the beam charge."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "navigation",
+      "short": "NAVIGATION AND ATTITUDE",
+      "title": "NAVIGATION AND ATTITUDE",
+      "purpose": "AutoNav estimates where the spacecraft is going; attitude control points it. The dashed camera path identifies the 2000 recovery configuration.",
+      "parts": [
+        {
+          "id": "camera",
+          "label": "MICAS IMAGES",
+          "at": [
+            -7.5,
+            -5
+          ],
+          "what": "The visible camera supplies images of reference asteroids and background stars for optical navigation.",
+          "sub": "OPTICAL OBSERVATIONS",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ],
+            [
+              "JPL DESCANSO: DS1 Navigation",
+              "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "autonav",
+          "label": "AUTONAV",
+          "at": [
+            -2.5,
+            -5
+          ],
+          "what": "Onboard image processing and orbit determination estimate the trajectory; maneuver planning computes corrections.",
+          "sub": "ORBIT ESTIMATION · PLANNING",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ],
+            [
+              "JPL DESCANSO: DS1 Navigation",
+              "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+            ]
+          ],
+          "note": "AutoNav is distinct from the attitude controller and the Remote Agent experiment."
+        },
+        {
+          "id": "commands",
+          "label": "MANEUVER COMMANDS",
+          "at": [
+            2.5,
+            -5
+          ],
+          "what": "Required maneuvers become pointing and propulsion requests subject to spacecraft constraints.",
+          "sub": "TRAJECTORY CORRECTIONS",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ],
+            [
+              "JPL DESCANSO: DS1 Navigation",
+              "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "star_tracker",
+          "label": "STAR TRACKER",
+          "at": [
+            -7.5,
+            1
+          ],
+          "what": "The stellar reference unit normally measured orientation from stars.",
+          "sub": "FAILED 11 NOV 1999",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Navigation",
+              "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+            ],
+            [
+              "NASA DS1 mission history",
+              "https://science.nasa.gov/mission/deep-space-1/"
+            ]
+          ],
+          "note": "V means the historical fact is verified, not that this unit remained operational. It failed during the extended mission."
+        },
+        {
+          "id": "inertial",
+          "label": "INERTIAL UNIT",
+          "at": [
+            -2.5,
+            1
+          ],
+          "what": "Gyroscope measurements support attitude propagation between optical references.",
+          "sub": "ANGULAR MOTION",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Navigation",
+              "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "controller",
+          "label": "ATTITUDE CONTROL",
+          "at": [
+            2.5,
+            1
+          ],
+          "what": "The attitude-control software combines measurements with pointing requests and commands the actuators.",
+          "sub": "SPACECRAFT ORIENTATION",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Navigation",
+              "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "sun_sensor",
+          "label": "SUN SENSOR",
+          "at": [
+            -7.5,
+            7
+          ],
+          "what": "Sun sensing supports solar orientation and safe attitude operation.",
+          "sub": "SOLAR REFERENCE",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "hydrazine",
+          "label": "HYDRAZINE SYSTEM",
+          "at": [
+            -2.5,
+            7
+          ],
+          "what": "Chemical thrusters provide attitude-control torques and can make trajectory corrections.",
+          "sub": "CHEMICAL REACTION CONTROL",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ],
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "HYDRAZINE AT LAUNCH",
+              "31 kg"
+            ]
+          ]
+        },
+        {
+          "id": "gimbal",
+          "label": "ION-ENGINE GIMBAL",
+          "at": [
+            2.5,
+            7
+          ],
+          "what": "Thrust-vector steering provides control about two axes while the ion engine is operating.",
+          "sub": "TWO-AXIS THRUST VECTOR",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Telecommunications, 2001",
+              "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+            ],
+            [
+              "JPL DESCANSO: DS1 Navigation",
+              "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+            ]
+          ]
+        }
+      ],
+      "links": [
+        {
+          "from": "camera",
+          "to": "autonav",
+          "label": "IMAGE MEASUREMENTS"
+        },
+        {
+          "from": "autonav",
+          "to": "commands",
+          "label": "MANEUVER SOLUTION"
+        },
+        {
+          "from": "commands",
+          "to": "controller",
+          "label": "POINTING REQUEST"
+        },
+        {
+          "from": "star_tracker",
+          "to": "controller",
+          "label": "STELLAR ATTITUDE",
+          "route": "z",
+          "via": [
+            [
+              -7.5,
+              -1
+            ],
+            [
+              2,
+              -1
+            ]
+          ],
+          "toOffset": [
+            -0.5,
+            0
+          ]
+        },
+        {
+          "from": "inertial",
+          "to": "controller",
+          "label": "GYROS"
+        },
+        {
+          "from": "sun_sensor",
+          "to": "controller",
+          "label": "SOLAR DIRECTION",
+          "route": "z",
+          "via": [
+            [
+              -9.5,
+              7
+            ],
+            [
+              -9.5,
+              4
+            ],
+            [
+              1.7,
+              4
+            ]
+          ],
+          "toOffset": [
+            -0.8,
+            0
+          ]
+        },
+        {
+          "from": "controller",
+          "to": "hydrazine",
+          "label": "THRUSTER COMMANDS",
+          "route": "z",
+          "fromOffset": [
+            -0.3,
+            0
+          ]
+        },
+        {
+          "from": "controller",
+          "to": "gimbal",
+          "label": "STEERING COMMANDS",
+          "fromOffset": [
+            0.5,
+            0
+          ],
+          "toOffset": [
+            0.5,
+            0
+          ]
+        },
+        {
+          "from": "camera",
+          "to": "controller",
+          "label": "RECOVERY STAR MEASUREMENTS",
+          "dashed": true,
+          "via": [
+            [
+              -10,
+              -5
+            ],
+            [
+              -10,
+              -8
+            ],
+            [
+              5.5,
+              -8
+            ],
+            [
+              5.5,
+              1
+            ]
+          ],
+          "toOffset": [
+            0.6,
+            0
+          ]
+        }
+      ],
+      "traces": [
+        {
+          "id": "A",
+          "label": "OPTICAL COURSE CORRECTION",
+          "steps": [
+            {
+              "part": "camera",
+              "text": "Illustrative AutoNav path: the visible camera images a reference asteroid against cataloged stars."
+            },
+            {
+              "link": "camera>autonav",
+              "text": "Measured directions enter onboard navigation."
+            },
+            {
+              "link": "autonav>commands",
+              "text": "The navigation solution is used to plan a trajectory correction."
+            },
+            {
+              "link": "commands>controller",
+              "text": "The attitude controller receives the required pointing request."
+            },
+            {
+              "link": "controller>gimbal",
+              "text": "During ion thrusting, the controller steers the thrust vector."
+            },
+            {
+              "part": "gimbal",
+              "text": "The engine delivers thrust in the commanded direction; this sheet isolates pointing from the separate engine-start sequence."
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": "RECOVER AFTER TRACKER LOSS",
+          "steps": [
+            {
+              "part": "camera",
+              "text": "Illustrative recovery path, based on the June 2000 return to controlled flight after the November 1999 star-tracker failure."
+            },
+            {
+              "link": "camera>controller",
+              "text": "Revised software uses MICAS star observations as an attitude reference."
+            },
+            {
+              "part": "controller",
+              "text": "The recovery combines intermittent camera references with inertial measurements; it does not restore the failed hardware."
+            },
+            {
+              "link": "controller>hydrazine",
+              "text": "The controller commands chemical thrusters when attitude correction requires them."
+            },
+            {
+              "part": "hydrazine",
+              "text": "The recovered pointing capability supports resumed operations and the later Borrelly encounter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "instruments",
+      "short": "SCIENCE INSTRUMENTS",
+      "title": "SCIENCE INSTRUMENTS",
+      "purpose": "MICAS shares one telescope across four channels. PEPE separately measures plasma. The ultraviolet channel was flown but did not produce usable science.",
+      "parts": [
+        {
+          "id": "target",
+          "label": "LIGHT",
+          "at": [
+            -7.5,
+            -5
+          ],
+          "what": "Reflected or emitted light from targets enters MICAS. The mission observed asteroid Braille and comet Borrelly.",
+          "sub": "TARGET PHOTONS",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 mission history",
+              "https://science.nasa.gov/mission/deep-space-1/"
+            ]
+          ]
+        },
+        {
+          "id": "optics",
+          "label": "OPTICS",
+          "at": [
+            -2.5,
+            -5
+          ],
+          "what": "A common silicon-carbide optical assembly serves two visible cameras and ultraviolet and infrared spectrometers.",
+          "sub": "MICAS",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL MICAS technology report",
+              "https://www.jpl.nasa.gov/nmp/ds1/tech/micas.html"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "APERTURE",
+              "10 cm"
+            ],
+            [
+              "MICAS PACKAGE MASS",
+              "12 kg"
+            ]
+          ]
+        },
+        {
+          "id": "ccd",
+          "label": "VISIBLE CCD",
+          "at": [
+            -7.5,
+            1
+          ],
+          "what": "The CCD channel supplies visible images for science and optical navigation; later it also provides star observations for attitude recovery.",
+          "sub": "SCIENCE AND NAVIGATION",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ],
+            [
+              "JPL DESCANSO: DS1 Navigation",
+              "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "ARRAY",
+              "1,024 × 1,024 pixels"
+            ],
+            [
+              "PIXEL ANGLE",
+              "13 microradians"
+            ]
+          ]
+        },
+        {
+          "id": "aps",
+          "label": "ACTIVE PIXEL SENSOR",
+          "at": [
+            -2.5,
+            1
+          ],
+          "what": "A second visible imager demonstrates integration of detector and support electronics.",
+          "sub": "VISIBLE APS CHANNEL",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ],
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "ARRAY",
+              "256 × 256 pixels"
+            ]
+          ]
+        },
+        {
+          "id": "infrared",
+          "label": "INFRARED SPECTROMETER",
+          "at": [
+            2.5,
+            1
+          ],
+          "what": "The infrared channel measures spectral information used to investigate target composition. Spacecraft motion supplies the push-broom scan.",
+          "sub": "SPECTRAL COMPOSITION",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ],
+            [
+              "JPL MICAS technology report",
+              "https://www.jpl.nasa.gov/nmp/ds1/tech/micas.html"
+            ]
+          ]
+        },
+        {
+          "id": "ultraviolet",
+          "label": "ULTRAVIOLET CHANNEL",
+          "at": [
+            7.5,
+            1
+          ],
+          "what": "The ultraviolet imaging spectrometer was installed, but its detector chain did not return interpretable data.",
+          "sub": "FLOWN · NO USABLE SCIENCE",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL MICAS technology report",
+              "https://www.jpl.nasa.gov/nmp/ds1/tech/micas.html"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "note": "The dashed output denotes the unavailable science path. Verified status describes this documented outcome."
+        },
+        {
+          "id": "data",
+          "label": "INSTRUMENT DATA",
+          "at": [
+            -2.5,
+            7
+          ],
+          "what": "Image, spectrum and particle measurements enter onboard data handling for processing and transmission.",
+          "sub": "TO FLIGHT ELECTRONICS",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "plasma",
+          "label": "PLASMA",
+          "at": [
+            2.5,
+            7
+          ],
+          "what": "Solar-wind and encounter particles are the input to PEPE; the engine plume can also affect the local environment.",
+          "sub": "IONS / ELECTRONS",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "pepe",
+          "label": "PEPE",
+          "at": [
+            7.5,
+            7
+          ],
+          "what": "The Plasma Experiment for Planetary Exploration measures electron/ion energies and ion mass-to-charge, and examines propulsion-plasma interactions.",
+          "sub": "PARTICLE SPECTROMETRY",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "INSTRUMENT MASS",
+              "5.6 kg"
+            ],
+            [
+              "POWER",
+              "9.6 W"
+            ]
+          ]
+        }
+      ],
+      "links": [
+        {
+          "from": "target",
+          "to": "optics",
+          "label": "LIGHT"
+        },
+        {
+          "from": "optics",
+          "to": "ccd",
+          "label": "VISIBLE LIGHT",
+          "route": "z",
+          "fromOffset": [
+            -0.6,
+            0
+          ]
+        },
+        {
+          "from": "optics",
+          "to": "aps",
+          "label": "VISIBLE LIGHT",
+          "route": "z",
+          "fromOffset": [
+            -0.2,
+            0
+          ]
+        },
+        {
+          "from": "optics",
+          "to": "infrared",
+          "label": "INFRARED LIGHT",
+          "route": "z",
+          "fromOffset": [
+            0.2,
+            0
+          ]
+        },
+        {
+          "from": "optics",
+          "to": "ultraviolet",
+          "label": "ULTRAVIOLET LIGHT",
+          "route": "z",
+          "fromOffset": [
+            0.6,
+            0
+          ]
+        },
+        {
+          "from": "ccd",
+          "to": "data",
+          "label": "IMAGES",
+          "route": "z",
+          "toOffset": [
+            -0.6,
+            0
+          ]
+        },
+        {
+          "from": "aps",
+          "to": "data",
+          "label": "IMAGES",
+          "route": "z"
+        },
+        {
+          "from": "infrared",
+          "to": "data",
+          "label": "SPECTRA",
+          "route": "z",
+          "toOffset": [
+            0.6,
+            0
+          ]
+        },
+        {
+          "from": "ultraviolet",
+          "to": "data",
+          "label": "NO USABLE UV OUTPUT",
+          "dashed": true,
+          "via": [
+            [
+              10,
+              1
+            ],
+            [
+              10,
+              10
+            ],
+            [
+              -2.5,
+              10
+            ]
+          ]
+        },
+        {
+          "from": "plasma",
+          "to": "pepe",
+          "label": "CHARGED PARTICLES"
+        },
+        {
+          "from": "pepe",
+          "to": "data",
+          "label": "PARTICLE MEASUREMENTS",
+          "via": [
+            [
+              7.5,
+              9
+            ],
+            [
+              -1.8,
+              9
+            ]
+          ],
+          "toOffset": [
+            0.7,
+            0
+          ]
+        }
+      ],
+      "traces": [
+        {
+          "id": "A",
+          "label": "RECORD A VISIBLE IMAGE",
+          "steps": [
+            {
+              "part": "target",
+              "text": "Illustrative optical path: target light reaches MICAS."
+            },
+            {
+              "link": "target>optics",
+              "text": "The shared telescope collects the light."
+            },
+            {
+              "link": "optics>ccd",
+              "text": "The visible CCD forms a two-dimensional image."
+            },
+            {
+              "part": "ccd",
+              "text": "CCD images support science and optical navigation; the same channel later supports attitude recovery."
+            },
+            {
+              "link": "ccd>data",
+              "text": "The image enters onboard processing and telemetry."
+            },
+            {
+              "part": "data",
+              "text": "Observations are returned through the spacecraft radio system."
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": "MEASURE THE PLASMA",
+          "steps": [
+            {
+              "part": "plasma",
+              "text": "Illustrative particle path: ambient ions and electrons reach the instrument."
+            },
+            {
+              "link": "plasma>pepe",
+              "text": "PEPE admits and analyzes the charged-particle population."
+            },
+            {
+              "part": "pepe",
+              "text": "The instrument measures energies and ion mass-to-charge, including evidence of the local xenon environment."
+            },
+            {
+              "link": "pepe>data",
+              "text": "Particle measurements are delivered to spacecraft data handling."
+            },
+            {
+              "part": "data",
+              "text": "These observations complement the remote-sensing data from MICAS."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "telecommunications",
+      "short": "TELECOMMUNICATIONS",
+      "title": "TELECOMMUNICATIONS",
+      "purpose": "X-band carries commands and telemetry. Ka-band supplies an additional experimental downlink. Antennas are fixed to the spacecraft.",
+      "parts": [
+        {
+          "id": "telemetry",
+          "label": "TELEMETRY INPUT",
+          "at": [
+            -7.5,
+            -4
+          ],
+          "what": "The integrated electronics module supplies the telemetry bitstream and clock to the radio.",
+          "sub": "FROM FLIGHT ELECTRONICS",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Telecommunications, 2001",
+              "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "transponder",
+          "label": "SMALL TRANSPONDER",
+          "at": [
+            -2.5,
+            -4
+          ],
+          "what": "SDST combines command reception, telemetry modulation and X-/Ka-band excitation. Detected commands return to flight electronics.",
+          "sub": "SDST",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Telecommunications, 2001",
+              "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "PACKAGE MASS",
+              "About 3 kg"
+            ]
+          ]
+        },
+        {
+          "id": "x_amplifier",
+          "label": "X-BAND AMPLIFIER",
+          "at": [
+            -7.5,
+            2
+          ],
+          "what": "The solid-state X-band amplifier raises downlink RF power.",
+          "sub": "XPA",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Telecommunications, 2001",
+              "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "RF OUTPUT",
+              "12 W"
+            ]
+          ]
+        },
+        {
+          "id": "ka_amplifier",
+          "label": "KA-BAND AMPLIFIER",
+          "at": [
+            -2.5,
+            2
+          ],
+          "what": "The KaPA amplifies the Ka-band exciter output.",
+          "sub": "EXPERIMENTAL AMPLIFIER",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Telecommunications, 2001",
+              "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "RF OUTPUT",
+              "2.2 W"
+            ],
+            [
+              "MASS",
+              "0.7 kg"
+            ]
+          ],
+          "note": "2.2 W is the in-flight value in the 2001 telecommunications report; an earlier report quotes 2.3 W."
+        },
+        {
+          "id": "x_antennas",
+          "label": "X-BAND ANTENNAS",
+          "at": [
+            -7.5,
+            8
+          ],
+          "what": "Switches select the high-gain antenna, +X low-gain antenna, or coupled +Z/−Z low-gain pair for uplink and downlink.",
+          "sub": "ONE HGA · THREE LGAS",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Telecommunications, 2001",
+              "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "UPLINK",
+              "7.168 GHz"
+            ],
+            [
+              "DOWNLINK",
+              "8.422 GHz"
+            ]
+          ],
+          "note": "The HGA and +X LGA point along +X. The other LGAs point along +Z and −Z. Antenna pointing requires turning the spacecraft."
+        },
+        {
+          "id": "ka_horn",
+          "label": "KA-BAND HORN",
+          "at": [
+            -2.5,
+            8
+          ],
+          "what": "The fixed Ka-band horn points along +X and radiates the additional downlink.",
+          "sub": "DOWNLINK ONLY",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Telecommunications, 2001",
+              "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "DOWNLINK",
+              "32.156 GHz"
+            ]
+          ]
+        },
+        {
+          "id": "network",
+          "label": "DSN STATIONS",
+          "at": [
+            2.5,
+            8
+          ],
+          "what": "Earth stations receive spacecraft signals. DS1 Ka-band tests used Goldstone facilities.",
+          "sub": "EARTH STATIONS",
+          "shape": "column",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Telecommunications, 2001",
+              "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+            ],
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "commands",
+          "label": "COMMAND OUTPUT",
+          "at": [
+            2.5,
+            -4
+          ],
+          "what": "Recovered command bits are delivered to the integrated electronics module for decoding and execution.",
+          "sub": "TO FLIGHT ELECTRONICS",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "JPL DESCANSO: DS1 Telecommunications, 2001",
+              "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+            ]
+          ]
+        }
+      ],
+      "links": [
+        {
+          "from": "telemetry",
+          "to": "transponder",
+          "label": "DATA AND CLOCK"
+        },
+        {
+          "from": "transponder",
+          "to": "x_amplifier",
+          "label": "X-BAND EXCITATION",
+          "route": "z",
+          "fromOffset": [
+            -0.6,
+            0
+          ]
+        },
+        {
+          "from": "transponder",
+          "to": "ka_amplifier",
+          "label": "KA-BAND EXCITATION"
+        },
+        {
+          "from": "x_amplifier",
+          "to": "x_antennas",
+          "label": "AMPLIFIED X BAND"
+        },
+        {
+          "from": "ka_amplifier",
+          "to": "ka_horn",
+          "label": "AMPLIFIED KA BAND"
+        },
+        {
+          "from": "x_antennas",
+          "to": "network",
+          "label": "X-BAND DOWNLINK",
+          "via": [
+            [
+              -7.5,
+              10.5
+            ],
+            [
+              2.5,
+              10.5
+            ]
+          ]
+        },
+        {
+          "from": "ka_horn",
+          "to": "network",
+          "label": "KA-BAND DOWNLINK"
+        },
+        {
+          "from": "network",
+          "to": "x_antennas",
+          "label": "X-BAND UPLINK",
+          "dashed": true,
+          "via": [
+            [
+              5,
+              8
+            ],
+            [
+              5,
+              12.5
+            ],
+            [
+              -9.5,
+              12.5
+            ],
+            [
+              -9.5,
+              8
+            ]
+          ]
+        },
+        {
+          "from": "x_antennas",
+          "to": "transponder",
+          "label": "RECEIVED X-BAND SIGNAL",
+          "dashed": true,
+          "via": [
+            [
+              -10,
+              8
+            ],
+            [
+              -10,
+              -7
+            ],
+            [
+              -2.5,
+              -7
+            ]
+          ]
+        },
+        {
+          "from": "transponder",
+          "to": "commands",
+          "label": "DETECTED COMMAND BITS"
+        }
+      ],
+      "traces": [
+        {
+          "id": "A",
+          "label": "TRANSMIT ON KA BAND",
+          "steps": [
+            {
+              "part": "telemetry",
+              "text": "Illustrative Ka-band telemetry path."
+            },
+            {
+              "link": "telemetry>transponder",
+              "text": "The electronics module supplies telemetry bits and timing."
+            },
+            {
+              "link": "transponder>ka_amplifier",
+              "text": "The Ka-band exciter produces a modulated radio signal."
+            },
+            {
+              "link": "ka_amplifier>ka_horn",
+              "text": "KaPA supplies RF power to the fixed horn."
+            },
+            {
+              "link": "ka_horn>network",
+              "text": "The signal travels to the receiving station on Earth."
+            },
+            {
+              "part": "network",
+              "text": "The ground system receives and decodes the telemetry."
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": "RECEIVE AN EARTH COMMAND",
+          "steps": [
+            {
+              "part": "network",
+              "text": "Illustrative command path: an Earth station transmits at X-band."
+            },
+            {
+              "link": "network>x_antennas",
+              "text": "The signal reaches the selected X-band antenna configuration."
+            },
+            {
+              "link": "x_antennas>transponder",
+              "text": "The receiver detects the uplink and recovers command bits."
+            },
+            {
+              "link": "transponder>commands",
+              "text": "The radio supplies recovered bits to spacecraft command handling."
+            },
+            {
+              "part": "commands",
+              "text": "Flight electronics decode and execute the command. There is no Ka-band command uplink on DS1."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autonomy",
+      "short": "AUTONOMY EXPERIMENTS",
+      "title": "AUTONOMY EXPERIMENTS",
+      "purpose": "Software functions share onboard computing. Remote Agent ran selected May 1999 tests; Beacon Monitor was a separate technology experiment.",
+      "parts": [
+        {
+          "id": "goals",
+          "label": "GOALS",
+          "at": [
+            -7.5,
+            -4
+          ],
+          "what": "Operators supply high-level objectives and constraints for the Remote Agent experiment.",
+          "sub": "FROM EARTH",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ],
+            [
+              "JPL Remote Agent flight announcement, May 17, 1999",
+              "https://www.jpl.nasa.gov/news/computer-program-assumes-spacecraft-command/"
+            ]
+          ]
+        },
+        {
+          "id": "planner",
+          "label": "PLANNER",
+          "at": [
+            -2.5,
+            -4
+          ],
+          "what": "The planner constructs activities and timing relationships that satisfy the supplied goals and resource constraints.",
+          "sub": "SCHEDULER",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ],
+            [
+              "JPL Remote Agent flight announcement, May 17, 1999",
+              "https://www.jpl.nasa.gov/news/computer-program-assumes-spacecraft-command/"
+            ]
+          ]
+        },
+        {
+          "id": "executive",
+          "label": "EXECUTIVE",
+          "at": [
+            2.5,
+            -4
+          ],
+          "what": "The executive expands planned activities into subsystem commands and monitors their execution.",
+          "sub": "REMOTE AGENT",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ],
+            [
+              "JPL Remote Agent flight announcement, May 17, 1999",
+              "https://www.jpl.nasa.gov/news/computer-program-assumes-spacecraft-command/"
+            ]
+          ]
+        },
+        {
+          "id": "subsystems",
+          "label": "FLIGHT SUBSYSTEMS",
+          "at": [
+            7.5,
+            -4
+          ],
+          "what": "The experiment commands selected real flight systems, including ion propulsion, while monitoring their responses.",
+          "sub": "COMMAND EXECUTION",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ],
+            [
+              "JPL Remote Agent flight announcement, May 17, 1999",
+              "https://www.jpl.nasa.gov/news/computer-program-assumes-spacecraft-command/"
+            ]
+          ]
+        },
+        {
+          "id": "livingstone",
+          "label": "LIVINGSTONE",
+          "at": [
+            2.5,
+            2
+          ],
+          "what": "Model-based state estimation and recovery identify operating modes and help select recovery actions.",
+          "sub": "DIAGNOSIS AND RECOVERY",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "JPL Remote Agent flight announcement, May 17, 1999",
+              "https://www.jpl.nasa.gov/news/computer-program-assumes-spacecraft-command/"
+            ]
+          ]
+        },
+        {
+          "id": "health",
+          "label": "ENGINEERING DATA",
+          "at": [
+            7.5,
+            2
+          ],
+          "what": "Subsystem telemetry provides evidence of state, performance and possible anomalies.",
+          "sub": "OBSERVED FLIGHT STATE",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "monitor",
+          "label": "BEACON MONITOR",
+          "at": [
+            7.5,
+            8
+          ],
+          "what": "Health summarization maps the spacecraft condition to one of four assistance states.",
+          "sub": "SEPARATE EXPERIMENT",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ],
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "STATE COUNT",
+              "Four urgency levels"
+            ]
+          ]
+        },
+        {
+          "id": "beacon",
+          "label": "RADIO BEACON",
+          "at": [
+            2.5,
+            8
+          ],
+          "what": "SDST can transmit a tone representing the requested degree of ground attention.",
+          "sub": "TO GROUND MONITOR",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ],
+            [
+              "Rayman et al., DS1 primary mission results, 1999",
+              "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+            ]
+          ],
+          "note": "Tested during selected periods; DS1 did not dispense with routine mission operations or normal telemetry."
+        }
+      ],
+      "links": [
+        {
+          "from": "goals",
+          "to": "planner",
+          "label": "GOALS AND CONSTRAINTS"
+        },
+        {
+          "from": "planner",
+          "to": "executive",
+          "label": "SCHEDULED ACTIVITIES"
+        },
+        {
+          "from": "executive",
+          "to": "subsystems",
+          "label": "COMMANDS"
+        },
+        {
+          "from": "subsystems",
+          "to": "health",
+          "label": "TELEMETRY"
+        },
+        {
+          "from": "health",
+          "to": "livingstone",
+          "label": "STATE EVIDENCE"
+        },
+        {
+          "from": "livingstone",
+          "to": "executive",
+          "label": "DIAGNOSIS AND RECOVERY"
+        },
+        {
+          "from": "health",
+          "to": "monitor",
+          "label": "HEALTH PARAMETERS"
+        },
+        {
+          "from": "monitor",
+          "to": "beacon",
+          "label": "SELECTED TONE"
+        },
+        {
+          "from": "executive",
+          "to": "planner",
+          "label": "REPLAN REQUEST",
+          "dashed": true,
+          "via": [
+            [
+              2.5,
+              -7
+            ],
+            [
+              -2.5,
+              -7
+            ]
+          ]
+        }
+      ],
+      "traces": [
+        {
+          "id": "A",
+          "label": "EXECUTE A HIGH-LEVEL GOAL",
+          "steps": [
+            {
+              "part": "goals",
+              "text": "Illustrative Remote Agent command path during an enabled test period."
+            },
+            {
+              "link": "goals>planner",
+              "text": "A high-level objective reaches the planning system."
+            },
+            {
+              "link": "planner>executive",
+              "text": "The resulting plan specifies activities and constraints."
+            },
+            {
+              "link": "executive>subsystems",
+              "text": "The executive issues commands to selected flight subsystems."
+            },
+            {
+              "link": "subsystems>health",
+              "text": "Telemetry reports the resulting hardware state."
+            },
+            {
+              "link": "health>livingstone",
+              "text": "State estimation checks observations against the system model."
+            },
+            {
+              "link": "livingstone>executive",
+              "text": "Diagnosis and recovery information guide subsequent execution."
+            },
+            {
+              "part": "executive",
+              "text": "The first May 1999 test encountered an executive software fault; a follow-up test completed the remaining objectives."
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": "REPORT SPACECRAFT HEALTH",
+          "steps": [
+            {
+              "part": "health",
+              "text": "Illustrative Beacon Monitor path, separate from the Remote Agent planner."
+            },
+            {
+              "link": "health>monitor",
+              "text": "Engineering measurements are summarized against activity-dependent limits."
+            },
+            {
+              "part": "monitor",
+              "text": "The summary indicates whether no help, convenient contact, prompt contact or urgent assistance is needed."
+            },
+            {
+              "link": "monitor>beacon",
+              "text": "The selected state determines the radio tone."
+            },
+            {
+              "part": "beacon",
+              "text": "Ground monitors detect the tone and can arrange fuller tracking and telemetry."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "structure",
+      "short": "STRUCTURE AND THERMAL",
+      "title": "STRUCTURE AND THERMAL",
+      "purpose": "The physical bus supports externally mounted equipment. This sheet records the documented envelope, thermal measures and structural experiment.",
+      "parts": [
+        {
+          "id": "equipment",
+          "label": "EQUIPMENT",
+          "at": [
+            -5,
+            -4
+          ],
+          "what": "Most components mount outside the central bus for accessible integration and replacement before launch.",
+          "sub": "MOUNTED HARDWARE",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "bus",
+          "label": "PRIMARY BUS",
+          "at": [
+            0,
+            -4
+          ],
+          "what": "The primary spacecraft bus carries structural loads and supports the mounted subsystems.",
+          "sub": "ALUMINUM",
+          "shape": "tall",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "params": [
+            [
+              "CORE ENVELOPE",
+              "1.1 × 1.1 × 1.5 m"
+            ],
+            [
+              "WITH EQUIPMENT / BLANKETS",
+              "2.1 × 1.7 × 2.5 m"
+            ],
+            [
+              "SPAN WITH DEPLOYED ARRAYS",
+              "11.8 m"
+            ]
+          ],
+          "note": "Dimensions are the July 1999 NASA press-kit envelope. Drawing solids are symbolic, with no dimensional scale."
+        },
+        {
+          "id": "adapter",
+          "label": "LAUNCH INTERFACE",
+          "at": [
+            5,
+            -4
+          ],
+          "what": "The launch adapter and propulsion module form the lower spacecraft assembly identified in the NASA configuration drawing.",
+          "sub": "LAUNCH ADAPTER / MODULE",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "insulation",
+          "label": "THERMAL BLANKETS",
+          "at": [
+            -5,
+            2
+          ],
+          "what": "Multilayer insulation reduces unwanted radiative heat exchange.",
+          "sub": "PASSIVE THERMAL CONTROL",
+          "shape": "layered",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "heaters",
+          "label": "ELECTRICAL HEATERS",
+          "at": [
+            0,
+            2
+          ],
+          "what": "Powered heaters help maintain equipment within allowable temperature ranges.",
+          "sub": "ACTIVE HEAT INPUT",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "radiators",
+          "label": "RADIATORS",
+          "at": [
+            5,
+            2
+          ],
+          "what": "Radiating surfaces dispose of heat to space.",
+          "sub": "HEAT REJECTION",
+          "shape": "slab",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "multifunction",
+          "label": "MULTIFUNCTIONAL PANEL",
+          "at": [
+            5,
+            8
+          ],
+          "what": "A composite test panel combines load-bearing structure, copper-polyimide electrical interconnects, embedded heat transfer and an external radiating surface.",
+          "sub": "STRUCTURE / CIRCUITS / HEAT",
+          "shape": "layered",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ]
+        },
+        {
+          "id": "low_power",
+          "label": "LOW-POWER ELECTRONICS",
+          "at": [
+            0,
+            8
+          ],
+          "what": "Experimental low-voltage devices and architectures investigate reduced electronics power consumption.",
+          "sub": "MICROELECTRONICS TEST",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ]
+          ],
+          "note": "This separate experiment belongs to the twelve-technology payload. It is intentionally unconnected here: the consulted sources do not establish a specific interface to the multifunctional panel. Experimental devices did not replace every spacecraft circuit."
+        },
+        {
+          "id": "service",
+          "label": "SERVICE BOOM",
+          "at": [
+            -5,
+            8
+          ],
+          "what": "The boom provides access to battery and propellant service connections inside the launch fairing; it also carries the −Z low-gain antenna.",
+          "sub": "GROUND ACCESS / LGA SUPPORT",
+          "shape": "box",
+          "status": "V",
+          "refs": [
+            [
+              "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+              "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+            ],
+            [
+              "JPL DESCANSO: DS1 Telecommunications, 2001",
+              "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+            ]
+          ]
+        }
+      ],
+      "links": [
+        {
+          "from": "equipment",
+          "to": "bus",
+          "label": "MECHANICAL SUPPORT"
+        },
+        {
+          "from": "bus",
+          "to": "adapter",
+          "label": "STRUCTURAL LOAD PATH"
+        },
+        {
+          "from": "insulation",
+          "to": "equipment",
+          "label": "RADIATIVE ISOLATION"
+        },
+        {
+          "from": "heaters",
+          "to": "equipment",
+          "label": "HEAT INPUT",
+          "route": "z",
+          "fromOffset": [
+            -0.6,
+            0
+          ]
+        },
+        {
+          "from": "equipment",
+          "to": "radiators",
+          "label": "HEAT REJECTION PATH",
+          "route": "z",
+          "via": [
+            [
+              -7.5,
+              -4
+            ],
+            [
+              -7.5,
+              -7
+            ],
+            [
+              7.5,
+              -7
+            ],
+            [
+              7.5,
+              2
+            ]
+          ]
+        },
+        {
+          "from": "multifunction",
+          "to": "radiators",
+          "label": "INTEGRATED THERMAL FUNCTION"
+        },
+        {
+          "from": "service",
+          "to": "bus",
+          "label": "BOOM ATTACHMENT",
+          "dashed": true,
+          "via": [
+            [
+              -8,
+              8
+            ],
+            [
+              -8,
+              -8.5
+            ],
+            [
+              0,
+              -8.5
+            ]
+          ]
+        }
+      ],
+      "traces": [
+        {
+          "id": "A",
+          "label": "CARRY A STRUCTURAL LOAD",
+          "steps": [
+            {
+              "part": "equipment",
+              "text": "Illustrative structural load path; attachment geometry is schematic."
+            },
+            {
+              "link": "equipment>bus",
+              "text": "Mounted equipment transfers mechanical load to the aluminum bus."
+            },
+            {
+              "part": "bus",
+              "text": "The primary structure distributes the load."
+            },
+            {
+              "link": "bus>adapter",
+              "text": "The load continues through the launch-interface structure."
+            },
+            {
+              "part": "adapter",
+              "text": "This path matters while the spacecraft is attached to the launcher. The interface remains part of the flight assembly after separation."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "scope",
+      "button": "SCOPE",
+      "ref": "NOTE A",
+      "title": "Drawing basis and limitations",
+      "blocks": [
+        {
+          "p": "A source-grounded functional drawing set of NASA Deep Space 1, prepared 27 October 2026. It covers major hardware and all twelve technology demonstrations. External inputs and ground systems are included where they explain a connection."
+        },
+        {
+          "note": "Positions, solid shapes and connecting lines are schematic. This is not a dimensioned fabrication drawing, a verified harness diagram or a literal three-dimensional spacecraft reconstruction. V means the component or historical statement is documented; it does not mean every flight unit remained operational."
+        },
+        {
+          "p": "Each trace illustrates a documented mechanism or operating path. None is a reconstructed time series from flight telemetry. Links between structural parts denote mechanical or thermal relationships, as labeled, rather than data flow."
+        },
+        {
+          "p": "For physical mounting locations, see the [original NASA two-view configuration plate, printed p. 32 / PDF p. 34](https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf#page=34). The plate shows the arrays stowed; the deployed span is supplied separately in the specifications."
+        },
+        {
+          "kv": [
+            [
+              "LAUNCH",
+              "24 October 1998"
+            ],
+            [
+              "BRAILLE FLYBY",
+              "29 July 1999 UTC (28 July in U.S. Pacific time)"
+            ],
+            [
+              "STAR TRACKER FAILURE",
+              "11 November 1999"
+            ],
+            [
+              "RECOVERY",
+              "June 2000"
+            ],
+            [
+              "BORRELLY FLYBY",
+              "22 September 2001"
+            ],
+            [
+              "RETIREMENT",
+              "18 December 2001"
+            ]
+          ]
+        },
+        {
+          "p": "Historical dates follow [NASA mission history](https://science.nasa.gov/mission/deep-space-1/) and the [JPL navigation engineering report](https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf). Launch-era publications contain planned events; plans are not treated as completed outcomes."
+        }
+      ]
+    },
+    {
+      "id": "technologies",
+      "button": "12 TECHNOLOGIES",
+      "ref": "NOTE B",
+      "title": "Technology demonstration index",
+      "blocks": [
+        {
+          "list": [
+            "1. Solar electric propulsion — ion propulsion and NSTAR mechanism sheets.",
+            "2. SCARLET concentrator arrays — electrical power.",
+            "3. AutoNav — navigation and attitude.",
+            "4. Remote Agent — autonomy experiments.",
+            "5. Beacon Monitor — autonomy experiments.",
+            "6. MICAS — science instruments.",
+            "7. PEPE — science instruments.",
+            "8. Small Deep-Space Transponder — telecommunications.",
+            "9. Ka-band solid-state amplifier — telecommunications.",
+            "10. Low-power electronics — structure and thermal.",
+            "11. Multifunctional structure — structure and thermal.",
+            "12. Power Actuation and Switching Module — electrical power."
+          ]
+        },
+        {
+          "p": "NASA lists these in the [July 1999 press kit](https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf). Ordinary hardware such as the star tracker and nickel-hydrogen battery was also essential to the spacecraft."
+        }
+      ]
+    },
+    {
+      "id": "sources",
+      "button": "SOURCES",
+      "ref": "NOTE C",
+      "title": "Primary sources",
+      "blocks": [
+        {
+          "list": [
+            "[NASA DS1 press kit, July 1999, pp. 7, 19–32](https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf)",
+            "[Rayman et al., DS1 primary mission results, 1999](https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf)",
+            "[JPL DESCANSO: DS1 Telecommunications, 2001](https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf)",
+            "[JPL DESCANSO: DS1 Navigation](https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf)",
+            "[NASA DS1 mission history](https://science.nasa.gov/mission/deep-space-1/)",
+            "[JPL MICAS technology report](https://www.jpl.nasa.gov/nmp/ds1/tech/micas.html)",
+            "[JPL Remote Agent flight announcement, May 17, 1999](https://www.jpl.nasa.gov/news/computer-program-assumes-spacecraft-command/)"
+          ]
+        },
+        {
+          "note": "The press kit establishes hardware and design intent. Later engineering reports and mission history establish in-flight outcomes. Performance figures retain their operating condition; max design thrust, array output and PPU input are different quantities."
+        }
+      ]
+    },
+    {
+      "id": "operation",
+      "button": "READ THE DRAWING",
+      "ref": "NOTE D",
+      "title": "Controls and notation",
+      "blocks": [
+        {
+          "list": [
+            "Click a subsystem to open its sheet. Click an ordinary part to read function, specifications, caveats and source links.",
+            "Drag empty space to orbit; shift-drag to pan; scroll to zoom. ISO, TOP, FRONT and FIT control the view.",
+            "Drag a component to rearrange the schematic; double-click restores its position.",
+            "TRACE buttons step through the operating paths. Arrow keys move between steps.",
+            "Use the breadcrumb or Escape to return. INDEX lists the parts on a sheet.",
+            "Dashed links identify feedback, recovery or unavailable paths; each link label specifies its meaning."
+          ]
+        }
+      ]
+    }
+  ]
+}

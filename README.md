@@ -18,8 +18,15 @@ The output is one self-contained HTML file with no dependencies.
 |---|---|---|
 | [`examples/automobile`](skills/system-drawings/examples/automobile/) | 3 | Car → engine → one cylinder; traces for accelerating, starting, valve timing, and the four strokes |
 | [`examples/causal-delta`](skills/system-drawings/examples/causal-delta/) | 9 | A research system for repairing regressions in fine-tuned models: a 52-plate decoder stack, live adapter dials, a concept figure, 11 traces |
+| [`examples/deep-space-1`](skills/system-drawings/examples/deep-space-1/) | 9 | NASA's Deep Space 1: 78 components, 14 traces, spacecraft → ion propulsion → NSTAR mechanism, with NASA/JPL references |
 
-Open either `index.html` directly in a browser.
+Open any example's `index.html` directly in a browser.
+
+### Deep Space 1 demonstration
+
+[![Deep Space 1 interactive drawing demonstration](skills/system-drawings/examples/deep-space-1/demo/preview.jpg)](https://github.com/3xC1ibR/system-drawings/raw/refs/heads/main/skills/system-drawings/examples/deep-space-1/demo/deep_space_1_demo.mp4)
+
+[Watch the 38-second video](https://github.com/3xC1ibR/system-drawings/raw/refs/heads/main/skills/system-drawings/examples/deep-space-1/demo/deep_space_1_demo.mp4) (MP4, 5.4 MB, silent). It demonstrates orbit controls, subsystem navigation, the ion-acceleration trace and a sourced component data sheet. The [example guide](skills/system-drawings/examples/deep-space-1/) explains the sources and schematic limitations.
 
 ## How it works
 

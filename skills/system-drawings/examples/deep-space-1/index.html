@@ -1,0 +1,3747 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="system-drawings">
+<title>DEEP SPACE 1 · SYSTEM DRAWINGS</title>
+<style>
+:root { --ink: #111; --ink2: #555; --faint: #b9b9b9; --rule: #111; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #fff; color: var(--ink); overflow: hidden; }
+body { font: 12px/1.5 "IBM Plex Mono", ui-monospace, Menlo, "Courier New", monospace; }
+canvas#c { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; cursor: grab; outline: none; }
+canvas#c.dragging { cursor: grabbing; }
+canvas#c.over { cursor: pointer; }
+.hd { position: fixed; left: 28px; top: 22px; max-width: 760px; pointer-events: none; }
+.hd .path { pointer-events: auto; letter-spacing: .08em; font-size: 11px; color: var(--ink2); }
+.hd .path button { font: inherit; letter-spacing: inherit; background: none; border: 0; padding: 0; color: var(--ink2); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.hd .path button[aria-current] { color: var(--ink); text-decoration: none; cursor: default; }
+.hd .path .sep { margin: 0 10px; color: var(--faint); }
+.hd h1 { font: 600 17px/1.3 "Helvetica Neue", Helvetica, Arial, sans-serif; letter-spacing: .14em; margin: 8px 0 4px; text-transform: uppercase; }
+.hd p { margin: 0; color: var(--ink2); max-width: 640px; }
+.ctl { position: fixed; right: 28px; top: 22px; text-align: right; font-size: 11px; letter-spacing: .06em; }
+.ctl button, .tr button, .sheet button.x { font: inherit; letter-spacing: inherit; background: #fff; border: 1px solid var(--ink); color: var(--ink); padding: 3px 8px; cursor: pointer; margin-left: 4px; }
+.ctl button:hover, .tr button:hover { background: var(--ink); color: #fff; }
+.ctl .row { margin-bottom: 6px; }
+.ctl .hint { color: var(--ink2); margin-top: 6px; }
+.tr { position: fixed; left: 28px; bottom: 22px; right: 420px; font-size: 11px; letter-spacing: .06em; }
+.tr .lab { color: var(--ink2); margin-right: 6px; }
+.tr button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.tr .cap { margin-top: 10px; border-top: 1px solid var(--rule); padding-top: 8px; display: none; max-width: 820px; }
+.tr .cap.on { display: block; }
+.tr .cap .n { color: var(--ink2); }
+.tr .cap .t { font-size: 13px; letter-spacing: 0; margin: 4px 0 8px; }
+code { background: #f0f0f0; padding: 0 3px; }
+.tb { position: fixed; right: 28px; bottom: 22px; width: 360px; border: 1px solid var(--rule); font-size: 10.5px; letter-spacing: .05em; background: #fff; }
+.tb div { padding: 4px 8px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 8px; }
+.tb div:first-child { border-top: 0; font-weight: 600; }
+.tb span:last-child { text-align: right; }
+.sheet { position: fixed; right: 0; top: 0; bottom: 0; width: 380px; background: #fff; border-left: 1px solid var(--rule); padding: 22px 24px 40px; overflow-y: auto; display: none; }
+.sheet.on { display: block; }
+.sheet button.x { position: absolute; right: 18px; top: 18px; margin: 0; }
+.sheet .ref { font-size: 11px; letter-spacing: .1em; color: var(--ink2); }
+.sheet h2 { font: 600 15px/1.3 "Helvetica Neue", Helvetica, Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; margin: 6px 40px 10px 0; }
+.sheet h3 { font-size: 10.5px; letter-spacing: .14em; font-weight: 600; margin: 18px 0 6px; border-bottom: 1px solid var(--rule); padding-bottom: 3px; }
+.sheet p { margin: 6px 0; }
+.sheet .small { color: var(--ink2); font-size: 11px; }
+.sheet .st { font-size: 11px; letter-spacing: .08em; }
+.sheet .kv { display: flex; gap: 6px; margin: 3px 0; }
+.sheet .kv .k { color: var(--ink2); }
+.sheet .kv .lead { flex: 1; border-bottom: 1px dotted var(--faint); margin-bottom: 4px; min-width: 12px; }
+.sheet .kv .v { text-align: right; }
+.sheet ul { margin: 4px 0; padding-left: 16px; }
+.sheet a { color: var(--ink); }
+.sheet .note { border-left: 1px solid var(--ink); padding-left: 10px; color: var(--ink2); margin: 10px 0; }
+.sheet .open { margin-top: 16px; width: 100%; font: inherit; letter-spacing: .1em; background: #fff; border: 1px solid var(--ink); padding: 8px; cursor: pointer; }
+.sheet .open:hover { background: var(--ink); color: #fff; }
+.sheet .idx button { display: flex; width: 100%; gap: 10px; background: none; border: 0; border-bottom: 1px dotted var(--faint); padding: 4px 0; font: inherit; color: var(--ink); cursor: pointer; text-align: left; }
+.sheet .idx button:hover { background: #f4f4f4; }
+.sheet .idx .r { color: var(--ink2); width: 60px; flex: none; }
+.sheet input[type=range] { width: 100%; accent-color: #111; }
+.sheet .ticks { display: flex; justify-content: space-between; color: var(--ink2); font-size: 10px; }
+.sheet svg text { font: 10px "IBM Plex Mono", ui-monospace, Menlo, monospace; fill: #111; }
+.sr { position: absolute; left: -9999px; }
+</style>
+</head>
+<body>
+<canvas id="c" tabindex="0" aria-label="Three-dimensional system drawing. Drag to orbit, scroll to zoom, click a part for its data sheet, Tab to step through parts."></canvas>
+<div class="hd">
+  <div class="path" id="path" aria-label="Sheet path"></div>
+  <h1 id="title"></h1>
+  <p id="purpose"></p>
+</div>
+<div class="ctl">
+  <div class="row">VIEW <button data-view="iso">ISO</button><button data-view="top">TOP</button><button data-view="front">FRONT</button><button data-view="fit">FIT</button><button id="zin">+</button><button id="zout">−</button></div>
+  <div class="row" id="notes">NOTES <button id="index">INDEX</button></div>
+  <div class="hint">DRAG: ORBIT · SHIFT-DRAG: PAN · DRAG A PART: MOVE IT<br>SCROLL: ZOOM · CLICK: DATA SHEET · ESC: BACK</div>
+</div>
+<div class="tr" id="tracebar">
+  <span class="lab">TRACE</span><span id="tracebtns"></span>
+  <div class="cap" id="cap" role="status" aria-live="polite">
+    <div class="n" id="capn"></div>
+    <div class="t" id="capt"></div>
+    <button id="prev">◀ PREV</button><button id="next">NEXT ▶</button><button id="play" aria-pressed="false">PLAY</button><button id="end">END</button>
+  </div>
+</div>
+<div class="tb" id="tblock"></div>
+<aside class="sheet" id="sheet" aria-live="polite"></aside>
+<script>
+const DRAWING = {
+ "schema": "system-drawings/1",
+ "project": "DEEP SPACE 1 · SYSTEM DRAWINGS",
+ "revision": "A",
+ "date": "2026-10-27",
+ "root": "spacecraft",
+ "camera": {
+  "yaw": -0.42,
+  "pitch": 0.83
+ },
+ "sheets": [
+  {
+   "id": "spacecraft",
+   "short": "DEEP SPACE 1",
+   "title": "DEEP SPACE 1",
+   "purpose": "NASA / JPL · 1998–2001. Explore the spacecraft, then follow energy, xenon, observations and commands. Functional arrangement; geometry is not to scale.",
+   "parts": [
+    {
+     "id": "sun",
+     "label": "SUN",
+     "at": [
+      -10,
+      -5
+     ],
+     "what": "Incident solar radiation supplies the electrical energy used by the spacecraft.",
+     "sub": "EXTERNAL ENERGY SOURCE",
+     "shape": "column",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "power",
+     "label": "ELECTRICAL POWER",
+     "at": [
+      -5,
+      -5
+     ],
+     "what": "SCARLET concentrator arrays, battery and power distribution supply the spacecraft and its ion propulsion system.",
+     "sub": "SCARLET · BATTERY · DISTRIBUTION",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "drill": "power"
+    },
+    {
+     "id": "propulsion",
+     "label": "ION PROPULSION",
+     "at": [
+      0,
+      -5
+     ],
+     "what": "A single NSTAR xenon ion thruster provides sustained interplanetary acceleration.",
+     "sub": "XENON · ELECTRIC ACCELERATION",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "drill": "propulsion"
+    },
+    {
+     "id": "attitude",
+     "label": "NAVIGATION AND ATTITUDE",
+     "at": [
+      5,
+      -5
+     ],
+     "what": "AutoNav estimates the trajectory; attitude control points the vehicle, using sensors, hydrazine thrusters and the ion-engine gimbal.",
+     "sub": "POSITION · ORIENTATION",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Navigation",
+       "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "drill": "navigation"
+    },
+    {
+     "id": "science",
+     "label": "INSTRUMENTS",
+     "at": [
+      -10,
+      1
+     ],
+     "what": "MICAS collects images and spectra; PEPE measures charged particles. MICAS also supplies optical navigation observations.",
+     "sub": "MICAS · PEPE",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ],
+      [
+       "JPL MICAS technology report",
+       "https://www.jpl.nasa.gov/nmp/ds1/tech/micas.html"
+      ]
+     ],
+     "drill": "instruments"
+    },
+    {
+     "id": "computer",
+     "label": "AVIONICS",
+     "at": [
+      -5,
+      1
+     ],
+     "what": "The integrated electronics module houses most spacecraft electronics and supports command execution, software and data handling.",
+     "sub": "IEM",
+     "shape": "tall",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "note": "Software boxes elsewhere in this drawing are logical functions, not separate flight computers."
+    },
+    {
+     "id": "radio",
+     "label": "RADIO SYSTEM",
+     "at": [
+      0,
+      1
+     ],
+     "what": "The small deep-space transponder connects onboard data handling to X-band and Ka-band radio hardware.",
+     "sub": "SDST",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Telecommunications, 2001",
+       "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+      ]
+     ],
+     "drill": "telecommunications"
+    },
+    {
+     "id": "ground",
+     "label": "GROUND",
+     "at": [
+      5,
+      1
+     ],
+     "what": "Earth stations receive telemetry and radiometric observations and send spacecraft commands.",
+     "sub": "EARTH STATIONS",
+     "shape": "column",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Telecommunications, 2001",
+       "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "autonomy",
+     "label": "AUTONOMY SOFTWARE",
+     "at": [
+      -5,
+      7
+     ],
+     "what": "Remote Agent and Beacon Monitor demonstrated onboard planning, execution, diagnosis and compact health reporting.",
+     "sub": "SELECTED TECHNOLOGY TESTS",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "note": "Remote Agent and Beacon Monitor were experiments, not continuous replacements for the operations team.",
+     "drill": "autonomy"
+    },
+    {
+     "id": "structure",
+     "label": "STRUCTURE",
+     "at": [
+      0,
+      7
+     ],
+     "what": "An aluminum bus supports the flight hardware; insulation, heaters and radiators regulate temperature.",
+     "sub": "THERMAL CONTROL",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "LAUNCH MASS",
+       "486 kg"
+      ],
+      [
+       "DRY MASS",
+       "373 kg"
+      ],
+      [
+       "XENON / HYDRAZINE",
+       "82 kg / 31 kg"
+      ]
+     ],
+     "drill": "structure"
+    }
+   ],
+   "links": [
+    {
+     "from": "sun",
+     "to": "power",
+     "label": "SUNLIGHT"
+    },
+    {
+     "from": "power",
+     "to": "propulsion",
+     "label": "ELECTRICAL POWER"
+    },
+    {
+     "from": "attitude",
+     "to": "propulsion",
+     "label": "POINTING AND THRUST COMMANDS"
+    },
+    {
+     "from": "power",
+     "to": "computer",
+     "label": "SPACECRAFT POWER"
+    },
+    {
+     "from": "science",
+     "to": "computer",
+     "label": "OBSERVATIONS"
+    },
+    {
+     "from": "computer",
+     "to": "radio",
+     "label": "TELEMETRY"
+    },
+    {
+     "from": "radio",
+     "to": "ground",
+     "label": "RADIO DOWNLINK"
+    },
+    {
+     "from": "autonomy",
+     "to": "computer",
+     "label": "SOFTWARE COMMANDS"
+    },
+    {
+     "from": "structure",
+     "to": "computer",
+     "label": "MOUNTING AND THERMAL CONTROL",
+     "route": "z",
+     "toOffset": [
+      0.6,
+      0
+     ]
+    },
+    {
+     "from": "ground",
+     "to": "radio",
+     "label": "X-BAND COMMAND UPLINK",
+     "dashed": true,
+     "fromOffset": [
+      0,
+      0.6
+     ],
+     "toOffset": [
+      0,
+      0.6
+     ]
+    },
+    {
+     "from": "computer",
+     "to": "attitude",
+     "label": "CONTROL AND NAVIGATION",
+     "dashed": true,
+     "via": [
+      [
+       -6.7,
+       3.7
+      ],
+      [
+       8,
+       3.7
+      ],
+      [
+       8,
+       -5
+      ]
+     ],
+     "fromOffset": [
+      0,
+      0.5
+     ]
+    }
+   ],
+   "traces": [
+    {
+     "id": "A",
+     "label": "SUNLIGHT TO THRUST",
+     "steps": [
+      {
+       "part": "sun",
+       "text": "Illustrative energy path: sunlight reaches the deployed solar wings."
+      },
+      {
+       "link": "sun>power",
+       "text": "SCARLET concentrates light onto photovoltaic cells."
+      },
+      {
+       "part": "power",
+       "text": "Electrical power is shared between flight equipment and propulsion."
+      },
+      {
+       "link": "power>propulsion",
+       "text": "The propulsion power processor supplies the engine electrical loads."
+      },
+      {
+       "part": "propulsion",
+       "text": "Accelerated xenon carries momentum away and changes the spacecraft trajectory. Open this sheet for the propellant and engine detail."
+      }
+     ]
+    },
+    {
+     "id": "B",
+     "label": "SCIENCE TO EARTH",
+     "steps": [
+      {
+       "part": "science",
+       "text": "Illustrative data path: MICAS or PEPE acquires an observation."
+      },
+      {
+       "link": "science>computer",
+       "text": "The observation enters spacecraft data handling."
+      },
+      {
+       "link": "computer>radio",
+       "text": "Telemetry is delivered to the small deep-space transponder."
+      },
+      {
+       "link": "radio>ground",
+       "text": "The selected antenna transmits the encoded signal to Earth."
+      },
+      {
+       "part": "ground",
+       "text": "The Deep Space Network delivers the received data for mission processing."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "power",
+   "short": "ELECTRICAL POWER",
+   "title": "ELECTRICAL POWER",
+   "purpose": "Two four-panel SCARLET wings supply about 2.5 kW at 1 AU. A nickel-hydrogen battery supports deployment and transient loads.",
+   "parts": [
+    {
+     "id": "sunlight",
+     "label": "SUNLIGHT",
+     "at": [
+      -7.5,
+      -5
+     ],
+     "what": "Sunlight is the input to the concentrator array.",
+     "sub": "INCIDENT RADIATION",
+     "shape": "column",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "lenses",
+     "label": "FRESNEL LENSES",
+     "at": [
+      -2.5,
+      -5
+     ],
+     "what": "Cylindrical silicone Fresnel lenses concentrate light onto narrow solar-cell strips.",
+     "sub": "SCARLET OPTICS",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "TOTAL LENSES",
+       "720"
+      ]
+     ]
+    },
+    {
+     "id": "cells",
+     "label": "SOLAR CELLS",
+     "at": [
+      2.5,
+      -5
+     ],
+     "what": "Photovoltaic cells convert the concentrated radiation to electrical power.",
+     "sub": "TWO WINGS · EIGHT PANELS",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "TOTAL CELLS",
+       "3,600"
+      ],
+      [
+       "POWER AT 1 AU",
+       "About 2.5 kW at mission start"
+      ],
+      [
+       "DEPLOYED SPAN",
+       "11.8 m"
+      ],
+      [
+       "ONE PANEL",
+       "About 1.13 × 1.60 m"
+      ]
+     ],
+     "note": "Output varies with solar distance, orientation and aging. The solar-array figure is not power delivered entirely to propulsion."
+    },
+    {
+     "id": "gimbals",
+     "label": "ARRAY GIMBALS",
+     "at": [
+      -2.5,
+      1
+     ],
+     "what": "A single-axis gimbal on each wing controls pointing along the more sensitive array axis.",
+     "sub": "POINT SOLAR WINGS",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ]
+     ],
+     "why": "Concentrating optics require controlled solar illumination."
+    },
+    {
+     "id": "distribution",
+     "label": "POWER DISTRIBUTION",
+     "at": [
+      2.5,
+      1
+     ],
+     "what": "Power conditioning and distribution deliver electrical power to the spacecraft loads.",
+     "sub": "CONVERTERS · DISTRIBUTION",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "battery",
+     "label": "BATTERY",
+     "at": [
+      7.5,
+      1
+     ],
+     "what": "Nickel-hydrogen storage powers the spacecraft before array deployment and supplements the arrays during load transients or unfavorable pointing.",
+     "sub": "NICKEL-HYDROGEN",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "CAPACITY",
+       "24 Ah"
+      ]
+     ]
+    },
+    {
+     "id": "loads",
+     "label": "FLIGHT EQUIPMENT",
+     "at": [
+      -2.5,
+      7
+     ],
+     "what": "Flight electronics, instruments, telecommunications and heaters draw from the spacecraft electrical system.",
+     "sub": "SPACECRAFT LOADS",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "processor",
+     "label": "PROPULSION POWER",
+     "at": [
+      2.5,
+      7
+     ],
+     "what": "The propulsion power processing unit converts its input into the electrical supplies required by the ion engine.",
+     "sub": "TO ION PROPULSION",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "switches",
+     "label": "SWITCH EXPERIMENT",
+     "at": [
+      7.5,
+      7
+     ],
+     "what": "The Power Actuation and Switching Module demonstrated voltage/current sensing and current limiting.",
+     "sub": "PASM TECHNOLOGY TEST",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "SWITCHES / LOADS",
+       "Eight switches / four loads"
+      ]
+     ],
+     "note": "Shown as a technology experiment; it is not asserted to be the sole power switch for every flight load."
+    }
+   ],
+   "links": [
+    {
+     "from": "sunlight",
+     "to": "lenses",
+     "label": "LIGHT"
+    },
+    {
+     "from": "lenses",
+     "to": "cells",
+     "label": "CONCENTRATED LIGHT"
+    },
+    {
+     "from": "gimbals",
+     "to": "lenses",
+     "label": "ARRAY ORIENTATION"
+    },
+    {
+     "from": "cells",
+     "to": "distribution",
+     "label": "ARRAY OUTPUT"
+    },
+    {
+     "from": "battery",
+     "to": "distribution",
+     "label": "STORED ENERGY",
+     "fromOffset": [
+      0,
+      0.5
+     ],
+     "toOffset": [
+      0,
+      0.5
+     ]
+    },
+    {
+     "from": "distribution",
+     "to": "battery",
+     "label": "CHARGE",
+     "dashed": true,
+     "fromOffset": [
+      0,
+      -0.5
+     ],
+     "toOffset": [
+      0,
+      -0.5
+     ]
+    },
+    {
+     "from": "distribution",
+     "to": "loads",
+     "label": "LOAD POWER",
+     "route": "z",
+     "fromOffset": [
+      -0.6,
+      0
+     ]
+    },
+    {
+     "from": "distribution",
+     "to": "processor",
+     "label": "PROPULSION INPUT"
+    },
+    {
+     "from": "distribution",
+     "to": "switches",
+     "label": "TEST LOAD POWER",
+     "route": "z",
+     "fromOffset": [
+      0.6,
+      0
+     ]
+    }
+   ],
+   "traces": [
+    {
+     "id": "A",
+     "label": "GENERATE ELECTRICAL POWER",
+     "steps": [
+      {
+       "part": "sunlight",
+       "text": "Illustrative energy path through the deployed array."
+      },
+      {
+       "link": "sunlight>lenses",
+       "text": "Incoming rays enter the cylindrical concentrator lenses."
+      },
+      {
+       "link": "lenses>cells",
+       "text": "The lenses focus the light onto photovoltaic strips."
+      },
+      {
+       "link": "cells>distribution",
+       "text": "The electrical output reaches power conditioning and distribution."
+      },
+      {
+       "link": "distribution>processor",
+       "text": "Available propulsion power is allocated after spacecraft needs are met."
+      },
+      {
+       "part": "processor",
+       "text": "The power processor supplies the ion engine. Its operating point depends on the available power."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "propulsion",
+   "short": "ION PROPULSION",
+   "title": "ION PROPULSION",
+   "purpose": "NSTAR uses electrical energy to accelerate xenon. Propellant feed, power processing and control are distinct functions.",
+   "parts": [
+    {
+     "id": "tank",
+     "label": "XENON STORAGE",
+     "at": [
+      -7.5,
+      -4
+     ],
+     "what": "The xenon supply provides reaction mass for the ion propulsion system.",
+     "sub": "PROPELLANT RESERVOIR",
+     "shape": "column",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "XENON AT LAUNCH",
+       "82 kg"
+      ]
+     ]
+    },
+    {
+     "id": "feed",
+     "label": "XENON FEED",
+     "at": [
+      -2.5,
+      -4
+     ],
+     "what": "The feed system regulates xenon delivery to the engine discharge chamber and cathodes.",
+     "sub": "REGULATE AND METER",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "engine",
+     "label": "NSTAR THRUSTER",
+     "at": [
+      2.5,
+      -4
+     ],
+     "what": "A discharge ionizes xenon; electrostatic grids accelerate the ions; a separate cathode neutralizes the exiting beam.",
+     "sub": "OPEN ENGINE MECHANISM",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "NOMINAL THRUSTER DIAMETER",
+       "30 cm"
+      ],
+      [
+       "DESIGN THRUST RANGE",
+       "19–92 mN"
+      ],
+      [
+       "MAXIMUM THRUSTER POWER",
+       "2.3 kW"
+      ]
+     ],
+     "note": "These are design endpoints reported in the primary-mission paper. They are not a claim that maximum thrust was sustained throughout the flight.",
+     "drill": "thruster"
+    },
+    {
+     "id": "exhaust",
+     "label": "EXHAUST",
+     "at": [
+      7.5,
+      -4
+     ],
+     "what": "The outgoing xenon beam carries momentum; its reaction accelerates the spacecraft.",
+     "sub": "MOMENTUM TO SPACE",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "control",
+     "label": "ENGINE CONTROL",
+     "at": [
+      -2.5,
+      2
+     ],
+     "what": "The ion-engine controller sequences starts, operating settings and shutdowns under spacecraft commands.",
+     "sub": "SEQUENCING AND TELEMETRY",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "processor",
+     "label": "POWER PROCESSOR",
+     "at": [
+      2.5,
+      2
+     ],
+     "what": "The PPU supplies the electrical operating conditions for the discharge, cathodes and ion optics.",
+     "sub": "FROM ELECTRICAL POWER",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "MAXIMUM PPU INPUT",
+       "About 2.5 kW (design)"
+      ]
+     ]
+    },
+    {
+     "id": "gimbal",
+     "label": "THRUSTER GIMBAL",
+     "at": [
+      7.5,
+      2
+     ],
+     "what": "Two-axis gimbaling steers the thrust vector and supplies attitude-control torque while thrusting.",
+     "sub": "VECTOR CONTROL",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Telecommunications, 2001",
+       "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+      ],
+      [
+       "JPL DESCANSO: DS1 Navigation",
+       "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+      ]
+     ],
+     "note": "The gimbal does not provide all three attitude-control axes; hydrazine is still needed."
+    },
+    {
+     "id": "diagnostics",
+     "label": "PLUME DIAGNOSTICS",
+     "at": [
+      2.5,
+      8
+     ],
+     "what": "Ion Propulsion System Diagnostic Subsystem sensors observe plume interactions with the spacecraft.",
+     "sub": "IDS MEASUREMENTS",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "why": "Tests address contamination, erosion and the compatibility of electric propulsion with instruments."
+    }
+   ],
+   "links": [
+    {
+     "from": "tank",
+     "to": "feed",
+     "label": "XENON"
+    },
+    {
+     "from": "feed",
+     "to": "engine",
+     "label": "METERED XENON"
+    },
+    {
+     "from": "engine",
+     "to": "exhaust",
+     "label": "ACCELERATED BEAM"
+    },
+    {
+     "from": "control",
+     "to": "feed",
+     "label": "FEED COMMANDS"
+    },
+    {
+     "from": "control",
+     "to": "processor",
+     "label": "OPERATING SETTINGS"
+    },
+    {
+     "from": "processor",
+     "to": "engine",
+     "label": "ELECTRICAL SUPPLIES"
+    },
+    {
+     "from": "gimbal",
+     "to": "engine",
+     "label": "THRUST VECTOR"
+    },
+    {
+     "from": "engine",
+     "to": "diagnostics",
+     "label": "PLUME ENVIRONMENT",
+     "route": "z",
+     "fromOffset": [
+      0.6,
+      0
+     ],
+     "toOffset": [
+      0.6,
+      0
+     ],
+     "via": [
+      [
+       3.1,
+       -7
+      ],
+      [
+       10,
+       -7
+      ],
+      [
+       10,
+       8
+      ]
+     ]
+    }
+   ],
+   "traces": [
+    {
+     "id": "A",
+     "label": "FOLLOW THE XENON",
+     "steps": [
+      {
+       "part": "tank",
+       "text": "Illustrative propellant path for a normal ion-engine operating interval."
+      },
+      {
+       "link": "tank>feed",
+       "text": "Xenon leaves storage through the feed system."
+      },
+      {
+       "part": "feed",
+       "text": "Regulation and metering establish the required flows."
+      },
+      {
+       "link": "feed>engine",
+       "text": "Gas enters the discharge and cathode systems."
+      },
+      {
+       "part": "engine",
+       "text": "Electron impact creates positive xenon ions; the grids extract and accelerate them."
+      },
+      {
+       "link": "engine>exhaust",
+       "text": "Xenon exits in a beam neutralized by electrons from the neutralizer."
+      },
+      {
+       "part": "exhaust",
+       "text": "Continuous low thrust accumulates velocity change over long operating periods."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "thruster",
+   "short": "NSTAR ENGINE MECHANISM",
+   "title": "NSTAR ENGINE MECHANISM",
+   "purpose": "Schematic physical mechanism, not an assembly section. The discharge cathode and beam neutralizer perform different jobs.",
+   "parts": [
+    {
+     "id": "xenon",
+     "label": "NEUTRAL XENON",
+     "at": [
+      -7.5,
+      -3
+     ],
+     "what": "Neutral xenon atoms enter the engine from the metered feed system.",
+     "sub": "FROM FEED SYSTEM",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "discharge",
+     "label": "DISCHARGE CHAMBER",
+     "at": [
+      -2.5,
+      -3
+     ],
+     "what": "Energetic electrons collide with xenon atoms, producing positive xenon ions and additional electrons in the discharge plasma.",
+     "sub": "ELECTRON-IMPACT IONIZATION",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "grids",
+     "label": "ION OPTICS",
+     "at": [
+      2.5,
+      -3
+     ],
+     "what": "A pair of perforated molybdenum grids establishes the electric field that extracts and accelerates positive xenon ions.",
+     "sub": "SCREEN AND ACCELERATOR",
+     "shape": "layered",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "NOMINAL THRUSTER DIAMETER",
+       "30 cm"
+      ]
+     ]
+    },
+    {
+     "id": "beam",
+     "label": "OUTGOING BEAM",
+     "at": [
+      7.5,
+      -3
+     ],
+     "what": "Fast xenon ions carry momentum away from the thruster.",
+     "sub": "REACTION PRODUCES THRUST",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "cathode",
+     "label": "DISCHARGE CATHODE",
+     "at": [
+      -7.5,
+      3
+     ],
+     "what": "This hollow cathode emits the electrons that sustain ionization inside the discharge chamber.",
+     "sub": "ELECTRONS INTO CHAMBER",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "magnets",
+     "label": "MAGNETIC CONFINEMENT",
+     "at": [
+      -2.5,
+      3
+     ],
+     "what": "Magnets prolong electron residence in the discharge, increasing the opportunity for ionizing collisions.",
+     "sub": "CONFINE ELECTRONS",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "supply",
+     "label": "POWER SUPPLIES",
+     "at": [
+      2.5,
+      3
+     ],
+     "what": "The external power processor establishes the discharge and grid potentials and powers the cathode circuits.",
+     "sub": "FROM PPU",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "neutralizer",
+     "label": "NEUTRALIZER CATHODE",
+     "at": [
+      7.5,
+      3
+     ],
+     "what": "A separate cathode emits electrons into the exiting ion beam to balance charge and prevent excessive spacecraft charging.",
+     "sub": "ELECTRONS INTO EXHAUST",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "why": "Momentum transfer comes from accelerated xenon; the neutralizer maintains charge balance.",
+     "note": "Beam neutralization does not require every xenon ion to recombine into an individual neutral atom."
+    }
+   ],
+   "links": [
+    {
+     "from": "xenon",
+     "to": "discharge",
+     "label": "NEUTRAL GAS"
+    },
+    {
+     "from": "cathode",
+     "to": "discharge",
+     "label": "IONIZING ELECTRONS",
+     "route": "z",
+     "toOffset": [
+      -0.6,
+      0
+     ]
+    },
+    {
+     "from": "magnets",
+     "to": "discharge",
+     "label": "ELECTRON CONFINEMENT"
+    },
+    {
+     "from": "discharge",
+     "to": "grids",
+     "label": "POSITIVE XENON IONS"
+    },
+    {
+     "from": "supply",
+     "to": "grids",
+     "label": "GRID POTENTIALS"
+    },
+    {
+     "from": "grids",
+     "to": "beam",
+     "label": "ACCELERATED IONS"
+    },
+    {
+     "from": "supply",
+     "to": "neutralizer",
+     "label": "CATHODE SUPPLY"
+    },
+    {
+     "from": "neutralizer",
+     "to": "beam",
+     "label": "NEUTRALIZING ELECTRONS"
+    }
+   ],
+   "traces": [
+    {
+     "id": "A",
+     "label": "ACCELERATE AN ION",
+     "steps": [
+      {
+       "part": "xenon",
+       "text": "Illustrative particle path, with geometry simplified for explanation."
+      },
+      {
+       "link": "xenon>discharge",
+       "text": "A neutral xenon atom enters the discharge chamber."
+      },
+      {
+       "part": "discharge",
+       "text": "An energetic electron removes an atomic electron; the xenon becomes a positive ion."
+      },
+      {
+       "link": "discharge>grids",
+       "text": "The ion reaches the extraction region."
+      },
+      {
+       "link": "grids>beam",
+       "text": "The electric field accelerates it outward through the aligned grid apertures."
+      },
+      {
+       "part": "beam",
+       "text": "A separate electron population supplied by the neutralizer balances the beam charge."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "navigation",
+   "short": "NAVIGATION AND ATTITUDE",
+   "title": "NAVIGATION AND ATTITUDE",
+   "purpose": "AutoNav estimates where the spacecraft is going; attitude control points it. The dashed camera path identifies the 2000 recovery configuration.",
+   "parts": [
+    {
+     "id": "camera",
+     "label": "MICAS IMAGES",
+     "at": [
+      -7.5,
+      -5
+     ],
+     "what": "The visible camera supplies images of reference asteroids and background stars for optical navigation.",
+     "sub": "OPTICAL OBSERVATIONS",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ],
+      [
+       "JPL DESCANSO: DS1 Navigation",
+       "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "autonav",
+     "label": "AUTONAV",
+     "at": [
+      -2.5,
+      -5
+     ],
+     "what": "Onboard image processing and orbit determination estimate the trajectory; maneuver planning computes corrections.",
+     "sub": "ORBIT ESTIMATION · PLANNING",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ],
+      [
+       "JPL DESCANSO: DS1 Navigation",
+       "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+      ]
+     ],
+     "note": "AutoNav is distinct from the attitude controller and the Remote Agent experiment."
+    },
+    {
+     "id": "commands",
+     "label": "MANEUVER COMMANDS",
+     "at": [
+      2.5,
+      -5
+     ],
+     "what": "Required maneuvers become pointing and propulsion requests subject to spacecraft constraints.",
+     "sub": "TRAJECTORY CORRECTIONS",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ],
+      [
+       "JPL DESCANSO: DS1 Navigation",
+       "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "star_tracker",
+     "label": "STAR TRACKER",
+     "at": [
+      -7.5,
+      1
+     ],
+     "what": "The stellar reference unit normally measured orientation from stars.",
+     "sub": "FAILED 11 NOV 1999",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Navigation",
+       "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+      ],
+      [
+       "NASA DS1 mission history",
+       "https://science.nasa.gov/mission/deep-space-1/"
+      ]
+     ],
+     "note": "V means the historical fact is verified, not that this unit remained operational. It failed during the extended mission."
+    },
+    {
+     "id": "inertial",
+     "label": "INERTIAL UNIT",
+     "at": [
+      -2.5,
+      1
+     ],
+     "what": "Gyroscope measurements support attitude propagation between optical references.",
+     "sub": "ANGULAR MOTION",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Navigation",
+       "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "controller",
+     "label": "ATTITUDE CONTROL",
+     "at": [
+      2.5,
+      1
+     ],
+     "what": "The attitude-control software combines measurements with pointing requests and commands the actuators.",
+     "sub": "SPACECRAFT ORIENTATION",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Navigation",
+       "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "sun_sensor",
+     "label": "SUN SENSOR",
+     "at": [
+      -7.5,
+      7
+     ],
+     "what": "Sun sensing supports solar orientation and safe attitude operation.",
+     "sub": "SOLAR REFERENCE",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "hydrazine",
+     "label": "HYDRAZINE SYSTEM",
+     "at": [
+      -2.5,
+      7
+     ],
+     "what": "Chemical thrusters provide attitude-control torques and can make trajectory corrections.",
+     "sub": "CHEMICAL REACTION CONTROL",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ],
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "HYDRAZINE AT LAUNCH",
+       "31 kg"
+      ]
+     ]
+    },
+    {
+     "id": "gimbal",
+     "label": "ION-ENGINE GIMBAL",
+     "at": [
+      2.5,
+      7
+     ],
+     "what": "Thrust-vector steering provides control about two axes while the ion engine is operating.",
+     "sub": "TWO-AXIS THRUST VECTOR",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Telecommunications, 2001",
+       "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+      ],
+      [
+       "JPL DESCANSO: DS1 Navigation",
+       "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+      ]
+     ]
+    }
+   ],
+   "links": [
+    {
+     "from": "camera",
+     "to": "autonav",
+     "label": "IMAGE MEASUREMENTS"
+    },
+    {
+     "from": "autonav",
+     "to": "commands",
+     "label": "MANEUVER SOLUTION"
+    },
+    {
+     "from": "commands",
+     "to": "controller",
+     "label": "POINTING REQUEST"
+    },
+    {
+     "from": "star_tracker",
+     "to": "controller",
+     "label": "STELLAR ATTITUDE",
+     "route": "z",
+     "via": [
+      [
+       -7.5,
+       -1
+      ],
+      [
+       2,
+       -1
+      ]
+     ],
+     "toOffset": [
+      -0.5,
+      0
+     ]
+    },
+    {
+     "from": "inertial",
+     "to": "controller",
+     "label": "GYROS"
+    },
+    {
+     "from": "sun_sensor",
+     "to": "controller",
+     "label": "SOLAR DIRECTION",
+     "route": "z",
+     "via": [
+      [
+       -9.5,
+       7
+      ],
+      [
+       -9.5,
+       4
+      ],
+      [
+       1.7,
+       4
+      ]
+     ],
+     "toOffset": [
+      -0.8,
+      0
+     ]
+    },
+    {
+     "from": "controller",
+     "to": "hydrazine",
+     "label": "THRUSTER COMMANDS",
+     "route": "z",
+     "fromOffset": [
+      -0.3,
+      0
+     ]
+    },
+    {
+     "from": "controller",
+     "to": "gimbal",
+     "label": "STEERING COMMANDS",
+     "fromOffset": [
+      0.5,
+      0
+     ],
+     "toOffset": [
+      0.5,
+      0
+     ]
+    },
+    {
+     "from": "camera",
+     "to": "controller",
+     "label": "RECOVERY STAR MEASUREMENTS",
+     "dashed": true,
+     "via": [
+      [
+       -10,
+       -5
+      ],
+      [
+       -10,
+       -8
+      ],
+      [
+       5.5,
+       -8
+      ],
+      [
+       5.5,
+       1
+      ]
+     ],
+     "toOffset": [
+      0.6,
+      0
+     ]
+    }
+   ],
+   "traces": [
+    {
+     "id": "A",
+     "label": "OPTICAL COURSE CORRECTION",
+     "steps": [
+      {
+       "part": "camera",
+       "text": "Illustrative AutoNav path: the visible camera images a reference asteroid against cataloged stars."
+      },
+      {
+       "link": "camera>autonav",
+       "text": "Measured directions enter onboard navigation."
+      },
+      {
+       "link": "autonav>commands",
+       "text": "The navigation solution is used to plan a trajectory correction."
+      },
+      {
+       "link": "commands>controller",
+       "text": "The attitude controller receives the required pointing request."
+      },
+      {
+       "link": "controller>gimbal",
+       "text": "During ion thrusting, the controller steers the thrust vector."
+      },
+      {
+       "part": "gimbal",
+       "text": "The engine delivers thrust in the commanded direction; this sheet isolates pointing from the separate engine-start sequence."
+      }
+     ]
+    },
+    {
+     "id": "B",
+     "label": "RECOVER AFTER TRACKER LOSS",
+     "steps": [
+      {
+       "part": "camera",
+       "text": "Illustrative recovery path, based on the June 2000 return to controlled flight after the November 1999 star-tracker failure."
+      },
+      {
+       "link": "camera>controller",
+       "text": "Revised software uses MICAS star observations as an attitude reference."
+      },
+      {
+       "part": "controller",
+       "text": "The recovery combines intermittent camera references with inertial measurements; it does not restore the failed hardware."
+      },
+      {
+       "link": "controller>hydrazine",
+       "text": "The controller commands chemical thrusters when attitude correction requires them."
+      },
+      {
+       "part": "hydrazine",
+       "text": "The recovered pointing capability supports resumed operations and the later Borrelly encounter."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "instruments",
+   "short": "SCIENCE INSTRUMENTS",
+   "title": "SCIENCE INSTRUMENTS",
+   "purpose": "MICAS shares one telescope across four channels. PEPE separately measures plasma. The ultraviolet channel was flown but did not produce usable science.",
+   "parts": [
+    {
+     "id": "target",
+     "label": "LIGHT",
+     "at": [
+      -7.5,
+      -5
+     ],
+     "what": "Reflected or emitted light from targets enters MICAS. The mission observed asteroid Braille and comet Borrelly.",
+     "sub": "TARGET PHOTONS",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 mission history",
+       "https://science.nasa.gov/mission/deep-space-1/"
+      ]
+     ]
+    },
+    {
+     "id": "optics",
+     "label": "OPTICS",
+     "at": [
+      -2.5,
+      -5
+     ],
+     "what": "A common silicon-carbide optical assembly serves two visible cameras and ultraviolet and infrared spectrometers.",
+     "sub": "MICAS",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL MICAS technology report",
+       "https://www.jpl.nasa.gov/nmp/ds1/tech/micas.html"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "APERTURE",
+       "10 cm"
+      ],
+      [
+       "MICAS PACKAGE MASS",
+       "12 kg"
+      ]
+     ]
+    },
+    {
+     "id": "ccd",
+     "label": "VISIBLE CCD",
+     "at": [
+      -7.5,
+      1
+     ],
+     "what": "The CCD channel supplies visible images for science and optical navigation; later it also provides star observations for attitude recovery.",
+     "sub": "SCIENCE AND NAVIGATION",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ],
+      [
+       "JPL DESCANSO: DS1 Navigation",
+       "https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "ARRAY",
+       "1,024 × 1,024 pixels"
+      ],
+      [
+       "PIXEL ANGLE",
+       "13 microradians"
+      ]
+     ]
+    },
+    {
+     "id": "aps",
+     "label": "ACTIVE PIXEL SENSOR",
+     "at": [
+      -2.5,
+      1
+     ],
+     "what": "A second visible imager demonstrates integration of detector and support electronics.",
+     "sub": "VISIBLE APS CHANNEL",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ],
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "ARRAY",
+       "256 × 256 pixels"
+      ]
+     ]
+    },
+    {
+     "id": "infrared",
+     "label": "INFRARED SPECTROMETER",
+     "at": [
+      2.5,
+      1
+     ],
+     "what": "The infrared channel measures spectral information used to investigate target composition. Spacecraft motion supplies the push-broom scan.",
+     "sub": "SPECTRAL COMPOSITION",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ],
+      [
+       "JPL MICAS technology report",
+       "https://www.jpl.nasa.gov/nmp/ds1/tech/micas.html"
+      ]
+     ]
+    },
+    {
+     "id": "ultraviolet",
+     "label": "ULTRAVIOLET CHANNEL",
+     "at": [
+      7.5,
+      1
+     ],
+     "what": "The ultraviolet imaging spectrometer was installed, but its detector chain did not return interpretable data.",
+     "sub": "FLOWN · NO USABLE SCIENCE",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL MICAS technology report",
+       "https://www.jpl.nasa.gov/nmp/ds1/tech/micas.html"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "note": "The dashed output denotes the unavailable science path. Verified status describes this documented outcome."
+    },
+    {
+     "id": "data",
+     "label": "INSTRUMENT DATA",
+     "at": [
+      -2.5,
+      7
+     ],
+     "what": "Image, spectrum and particle measurements enter onboard data handling for processing and transmission.",
+     "sub": "TO FLIGHT ELECTRONICS",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "plasma",
+     "label": "PLASMA",
+     "at": [
+      2.5,
+      7
+     ],
+     "what": "Solar-wind and encounter particles are the input to PEPE; the engine plume can also affect the local environment.",
+     "sub": "IONS / ELECTRONS",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "pepe",
+     "label": "PEPE",
+     "at": [
+      7.5,
+      7
+     ],
+     "what": "The Plasma Experiment for Planetary Exploration measures electron/ion energies and ion mass-to-charge, and examines propulsion-plasma interactions.",
+     "sub": "PARTICLE SPECTROMETRY",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "INSTRUMENT MASS",
+       "5.6 kg"
+      ],
+      [
+       "POWER",
+       "9.6 W"
+      ]
+     ]
+    }
+   ],
+   "links": [
+    {
+     "from": "target",
+     "to": "optics",
+     "label": "LIGHT"
+    },
+    {
+     "from": "optics",
+     "to": "ccd",
+     "label": "VISIBLE LIGHT",
+     "route": "z",
+     "fromOffset": [
+      -0.6,
+      0
+     ]
+    },
+    {
+     "from": "optics",
+     "to": "aps",
+     "label": "VISIBLE LIGHT",
+     "route": "z",
+     "fromOffset": [
+      -0.2,
+      0
+     ]
+    },
+    {
+     "from": "optics",
+     "to": "infrared",
+     "label": "INFRARED LIGHT",
+     "route": "z",
+     "fromOffset": [
+      0.2,
+      0
+     ]
+    },
+    {
+     "from": "optics",
+     "to": "ultraviolet",
+     "label": "ULTRAVIOLET LIGHT",
+     "route": "z",
+     "fromOffset": [
+      0.6,
+      0
+     ]
+    },
+    {
+     "from": "ccd",
+     "to": "data",
+     "label": "IMAGES",
+     "route": "z",
+     "toOffset": [
+      -0.6,
+      0
+     ]
+    },
+    {
+     "from": "aps",
+     "to": "data",
+     "label": "IMAGES",
+     "route": "z"
+    },
+    {
+     "from": "infrared",
+     "to": "data",
+     "label": "SPECTRA",
+     "route": "z",
+     "toOffset": [
+      0.6,
+      0
+     ]
+    },
+    {
+     "from": "ultraviolet",
+     "to": "data",
+     "label": "NO USABLE UV OUTPUT",
+     "dashed": true,
+     "via": [
+      [
+       10,
+       1
+      ],
+      [
+       10,
+       10
+      ],
+      [
+       -2.5,
+       10
+      ]
+     ]
+    },
+    {
+     "from": "plasma",
+     "to": "pepe",
+     "label": "CHARGED PARTICLES"
+    },
+    {
+     "from": "pepe",
+     "to": "data",
+     "label": "PARTICLE MEASUREMENTS",
+     "via": [
+      [
+       7.5,
+       9
+      ],
+      [
+       -1.8,
+       9
+      ]
+     ],
+     "toOffset": [
+      0.7,
+      0
+     ]
+    }
+   ],
+   "traces": [
+    {
+     "id": "A",
+     "label": "RECORD A VISIBLE IMAGE",
+     "steps": [
+      {
+       "part": "target",
+       "text": "Illustrative optical path: target light reaches MICAS."
+      },
+      {
+       "link": "target>optics",
+       "text": "The shared telescope collects the light."
+      },
+      {
+       "link": "optics>ccd",
+       "text": "The visible CCD forms a two-dimensional image."
+      },
+      {
+       "part": "ccd",
+       "text": "CCD images support science and optical navigation; the same channel later supports attitude recovery."
+      },
+      {
+       "link": "ccd>data",
+       "text": "The image enters onboard processing and telemetry."
+      },
+      {
+       "part": "data",
+       "text": "Observations are returned through the spacecraft radio system."
+      }
+     ]
+    },
+    {
+     "id": "B",
+     "label": "MEASURE THE PLASMA",
+     "steps": [
+      {
+       "part": "plasma",
+       "text": "Illustrative particle path: ambient ions and electrons reach the instrument."
+      },
+      {
+       "link": "plasma>pepe",
+       "text": "PEPE admits and analyzes the charged-particle population."
+      },
+      {
+       "part": "pepe",
+       "text": "The instrument measures energies and ion mass-to-charge, including evidence of the local xenon environment."
+      },
+      {
+       "link": "pepe>data",
+       "text": "Particle measurements are delivered to spacecraft data handling."
+      },
+      {
+       "part": "data",
+       "text": "These observations complement the remote-sensing data from MICAS."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "telecommunications",
+   "short": "TELECOMMUNICATIONS",
+   "title": "TELECOMMUNICATIONS",
+   "purpose": "X-band carries commands and telemetry. Ka-band supplies an additional experimental downlink. Antennas are fixed to the spacecraft.",
+   "parts": [
+    {
+     "id": "telemetry",
+     "label": "TELEMETRY INPUT",
+     "at": [
+      -7.5,
+      -4
+     ],
+     "what": "The integrated electronics module supplies the telemetry bitstream and clock to the radio.",
+     "sub": "FROM FLIGHT ELECTRONICS",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Telecommunications, 2001",
+       "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "transponder",
+     "label": "SMALL TRANSPONDER",
+     "at": [
+      -2.5,
+      -4
+     ],
+     "what": "SDST combines command reception, telemetry modulation and X-/Ka-band excitation. Detected commands return to flight electronics.",
+     "sub": "SDST",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Telecommunications, 2001",
+       "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "PACKAGE MASS",
+       "About 3 kg"
+      ]
+     ]
+    },
+    {
+     "id": "x_amplifier",
+     "label": "X-BAND AMPLIFIER",
+     "at": [
+      -7.5,
+      2
+     ],
+     "what": "The solid-state X-band amplifier raises downlink RF power.",
+     "sub": "XPA",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Telecommunications, 2001",
+       "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "RF OUTPUT",
+       "12 W"
+      ]
+     ]
+    },
+    {
+     "id": "ka_amplifier",
+     "label": "KA-BAND AMPLIFIER",
+     "at": [
+      -2.5,
+      2
+     ],
+     "what": "The KaPA amplifies the Ka-band exciter output.",
+     "sub": "EXPERIMENTAL AMPLIFIER",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Telecommunications, 2001",
+       "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "RF OUTPUT",
+       "2.2 W"
+      ],
+      [
+       "MASS",
+       "0.7 kg"
+      ]
+     ],
+     "note": "2.2 W is the in-flight value in the 2001 telecommunications report; an earlier report quotes 2.3 W."
+    },
+    {
+     "id": "x_antennas",
+     "label": "X-BAND ANTENNAS",
+     "at": [
+      -7.5,
+      8
+     ],
+     "what": "Switches select the high-gain antenna, +X low-gain antenna, or coupled +Z/−Z low-gain pair for uplink and downlink.",
+     "sub": "ONE HGA · THREE LGAS",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Telecommunications, 2001",
+       "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "UPLINK",
+       "7.168 GHz"
+      ],
+      [
+       "DOWNLINK",
+       "8.422 GHz"
+      ]
+     ],
+     "note": "The HGA and +X LGA point along +X. The other LGAs point along +Z and −Z. Antenna pointing requires turning the spacecraft."
+    },
+    {
+     "id": "ka_horn",
+     "label": "KA-BAND HORN",
+     "at": [
+      -2.5,
+      8
+     ],
+     "what": "The fixed Ka-band horn points along +X and radiates the additional downlink.",
+     "sub": "DOWNLINK ONLY",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Telecommunications, 2001",
+       "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "DOWNLINK",
+       "32.156 GHz"
+      ]
+     ]
+    },
+    {
+     "id": "network",
+     "label": "DSN STATIONS",
+     "at": [
+      2.5,
+      8
+     ],
+     "what": "Earth stations receive spacecraft signals. DS1 Ka-band tests used Goldstone facilities.",
+     "sub": "EARTH STATIONS",
+     "shape": "column",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Telecommunications, 2001",
+       "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+      ],
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "commands",
+     "label": "COMMAND OUTPUT",
+     "at": [
+      2.5,
+      -4
+     ],
+     "what": "Recovered command bits are delivered to the integrated electronics module for decoding and execution.",
+     "sub": "TO FLIGHT ELECTRONICS",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "JPL DESCANSO: DS1 Telecommunications, 2001",
+       "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+      ]
+     ]
+    }
+   ],
+   "links": [
+    {
+     "from": "telemetry",
+     "to": "transponder",
+     "label": "DATA AND CLOCK"
+    },
+    {
+     "from": "transponder",
+     "to": "x_amplifier",
+     "label": "X-BAND EXCITATION",
+     "route": "z",
+     "fromOffset": [
+      -0.6,
+      0
+     ]
+    },
+    {
+     "from": "transponder",
+     "to": "ka_amplifier",
+     "label": "KA-BAND EXCITATION"
+    },
+    {
+     "from": "x_amplifier",
+     "to": "x_antennas",
+     "label": "AMPLIFIED X BAND"
+    },
+    {
+     "from": "ka_amplifier",
+     "to": "ka_horn",
+     "label": "AMPLIFIED KA BAND"
+    },
+    {
+     "from": "x_antennas",
+     "to": "network",
+     "label": "X-BAND DOWNLINK",
+     "via": [
+      [
+       -7.5,
+       10.5
+      ],
+      [
+       2.5,
+       10.5
+      ]
+     ]
+    },
+    {
+     "from": "ka_horn",
+     "to": "network",
+     "label": "KA-BAND DOWNLINK"
+    },
+    {
+     "from": "network",
+     "to": "x_antennas",
+     "label": "X-BAND UPLINK",
+     "dashed": true,
+     "via": [
+      [
+       5,
+       8
+      ],
+      [
+       5,
+       12.5
+      ],
+      [
+       -9.5,
+       12.5
+      ],
+      [
+       -9.5,
+       8
+      ]
+     ]
+    },
+    {
+     "from": "x_antennas",
+     "to": "transponder",
+     "label": "RECEIVED X-BAND SIGNAL",
+     "dashed": true,
+     "via": [
+      [
+       -10,
+       8
+      ],
+      [
+       -10,
+       -7
+      ],
+      [
+       -2.5,
+       -7
+      ]
+     ]
+    },
+    {
+     "from": "transponder",
+     "to": "commands",
+     "label": "DETECTED COMMAND BITS"
+    }
+   ],
+   "traces": [
+    {
+     "id": "A",
+     "label": "TRANSMIT ON KA BAND",
+     "steps": [
+      {
+       "part": "telemetry",
+       "text": "Illustrative Ka-band telemetry path."
+      },
+      {
+       "link": "telemetry>transponder",
+       "text": "The electronics module supplies telemetry bits and timing."
+      },
+      {
+       "link": "transponder>ka_amplifier",
+       "text": "The Ka-band exciter produces a modulated radio signal."
+      },
+      {
+       "link": "ka_amplifier>ka_horn",
+       "text": "KaPA supplies RF power to the fixed horn."
+      },
+      {
+       "link": "ka_horn>network",
+       "text": "The signal travels to the receiving station on Earth."
+      },
+      {
+       "part": "network",
+       "text": "The ground system receives and decodes the telemetry."
+      }
+     ]
+    },
+    {
+     "id": "B",
+     "label": "RECEIVE AN EARTH COMMAND",
+     "steps": [
+      {
+       "part": "network",
+       "text": "Illustrative command path: an Earth station transmits at X-band."
+      },
+      {
+       "link": "network>x_antennas",
+       "text": "The signal reaches the selected X-band antenna configuration."
+      },
+      {
+       "link": "x_antennas>transponder",
+       "text": "The receiver detects the uplink and recovers command bits."
+      },
+      {
+       "link": "transponder>commands",
+       "text": "The radio supplies recovered bits to spacecraft command handling."
+      },
+      {
+       "part": "commands",
+       "text": "Flight electronics decode and execute the command. There is no Ka-band command uplink on DS1."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "autonomy",
+   "short": "AUTONOMY EXPERIMENTS",
+   "title": "AUTONOMY EXPERIMENTS",
+   "purpose": "Software functions share onboard computing. Remote Agent ran selected May 1999 tests; Beacon Monitor was a separate technology experiment.",
+   "parts": [
+    {
+     "id": "goals",
+     "label": "GOALS",
+     "at": [
+      -7.5,
+      -4
+     ],
+     "what": "Operators supply high-level objectives and constraints for the Remote Agent experiment.",
+     "sub": "FROM EARTH",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ],
+      [
+       "JPL Remote Agent flight announcement, May 17, 1999",
+       "https://www.jpl.nasa.gov/news/computer-program-assumes-spacecraft-command/"
+      ]
+     ]
+    },
+    {
+     "id": "planner",
+     "label": "PLANNER",
+     "at": [
+      -2.5,
+      -4
+     ],
+     "what": "The planner constructs activities and timing relationships that satisfy the supplied goals and resource constraints.",
+     "sub": "SCHEDULER",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ],
+      [
+       "JPL Remote Agent flight announcement, May 17, 1999",
+       "https://www.jpl.nasa.gov/news/computer-program-assumes-spacecraft-command/"
+      ]
+     ]
+    },
+    {
+     "id": "executive",
+     "label": "EXECUTIVE",
+     "at": [
+      2.5,
+      -4
+     ],
+     "what": "The executive expands planned activities into subsystem commands and monitors their execution.",
+     "sub": "REMOTE AGENT",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ],
+      [
+       "JPL Remote Agent flight announcement, May 17, 1999",
+       "https://www.jpl.nasa.gov/news/computer-program-assumes-spacecraft-command/"
+      ]
+     ]
+    },
+    {
+     "id": "subsystems",
+     "label": "FLIGHT SUBSYSTEMS",
+     "at": [
+      7.5,
+      -4
+     ],
+     "what": "The experiment commands selected real flight systems, including ion propulsion, while monitoring their responses.",
+     "sub": "COMMAND EXECUTION",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ],
+      [
+       "JPL Remote Agent flight announcement, May 17, 1999",
+       "https://www.jpl.nasa.gov/news/computer-program-assumes-spacecraft-command/"
+      ]
+     ]
+    },
+    {
+     "id": "livingstone",
+     "label": "LIVINGSTONE",
+     "at": [
+      2.5,
+      2
+     ],
+     "what": "Model-based state estimation and recovery identify operating modes and help select recovery actions.",
+     "sub": "DIAGNOSIS AND RECOVERY",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "JPL Remote Agent flight announcement, May 17, 1999",
+       "https://www.jpl.nasa.gov/news/computer-program-assumes-spacecraft-command/"
+      ]
+     ]
+    },
+    {
+     "id": "health",
+     "label": "ENGINEERING DATA",
+     "at": [
+      7.5,
+      2
+     ],
+     "what": "Subsystem telemetry provides evidence of state, performance and possible anomalies.",
+     "sub": "OBSERVED FLIGHT STATE",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "monitor",
+     "label": "BEACON MONITOR",
+     "at": [
+      7.5,
+      8
+     ],
+     "what": "Health summarization maps the spacecraft condition to one of four assistance states.",
+     "sub": "SEPARATE EXPERIMENT",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ],
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "STATE COUNT",
+       "Four urgency levels"
+      ]
+     ]
+    },
+    {
+     "id": "beacon",
+     "label": "RADIO BEACON",
+     "at": [
+      2.5,
+      8
+     ],
+     "what": "SDST can transmit a tone representing the requested degree of ground attention.",
+     "sub": "TO GROUND MONITOR",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ],
+      [
+       "Rayman et al., DS1 primary mission results, 1999",
+       "https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf"
+      ]
+     ],
+     "note": "Tested during selected periods; DS1 did not dispense with routine mission operations or normal telemetry."
+    }
+   ],
+   "links": [
+    {
+     "from": "goals",
+     "to": "planner",
+     "label": "GOALS AND CONSTRAINTS"
+    },
+    {
+     "from": "planner",
+     "to": "executive",
+     "label": "SCHEDULED ACTIVITIES"
+    },
+    {
+     "from": "executive",
+     "to": "subsystems",
+     "label": "COMMANDS"
+    },
+    {
+     "from": "subsystems",
+     "to": "health",
+     "label": "TELEMETRY"
+    },
+    {
+     "from": "health",
+     "to": "livingstone",
+     "label": "STATE EVIDENCE"
+    },
+    {
+     "from": "livingstone",
+     "to": "executive",
+     "label": "DIAGNOSIS AND RECOVERY"
+    },
+    {
+     "from": "health",
+     "to": "monitor",
+     "label": "HEALTH PARAMETERS"
+    },
+    {
+     "from": "monitor",
+     "to": "beacon",
+     "label": "SELECTED TONE"
+    },
+    {
+     "from": "executive",
+     "to": "planner",
+     "label": "REPLAN REQUEST",
+     "dashed": true,
+     "via": [
+      [
+       2.5,
+       -7
+      ],
+      [
+       -2.5,
+       -7
+      ]
+     ]
+    }
+   ],
+   "traces": [
+    {
+     "id": "A",
+     "label": "EXECUTE A HIGH-LEVEL GOAL",
+     "steps": [
+      {
+       "part": "goals",
+       "text": "Illustrative Remote Agent command path during an enabled test period."
+      },
+      {
+       "link": "goals>planner",
+       "text": "A high-level objective reaches the planning system."
+      },
+      {
+       "link": "planner>executive",
+       "text": "The resulting plan specifies activities and constraints."
+      },
+      {
+       "link": "executive>subsystems",
+       "text": "The executive issues commands to selected flight subsystems."
+      },
+      {
+       "link": "subsystems>health",
+       "text": "Telemetry reports the resulting hardware state."
+      },
+      {
+       "link": "health>livingstone",
+       "text": "State estimation checks observations against the system model."
+      },
+      {
+       "link": "livingstone>executive",
+       "text": "Diagnosis and recovery information guide subsequent execution."
+      },
+      {
+       "part": "executive",
+       "text": "The first May 1999 test encountered an executive software fault; a follow-up test completed the remaining objectives."
+      }
+     ]
+    },
+    {
+     "id": "B",
+     "label": "REPORT SPACECRAFT HEALTH",
+     "steps": [
+      {
+       "part": "health",
+       "text": "Illustrative Beacon Monitor path, separate from the Remote Agent planner."
+      },
+      {
+       "link": "health>monitor",
+       "text": "Engineering measurements are summarized against activity-dependent limits."
+      },
+      {
+       "part": "monitor",
+       "text": "The summary indicates whether no help, convenient contact, prompt contact or urgent assistance is needed."
+      },
+      {
+       "link": "monitor>beacon",
+       "text": "The selected state determines the radio tone."
+      },
+      {
+       "part": "beacon",
+       "text": "Ground monitors detect the tone and can arrange fuller tracking and telemetry."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "structure",
+   "short": "STRUCTURE AND THERMAL",
+   "title": "STRUCTURE AND THERMAL",
+   "purpose": "The physical bus supports externally mounted equipment. This sheet records the documented envelope, thermal measures and structural experiment.",
+   "parts": [
+    {
+     "id": "equipment",
+     "label": "EQUIPMENT",
+     "at": [
+      -5,
+      -4
+     ],
+     "what": "Most components mount outside the central bus for accessible integration and replacement before launch.",
+     "sub": "MOUNTED HARDWARE",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "bus",
+     "label": "PRIMARY BUS",
+     "at": [
+      0,
+      -4
+     ],
+     "what": "The primary spacecraft bus carries structural loads and supports the mounted subsystems.",
+     "sub": "ALUMINUM",
+     "shape": "tall",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "params": [
+      [
+       "CORE ENVELOPE",
+       "1.1 × 1.1 × 1.5 m"
+      ],
+      [
+       "WITH EQUIPMENT / BLANKETS",
+       "2.1 × 1.7 × 2.5 m"
+      ],
+      [
+       "SPAN WITH DEPLOYED ARRAYS",
+       "11.8 m"
+      ]
+     ],
+     "note": "Dimensions are the July 1999 NASA press-kit envelope. Drawing solids are symbolic, with no dimensional scale."
+    },
+    {
+     "id": "adapter",
+     "label": "LAUNCH INTERFACE",
+     "at": [
+      5,
+      -4
+     ],
+     "what": "The launch adapter and propulsion module form the lower spacecraft assembly identified in the NASA configuration drawing.",
+     "sub": "LAUNCH ADAPTER / MODULE",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "insulation",
+     "label": "THERMAL BLANKETS",
+     "at": [
+      -5,
+      2
+     ],
+     "what": "Multilayer insulation reduces unwanted radiative heat exchange.",
+     "sub": "PASSIVE THERMAL CONTROL",
+     "shape": "layered",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "heaters",
+     "label": "ELECTRICAL HEATERS",
+     "at": [
+      0,
+      2
+     ],
+     "what": "Powered heaters help maintain equipment within allowable temperature ranges.",
+     "sub": "ACTIVE HEAT INPUT",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "radiators",
+     "label": "RADIATORS",
+     "at": [
+      5,
+      2
+     ],
+     "what": "Radiating surfaces dispose of heat to space.",
+     "sub": "HEAT REJECTION",
+     "shape": "slab",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "multifunction",
+     "label": "MULTIFUNCTIONAL PANEL",
+     "at": [
+      5,
+      8
+     ],
+     "what": "A composite test panel combines load-bearing structure, copper-polyimide electrical interconnects, embedded heat transfer and an external radiating surface.",
+     "sub": "STRUCTURE / CIRCUITS / HEAT",
+     "shape": "layered",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ]
+    },
+    {
+     "id": "low_power",
+     "label": "LOW-POWER ELECTRONICS",
+     "at": [
+      0,
+      8
+     ],
+     "what": "Experimental low-voltage devices and architectures investigate reduced electronics power consumption.",
+     "sub": "MICROELECTRONICS TEST",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ]
+     ],
+     "note": "This separate experiment belongs to the twelve-technology payload. It is intentionally unconnected here: the consulted sources do not establish a specific interface to the multifunctional panel. Experimental devices did not replace every spacecraft circuit."
+    },
+    {
+     "id": "service",
+     "label": "SERVICE BOOM",
+     "at": [
+      -5,
+      8
+     ],
+     "what": "The boom provides access to battery and propellant service connections inside the launch fairing; it also carries the −Z low-gain antenna.",
+     "sub": "GROUND ACCESS / LGA SUPPORT",
+     "shape": "box",
+     "status": "V",
+     "refs": [
+      [
+       "NASA DS1 press kit, July 1999, pp. 7, 19–32",
+       "https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf"
+      ],
+      [
+       "JPL DESCANSO: DS1 Telecommunications, 2001",
+       "https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf"
+      ]
+     ]
+    }
+   ],
+   "links": [
+    {
+     "from": "equipment",
+     "to": "bus",
+     "label": "MECHANICAL SUPPORT"
+    },
+    {
+     "from": "bus",
+     "to": "adapter",
+     "label": "STRUCTURAL LOAD PATH"
+    },
+    {
+     "from": "insulation",
+     "to": "equipment",
+     "label": "RADIATIVE ISOLATION"
+    },
+    {
+     "from": "heaters",
+     "to": "equipment",
+     "label": "HEAT INPUT",
+     "route": "z",
+     "fromOffset": [
+      -0.6,
+      0
+     ]
+    },
+    {
+     "from": "equipment",
+     "to": "radiators",
+     "label": "HEAT REJECTION PATH",
+     "route": "z",
+     "via": [
+      [
+       -7.5,
+       -4
+      ],
+      [
+       -7.5,
+       -7
+      ],
+      [
+       7.5,
+       -7
+      ],
+      [
+       7.5,
+       2
+      ]
+     ]
+    },
+    {
+     "from": "multifunction",
+     "to": "radiators",
+     "label": "INTEGRATED THERMAL FUNCTION"
+    },
+    {
+     "from": "service",
+     "to": "bus",
+     "label": "BOOM ATTACHMENT",
+     "dashed": true,
+     "via": [
+      [
+       -8,
+       8
+      ],
+      [
+       -8,
+       -8.5
+      ],
+      [
+       0,
+       -8.5
+      ]
+     ]
+    }
+   ],
+   "traces": [
+    {
+     "id": "A",
+     "label": "CARRY A STRUCTURAL LOAD",
+     "steps": [
+      {
+       "part": "equipment",
+       "text": "Illustrative structural load path; attachment geometry is schematic."
+      },
+      {
+       "link": "equipment>bus",
+       "text": "Mounted equipment transfers mechanical load to the aluminum bus."
+      },
+      {
+       "part": "bus",
+       "text": "The primary structure distributes the load."
+      },
+      {
+       "link": "bus>adapter",
+       "text": "The load continues through the launch-interface structure."
+      },
+      {
+       "part": "adapter",
+       "text": "This path matters while the spacecraft is attached to the launcher. The interface remains part of the flight assembly after separation."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "notes": [
+  {
+   "id": "scope",
+   "button": "SCOPE",
+   "ref": "NOTE A",
+   "title": "Drawing basis and limitations",
+   "blocks": [
+    {
+     "p": "A source-grounded functional drawing set of NASA Deep Space 1, prepared 27 October 2026. It covers major hardware and all twelve technology demonstrations. External inputs and ground systems are included where they explain a connection."
+    },
+    {
+     "note": "Positions, solid shapes and connecting lines are schematic. This is not a dimensioned fabrication drawing, a verified harness diagram or a literal three-dimensional spacecraft reconstruction. V means the component or historical statement is documented; it does not mean every flight unit remained operational."
+    },
+    {
+     "p": "Each trace illustrates a documented mechanism or operating path. None is a reconstructed time series from flight telemetry. Links between structural parts denote mechanical or thermal relationships, as labeled, rather than data flow."
+    },
+    {
+     "p": "For physical mounting locations, see the [original NASA two-view configuration plate, printed p. 32 / PDF p. 34](https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf#page=34). The plate shows the arrays stowed; the deployed span is supplied separately in the specifications."
+    },
+    {
+     "kv": [
+      [
+       "LAUNCH",
+       "24 October 1998"
+      ],
+      [
+       "BRAILLE FLYBY",
+       "29 July 1999 UTC (28 July in U.S. Pacific time)"
+      ],
+      [
+       "STAR TRACKER FAILURE",
+       "11 November 1999"
+      ],
+      [
+       "RECOVERY",
+       "June 2000"
+      ],
+      [
+       "BORRELLY FLYBY",
+       "22 September 2001"
+      ],
+      [
+       "RETIREMENT",
+       "18 December 2001"
+      ]
+     ]
+    },
+    {
+     "p": "Historical dates follow [NASA mission history](https://science.nasa.gov/mission/deep-space-1/) and the [JPL navigation engineering report](https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf). Launch-era publications contain planned events; plans are not treated as completed outcomes."
+    }
+   ]
+  },
+  {
+   "id": "technologies",
+   "button": "12 TECHNOLOGIES",
+   "ref": "NOTE B",
+   "title": "Technology demonstration index",
+   "blocks": [
+    {
+     "list": [
+      "1. Solar electric propulsion — ion propulsion and NSTAR mechanism sheets.",
+      "2. SCARLET concentrator arrays — electrical power.",
+      "3. AutoNav — navigation and attitude.",
+      "4. Remote Agent — autonomy experiments.",
+      "5. Beacon Monitor — autonomy experiments.",
+      "6. MICAS — science instruments.",
+      "7. PEPE — science instruments.",
+      "8. Small Deep-Space Transponder — telecommunications.",
+      "9. Ka-band solid-state amplifier — telecommunications.",
+      "10. Low-power electronics — structure and thermal.",
+      "11. Multifunctional structure — structure and thermal.",
+      "12. Power Actuation and Switching Module — electrical power."
+     ]
+    },
+    {
+     "p": "NASA lists these in the [July 1999 press kit](https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf). Ordinary hardware such as the star tracker and nickel-hydrogen battery was also essential to the spacecraft."
+    }
+   ]
+  },
+  {
+   "id": "sources",
+   "button": "SOURCES",
+   "ref": "NOTE C",
+   "title": "Primary sources",
+   "blocks": [
+    {
+     "list": [
+      "[NASA DS1 press kit, July 1999, pp. 7, 19–32](https://www.jpl.nasa.gov/news/press_kits/ds1asteroid.pdf)",
+      "[Rayman et al., DS1 primary mission results, 1999](https://www.jpl.nasa.gov/nmp/ds1/DS1_Primary_Mission.pdf)",
+      "[JPL DESCANSO: DS1 Telecommunications, 2001](https://descanso.jpl.nasa.gov/DPSummary/All_Article2.pdf)",
+      "[JPL DESCANSO: DS1 Navigation](https://descanso.jpl.nasa.gov/DPSummary/DS1_Navigation_rev.pdf)",
+      "[NASA DS1 mission history](https://science.nasa.gov/mission/deep-space-1/)",
+      "[JPL MICAS technology report](https://www.jpl.nasa.gov/nmp/ds1/tech/micas.html)",
+      "[JPL Remote Agent flight announcement, May 17, 1999](https://www.jpl.nasa.gov/news/computer-program-assumes-spacecraft-command/)"
+     ]
+    },
+    {
+     "note": "The press kit establishes hardware and design intent. Later engineering reports and mission history establish in-flight outcomes. Performance figures retain their operating condition; max design thrust, array output and PPU input are different quantities."
+    }
+   ]
+  },
+  {
+   "id": "operation",
+   "button": "READ THE DRAWING",
+   "ref": "NOTE D",
+   "title": "Controls and notation",
+   "blocks": [
+    {
+     "list": [
+      "Click a subsystem to open its sheet. Click an ordinary part to read function, specifications, caveats and source links.",
+      "Drag empty space to orbit; shift-drag to pan; scroll to zoom. ISO, TOP, FRONT and FIT control the view.",
+      "Drag a component to rearrange the schematic; double-click restores its position.",
+      "TRACE buttons step through the operating paths. Arrow keys move between steps.",
+      "Use the breadcrumb or Escape to return. INDEX lists the parts on a sheet.",
+      "Dashed links identify feedback, recovery or unavailable paths; each link label specifies its meaning."
+     ]
+    }
+   ]
+  }
+ ]
+};
+</script>
+<script>
+/* system-drawings engine.
+   Renders a DRAWING object (see references/content-schema.md) as a set of
+   interactive, monochrome, three-dimensional technical drawings.
+   No dependencies. Orthographic camera: yaw about Y, then pitch about X. */
+"use strict";
+(function () {
+  const D = DRAWING;
+  const STATUS = { V: "VERIFIED", P: "PROPOSED", W: "IN PROGRESS", H: "HYPOTHESIS", X: "REJECTED" };
+  const SHAPES = { box: [2.4, 1.0, 1.6], tall: [2.4, 1.8, 1.6], slab: [2.4, 0.28, 1.6], diamond: [2.3, 1.0, 2.3],
+    column: [1.0, 1.9, 1.0], stack: [2.6, 0, 1.8], layered: [2.2, 0.55, 1.4] };
+  const PLATE_T = 0.034, PLATE_GAP = 0.035, LINK_Y = 0.12;
+  const INK = "#111", FAINT = "#c4c4c4", GRID = "#efefef";
+  const MONO = '"IBM Plex Mono", ui-monospace, Menlo, "Courier New", monospace';
+  const query = new URLSearchParams(location.search);
+  const AUDIT = query.has("audit");
+  const auditReport = { errors: [], sheet: null };
+  window.addEventListener("error", e => auditReport.errors.push(String(e.message || e)));
+
+  /* ---------------- sheet index, parentage, reference designators ---------------- */
+  const SHEETS = {};
+  D.sheets.forEach(s => { SHEETS[s.id] = s; s.byId = {}; s.parts.forEach(p => { s.byId[p.id] = p; }); s.links = s.links || []; s.traces = s.traces || []; });
+  const PARENT = {};
+  D.sheets.forEach(s => s.parts.forEach(p => { if (p.drill) PARENT[p.drill] = { sheet: s.id, part: p.id }; }));
+  const seen = new Set();
+  (function assign(id, ref) {
+    if (seen.has(id) || !SHEETS[id]) return; seen.add(id);
+    const s = SHEETS[id]; s.ref = ref; const base = ref.endsWith(".0") ? ref.slice(0, -2) : ref;
+    s.parts.forEach((p, i) => { p.ref = base + "." + (i + 1); p._home = p.at.slice(); if (p.drill) assign(p.drill, p.ref); });
+  })(D.root, "1.0");
+  D.sheets.forEach(s => s.links.forEach(l => { l.key = l.from + ">" + l.to; }));
+  const ORDER = []; (function walk(id) { if (!SHEETS[id] || ORDER.includes(id)) return; ORDER.push(id); SHEETS[id].parts.forEach(p => p.drill && walk(p.drill)); })(D.root);
+
+  /* ---------------- geometry ---------------- */
+  let G = 1; // global dial
+  function dialValue(p) { if (!p.dial) return 1; return p.dial.scope === "global" ? G : (p.g ?? 1); }
+  function dims(p) {
+    const base = p.size || SHAPES[p.shape] || SHAPES.box;
+    let h = base[1];
+    if (p.shape === "stack") h = (p.count || 12) * (PLATE_T + PLATE_GAP);
+    return { w: base[0], h, d: base[2] };
+  }
+  function footprint(p, inset = 0) {
+    const [cx, cz] = p.at; const { w, d } = dims(p); const hw = w / 2 - inset, hd = d / 2 - inset;
+    if (p.shape === "diamond") return [[cx - hw, cz], [cx, cz - hd], [cx + hw, cz], [cx, cz + hd]];
+    if (p.shape === "column") { const out = []; for (let i = 0; i < 8; i++) { const a = Math.PI / 8 + i * Math.PI / 4; out.push([cx + hw * Math.cos(a), cz + hd * Math.sin(a)]); } return out; }
+    return [[cx - hw, cz - hd], [cx + hw, cz - hd], [cx + hw, cz + hd], [cx - hw, cz + hd]];
+  }
+  function prism(poly, y0, y1) {
+    const top = poly.map(([x, z]) => [x, y1, z]), bot = poly.map(([x, z]) => [x, y0, z]);
+    const faces = [bot, top];
+    for (let i = 0; i < poly.length; i++) { const j = (i + 1) % poly.length; faces.push([bot[i], bot[j], top[j], top[i]]); }
+    return faces;
+  }
+  function solids(p) {
+    const fp = footprint(p), { h } = dims(p), g = dialValue(p);
+    if (p.shape === "stack") { const out = []; for (let i = 0; i < (p.count || 12); i++) out.push(...prism(fp, i * (PLATE_T + PLATE_GAP), i * (PLATE_T + PLATE_GAP) + PLATE_T)); return out; }
+    if (p.shape === "layered") return prism(fp, 0, h).concat(prism(footprint(p, 0.16), h + 0.05, h + 0.05 + 0.03 + 0.32 * g));
+    return prism(fp, 0, p.dial ? h * (0.15 + 0.85 * g) : h);
+  }
+  function topY(p) {
+    const { h } = dims(p), g = dialValue(p);
+    if (p.shape === "layered") return h + 0.08 + 0.32 * g;
+    if (p.dial && p.shape !== "stack") return h * (0.15 + 0.85 * g);
+    return h;
+  }
+
+  /* ---------------- camera ---------------- */
+  const canvas = document.getElementById("c"), ctx = canvas.getContext("2d");
+  let W = 0, H = 0;
+  const camDefault = D.camera || {};
+  const cam = { yaw: camDefault.yaw ?? -0.55, pitch: camDefault.pitch ?? 0.62, s: 36, px: 0, py: 0, alpha: 1, ox: 0 };
+  const VIEWS = { iso: [camDefault.yaw ?? -0.55, camDefault.pitch ?? 0.62], top: [0, 1.5], front: [0, 0.12] };
+  function rot(x, y, z) {
+    const ca = Math.cos(cam.yaw), sa = Math.sin(cam.yaw), cb = Math.cos(cam.pitch), sb = Math.sin(cam.pitch);
+    const x1 = x * ca + z * sa, z1 = -x * sa + z * ca;
+    return [x1, y * cb - z1 * sb, y * sb + z1 * cb];
+  }
+  function P(x, y, z) { const r = rot(x, y, z); return [W / 2 + cam.ox + cam.s * (r[0] + cam.px), H / 2 - cam.s * (r[1] + cam.py), r[2]]; }
+
+  /* ---------------- link routing: axis-aligned floor conduits ---------------- */
+  function route(l) {
+    const a = sheet.byId[l.from], b = sheet.byId[l.to];
+    const A = [a.at[0] + (l.fromOffset?.[0] || 0), a.at[1] + (l.fromOffset?.[1] || 0)];
+    const B = [b.at[0] + (l.toOffset?.[0] || 0), b.at[1] + (l.toOffset?.[1] || 0)];
+    let pts;
+    if (l.via) pts = [A, ...l.via, B];
+    else {
+      const dx = B[0] - A[0], dz = B[1] - A[1];
+      const mode = l.route || (Math.abs(dx) >= Math.abs(dz) ? "x" : "z");
+      if (mode === "x") { const mx = (A[0] + B[0]) / 2; pts = [A, [mx, A[1]], [mx, B[1]], B]; }
+      else { const mz = (A[1] + B[1]) / 2; pts = [A, [A[0], mz], [B[0], mz], B]; }
+    }
+    pts = pts.filter((q, i) => i === 0 || Math.hypot(q[0] - pts[i - 1][0], q[1] - pts[i - 1][1]) > 1e-6);
+    pts = pts.filter((q, i) => { if (i === 0 || i === pts.length - 1) return true; const o = pts[i - 1], r = pts[i + 1];
+      return Math.abs((q[0] - o[0]) * (r[1] - o[1]) - (q[1] - o[1]) * (r[0] - o[0])) > 1e-6; });
+    const clip = (end, nxt, part) => {
+      const { w, d } = dims(part); const dx = nxt[0] - end[0], dz = nxt[1] - end[1];
+      if (Math.abs(dx) > Math.abs(dz)) return [part.at[0] + Math.sign(dx) * (w / 2 + 0.08), end[1]];
+      return [end[0], part.at[1] + Math.sign(dz) * (d / 2 + 0.08)];
+    };
+    pts[0] = clip(pts[0], pts[1], a);
+    pts[pts.length - 1] = clip(pts[pts.length - 1], pts[pts.length - 2], b);
+    return pts.map(([x, z]) => [x, LINK_Y, z]);
+  }
+
+  /* ---------------- state ---------------- */
+  let path = [D.root], sheet = null, selected = null, hoverId = null;
+  let trace = null, stepIdx = 0, playTimer = null, token = null, anim = null;
+
+  /* ---------------- text ---------------- */
+  function esc(s) { return String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+  function md(t) {
+    return esc(t).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
+      .replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  }
+
+  /* ---------------- drawing ---------------- */
+  function focusState() {
+    if (trace) {
+      const st = trace.steps[stepIdx]; const lit = new Set(), litE = new Set();
+      if (st.link) { const [f, t] = st.link.split(">"); lit.add(f); lit.add(t); litE.add(st.link); } else lit.add(st.part);
+      return { lit, litE, active: true };
+    }
+    const id = hoverId || selected;
+    if (!id) return { active: false, litE: new Set() };
+    const lit = new Set([id]), litE = new Set();
+    sheet.links.forEach(l => { if (l.from === id || l.to === id) { lit.add(l.from); lit.add(l.to); litE.add(l.key); } });
+    return { lit, litE, active: !!hoverId };
+  }
+  function draw() {
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalAlpha = cam.alpha;
+    drawGrid();
+    const fs = focusState(), items = [];
+    for (const p of sheet.parts) {
+      const strong = !fs.active || fs.lit.has(p.id), sel = p.id === selected || (trace && fs.lit.has(p.id));
+      for (const face of solids(p)) { const pts = face.map(v => P(...v)); items.push({ k: "f", pts, z: pts.reduce((s, q) => s + q[2], 0) / pts.length, strong, sel, dashed: p.status === "X" }); }
+    }
+    for (const l of sheet.links) {
+      const pts = route(l).map(v => P(...v)), strong = !fs.active || fs.litE.has(l.key), hot = fs.litE.has(l.key);
+      for (let i = 0; i < pts.length - 1; i++) items.push({ k: "s", a: pts[i], b: pts[i + 1], z: (pts[i][2] + pts[i + 1][2]) / 2 + 0.001, strong, hot, dashed: l.dashed });
+      const a = pts[pts.length - 2], b = pts[pts.length - 1], u = 0.62;
+      const tip = [a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u, a[2] + (b[2] - a[2]) * u];
+      items.push({ k: "a", a, b: tip, z: tip[2] + 0.002, strong });
+      l._screen = pts; l._hot = hot;
+    }
+    items.sort((u, v) => u.z - v.z);
+    for (const it of items) {
+      if (it.k === "f") {
+        ctx.beginPath(); it.pts.forEach((q, i) => i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1])); ctx.closePath();
+        ctx.fillStyle = "#fff"; ctx.fill(); ctx.setLineDash(it.dashed ? [4, 3] : []);
+        ctx.strokeStyle = it.strong ? INK : FAINT; ctx.lineWidth = it.sel ? 1.8 : 1; ctx.lineJoin = "round"; ctx.stroke();
+      } else if (it.k === "a") {
+        const ang = Math.atan2(it.b[1] - it.a[1], it.b[0] - it.a[0]), s = 8, b = it.b;
+        ctx.beginPath(); ctx.moveTo(b[0], b[1]);
+        ctx.lineTo(b[0] - s * Math.cos(ang - 0.38), b[1] - s * Math.sin(ang - 0.38));
+        ctx.lineTo(b[0] - s * Math.cos(ang + 0.38), b[1] - s * Math.sin(ang + 0.38)); ctx.closePath();
+        ctx.setLineDash([]); ctx.fillStyle = it.strong ? INK : FAINT; ctx.fill();
+      } else {
+        ctx.beginPath(); ctx.moveTo(it.a[0], it.a[1]); ctx.lineTo(it.b[0], it.b[1]);
+        ctx.setLineDash(it.dashed ? [5, 4] : []);
+        ctx.strokeStyle = it.strong ? INK : FAINT; ctx.lineWidth = it.hot && (trace || hoverId || selected) ? 2 : 1; ctx.stroke();
+      }
+    }
+    ctx.setLineDash([]);
+    for (const p of sheet.parts) drawLabel(p, !fs.active || fs.lit.has(p.id));
+    for (const l of sheet.links) if (l.label && l._hot && (trace || hoverId || selected)) drawLinkLabel(l);
+    if (trace) drawMarks();
+    if (token) drawToken();
+    ctx.globalAlpha = 1;
+  }
+  function drawGrid() {
+    const xs = sheet.parts.map(p => p.at[0]), zs = sheet.parts.map(p => p.at[1]);
+    const x0 = Math.floor(Math.min(...xs) - 4), x1 = Math.ceil(Math.max(...xs) + 4), z0 = Math.floor(Math.min(...zs) - 4), z1 = Math.ceil(Math.max(...zs) + 4);
+    ctx.strokeStyle = GRID; ctx.lineWidth = 1;
+    for (let x = x0 - (x0 % 2); x <= x1; x += 2) { const a = P(x, 0, z0), b = P(x, 0, z1); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); }
+    for (let z = z0 - (z0 % 2); z <= z1; z += 2) { const a = P(x0, 0, z), b = P(x1, 0, z); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); }
+  }
+  function haloText(t, x, y, font, color, align = "left") {
+    ctx.font = font; ctx.textAlign = align; ctx.textBaseline = "alphabetic";
+    ctx.lineWidth = 4; ctx.strokeStyle = "#fff"; ctx.lineJoin = "round"; ctx.strokeText(t, x, y);
+    ctx.fillStyle = color; ctx.fillText(t, x, y);
+  }
+  function drawLabel(p, strong) {
+    const a = P(p.at[0], topY(p), p.at[1]);
+    const color = strong ? INK : FAINT, color2 = strong ? "#555" : FAINT, x = a[0], y = a[1] - 14;
+    ctx.strokeStyle = color; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a[0], a[1] - 2); ctx.lineTo(x, y + 4); ctx.stroke();
+    const l1 = `${p.ref}  ${p.label}  [${p.status}]`;
+    const l2 = (p.sub || "") + (p.drill ? `  ▸ SHEET ${SHEETS[p.drill].ref}` : "");
+    haloText(l2, x, y, `10px ${MONO}`, color2, "center");
+    haloText(l1, x, y - 13, `600 11px ${MONO}`, color, "center");
+    ctx.font = `600 11px ${MONO}`; const w1 = ctx.measureText(l1).width; ctx.font = `10px ${MONO}`;
+    const w = Math.max(w1, ctx.measureText(l2).width);
+    p._label = [x - w / 2 - 4, y - 26, w + 8, 32];
+  }
+  function drawLinkLabel(l) {
+    // Candidate positions along every segment, longest segments first; take the first that clears all part labels.
+    const pts = l._screen, segs = [];
+    for (let i = 0; i < pts.length - 1; i++) segs.push([Math.hypot(pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1]), i]);
+    segs.sort((a, b) => b[0] - a[0]);
+    ctx.font = `10px ${MONO}`; const w = ctx.measureText(l.label).width + 8, h = 14;
+    const clear = (x, y) => sheet.parts.every(p => { const r = p._label; return !r || x + w / 2 < r[0] || x - w / 2 > r[0] + r[2] || y < r[1] || y - h > r[1] + r[3]; });
+    let pos = null;
+    for (const [, i] of segs) {
+      for (const u of [0.5, 0.3, 0.7]) {
+        const x = pts[i][0] + (pts[i + 1][0] - pts[i][0]) * u, y = pts[i][1] + (pts[i + 1][1] - pts[i][1]) * u;
+        for (const [dx, dy] of [[0, -6], [w / 2 + 8, 4], [-w / 2 - 8, 4], [0, 16]]) if (clear(x + dx, y + dy)) { pos = [x + dx, y + dy]; break; }
+        if (pos) break;
+      }
+      if (pos) break;
+    }
+    // No clear position: omit the canvas label; the data sheet's CONNECTIONS table still names the link.
+    if (pos) haloText(l.label, pos[0], pos[1], `10px ${MONO}`, "#555", "center");
+  }
+  function drawMarks() {
+    trace.steps.slice(0, stepIdx + 1).forEach(st => {
+      if (!st.mark) return;
+      const p = sheet.byId[st.mark[0]]; if (!p || !p._label) return;
+      const [lx, ly, lw] = p._label, t = st.mark[1];
+      ctx.font = `600 10.5px ${MONO}`; const w = ctx.measureText(t).width + 12, x = lx + lw / 2 - w / 2, y = ly - 22;
+      ctx.fillStyle = "#fff"; ctx.fillRect(x, y, w, 17); ctx.strokeStyle = INK; ctx.lineWidth = 1; ctx.strokeRect(x + .5, y + .5, w - 1, 16);
+      ctx.fillStyle = INK; ctx.textAlign = "left"; ctx.fillText(t, x + 6, y + 12);
+    });
+  }
+  function drawToken() {
+    const k = Math.min(1, (performance.now() - token.t0) / token.dur), e = 1 - Math.pow(1 - k, 2), pts = token.pts;
+    let total = 0; const seg = [];
+    for (let i = 0; i < pts.length - 1; i++) { const d = Math.hypot(pts[i + 1][0] - pts[i][0], pts[i + 1][2] - pts[i][2]); seg.push(d); total += d; }
+    let target = total * e, i = 0; while (i < seg.length - 1 && target > seg[i]) { target -= seg[i]; i++; }
+    const u = seg[i] ? target / seg[i] : 0, a = pts[i], b = pts[i + 1];
+    const q = P(a[0] + (b[0] - a[0]) * u, LINK_Y, a[2] + (b[2] - a[2]) * u);
+    ctx.fillStyle = INK; ctx.fillRect(q[0] - 4, q[1] - 4, 8, 8);
+    if (k >= 1) token.done = true;
+  }
+
+  /* ---------------- heads-up display ---------------- */
+  const panel = document.getElementById("sheet");
+  function setHud() {
+    const nav = document.getElementById("path"); nav.innerHTML = "";
+    path.forEach((id, i) => {
+      if (i) { const s = document.createElement("span"); s.className = "sep"; s.textContent = "/"; nav.appendChild(s); }
+      const b = document.createElement("button"); b.textContent = `${SHEETS[id].ref} ${SHEETS[id].short || SHEETS[id].title.toUpperCase()}`;
+      if (i === path.length - 1) b.setAttribute("aria-current", "page"); else b.onclick = () => goBackTo(i);
+      nav.appendChild(b);
+    });
+    document.getElementById("title").textContent = sheet.title;
+    document.getElementById("purpose").textContent = sheet.purpose || "";
+    document.getElementById("tblock").innerHTML =
+      `<div><span>${esc(D.project)}</span><span>REV ${esc(D.revision || "A")}</span></div>
+       <div><span>SHEET ${sheet.ref}</span><span>${ORDER.indexOf(sheet.id) + 1} OF ${ORDER.length}</span></div>
+       <div><span>LEVEL ${path.length}</span><span>${esc(D.date || "")}</span></div>
+       <div><span>[V] VERIFIED · [P] PROPOSED · [W] IN PROGRESS · [H] HYPOTHESIS · [X] REJECTED · ▸ OPENS A SHEET</span><span></span></div>`;
+    const tb = document.getElementById("tracebtns"); tb.innerHTML = "";
+    document.getElementById("tracebar").style.display = sheet.traces.length ? "" : "none";
+    sheet.traces.forEach(t => { const b = document.createElement("button"); b.textContent = t.label; b.setAttribute("aria-pressed", trace && trace.id === t.id ? "true" : "false"); b.onclick = () => startTrace(t); tb.appendChild(b); });
+  }
+  function kv(k, v) { return `<div class="kv"><span class="k">${md(k)}</span><span class="lead"></span><span class="v">${md(v)}</span></div>`; }
+  function openPanel(html) { panel.innerHTML = `<button class="x" aria-label="Close data sheet">✕</button>` + html; panel.classList.add("on"); panel.querySelector(".x").onclick = closePanel; panelShift(true); }
+  function closePanel() { panel.classList.remove("on"); selected = null; panelShift(false); draw(); }
+  function panelShift(on) { const target = on && W > 900 ? -190 : 0; if (anim) anim.to.ox = target; else if (cam.ox !== target) animate({ ox: target }, 260); }
+  function showPart(p) {
+    let h = `<div class="ref">REF ${p.ref} · DATA SHEET</div><h2>${esc(p.label)}</h2><div class="st">STATUS: ${STATUS[p.status]}</div>`;
+    if (p.what) h += `<h3>FUNCTION</h3><p>${md(p.what)}</p>`;
+    if (p.why) h += `<h3>RATIONALE</h3><p>${md(p.why)}</p>`;
+    if (p.dial) h += dialHtml(p);
+    if (p.figure) h += figureHtml(p.figure);
+    if (p.params) h += `<h3>PARAMETERS</h3>` + p.params.map(([k, v]) => kv(k, v)).join("");
+    if (p.note) h += `<p class="note">${md(p.note)}</p>`;
+    if (p.refs) h += `<h3>REFERENCES</h3><ul>${p.refs.map(([t, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join("")}</ul>`;
+    const conns = sheet.links.filter(l => l.from === p.id || l.to === p.id);
+    if (conns.length) h += `<h3>CONNECTIONS</h3>` + conns.map(l => kv(l.from === p.id ? "→ " + sheet.byId[l.to].label : "← " + sheet.byId[l.from].label, l.label || "")).join("");
+    openPanel(h); wireDial(p); wireFigure(p.figure);
+  }
+  function showPartSummary(p) {
+    const s = SHEETS[p.drill];
+    let h = `<div class="ref">REF ${p.ref} · SUBSYSTEM</div><h2>${esc(p.label)}</h2><div class="st">STATUS: ${STATUS[p.status]}</div><h3>FUNCTION</h3><p>${md(p.what || s.purpose)}</p>`;
+    if (p.why) h += `<h3>RATIONALE</h3><p>${md(p.why)}</p>`;
+    h += `<h3>CONTAINS</h3>` + s.parts.map(q => `<div class="kv"><span class="k">${esc(q.label)}</span></div>`).join("") + `<button class="open">OPEN SHEET ${s.ref} ▸</button>`;
+    openPanel(h); panel.querySelector(".open").onclick = () => drillInto(p);
+  }
+  function showSheetIndex() {
+    let h = `<div class="ref">SHEET ${sheet.ref} · INDEX</div><h2>${esc(sheet.title)}</h2><p>${md(sheet.purpose || "")}</p><h3>PARTS ON THIS SHEET</h3><div class="idx">` +
+      sheet.parts.map(p => `<button data-id="${p.id}"><span class="r">${p.ref}</span><span>${esc(p.label)}${p.drill ? "  ▸" : ""}</span></button>`).join("") + `</div>`;
+    openPanel(h);
+    panel.querySelectorAll(".idx button").forEach(b => b.onclick = () => activate(sheet.byId[b.dataset.id]));
+  }
+  function showNote(n) {
+    const body = (n.blocks || []).map(b => {
+      if (b.h) return `<h3>${esc(b.h)}</h3>`;
+      if (b.p) return `<p>${md(b.p)}</p>`;
+      if (b.list) return `<ul>${b.list.map(i => `<li>${md(i)}</li>`).join("")}</ul>`;
+      if (b.kv) return b.kv.map(([k, v]) => kv(k, v)).join("");
+      if (b.note) return `<p class="note">${md(b.note)}</p>`;
+      return "";
+    }).join("");
+    openPanel(`<div class="ref">${esc(n.ref || "NOTE")}</div><h2>${esc(n.title)}</h2>${body}`);
+  }
+
+  /* ---------------- dials and figures ---------------- */
+  function dialHtml(p) {
+    const v = dialValue(p), d = p.dial;
+    const formula = esc(d.formula || "SCALE = {g}").replace("{g}", `<b class="gv">${v.toFixed(2)}</b>`);
+    return `<h3>${esc(d.title || (d.scope === "global" ? "DIAL · ALL PARTS" : "DIAL"))}</h3><p>${formula}</p>
+      <input type="range" min="0" max="1" step="${d.step || 0.25}" value="${v}" aria-label="Dial value">
+      <div class="ticks"><span>0</span><span>.25</span><span>.50</span><span>.75</span><span>1</span></div>
+      <p class="gtext" style="color:#555"></p>${d.caption ? `<p class="small">${md(d.caption)}</p>` : ""}`;
+  }
+  function stateText(states, v) {
+    if (!states) return "";
+    const t = v === 1 && states["1"] ? states["1"] : v === 0 && states["0"] ? states["0"] : states.mid || "";
+    return t.replace(/\{g\}/g, v.toFixed(2)).replace(/\{pct\}/g, String(Math.round(v * 100)));
+  }
+  function wireDial(p) {
+    const r = panel.querySelector('input[aria-label="Dial value"]'); if (!r) return;
+    const gv = panel.querySelector(".gv"), tx = panel.querySelector(".gtext");
+    const upd = () => { const v = +r.value; if (p.dial.scope === "global") G = v; else p.g = v; if (gv) gv.textContent = v.toFixed(2); tx.innerHTML = md(stateText(p.dial.states, v)); draw(); };
+    r.oninput = upd; upd();
+  }
+  function figureHtml(f) {
+    if (f.type !== "interpolation") return "";
+    const M = (x, y) => [34 + x * 258, 160 - y * 152];
+    const [ax, ay] = M(f.from.x, f.from.y), [bx, by] = M(f.to.x, f.to.y), [cx, cy] = M(...(f.bend || [(f.from.x + f.to.x) / 2, (f.from.y + f.to.y) / 2]));
+    let tgt = "";
+    if (f.target) { const [tx, ty] = M(f.target.x, f.target.y + f.target.h); tgt = `<rect x="${tx}" y="${ty}" width="${f.target.w * 258}" height="${f.target.h * 152}" fill="none" stroke="#111" stroke-dasharray="3 3"/><text x="${tx + f.target.w * 129}" y="${ty + f.target.h * 76 + 4}" text-anchor="middle">${esc(f.target.label || "TARGET")}</text>`; }
+    return `<h3>${esc(f.title || "CONCEPT")}</h3>
+      <svg viewBox="0 0 300 190" width="100%" role="img" aria-label="${esc(f.title || "Concept figure")}" data-q="${ax},${ay},${cx},${cy},${bx},${by}">
+        <line x1="34" y1="160" x2="292" y2="160" stroke="#111"/><line x1="34" y1="8" x2="34" y2="160" stroke="#111"/>
+        <text x="292" y="176" text-anchor="end">${esc(f.xLabel || "")} →</text><text x="40" y="18">${esc(f.yLabel || "")} ↑</text>${tgt}
+        <path d="M${ax},${ay} Q${cx},${cy} ${bx},${by}" fill="none" stroke="#111" stroke-dasharray="4 3"/>
+        <rect x="${ax - 4}" y="${ay - 4}" width="8" height="8" fill="#111"/><text x="${ax + 10}" y="${ay - 6}">${esc(f.from.label)}</text>
+        <rect x="${bx - 4}" y="${by - 4}" width="8" height="8" fill="#111"/><text x="${bx - 6}" y="${by + 18}" text-anchor="end">${esc(f.to.label)}</text>
+        <circle class="fdot" cx="${bx}" cy="${by}" r="7" fill="none" stroke="#111" stroke-width="1.5"/>
+      </svg>
+      <input type="range" class="frange" min="0" max="1" step="0.05" value="1" aria-label="${esc(f.slider || "Position")}">
+      <p class="ftext" style="color:#555"></p>${f.caption ? `<p class="small">${md(f.caption)}</p>` : ""}`;
+  }
+  function wireFigure(f) {
+    const r = panel.querySelector(".frange"); if (!r || !f) return;
+    const svg = panel.querySelector("svg[data-q]"), q = svg.dataset.q.split(",").map(Number), dot = svg.querySelector(".fdot"), tx = panel.querySelector(".ftext");
+    const upd = () => { const u = +r.value;
+      dot.setAttribute("cx", (1 - u) ** 2 * q[0] + 2 * (1 - u) * u * q[2] + u * u * q[4]);
+      dot.setAttribute("cy", (1 - u) ** 2 * q[1] + 2 * (1 - u) * u * q[3] + u * u * q[5]);
+      tx.innerHTML = md(`${(f.slider || "POSITION").toUpperCase()} ${u.toFixed(2)} — ${stateText(f.states, u)}`); };
+    r.oninput = upd; upd();
+  }
+
+  /* ---------------- navigation and animation ---------------- */
+  function fitParams() {
+    const save = { s: cam.s, px: cam.px, py: cam.py }; cam.s = 1; cam.px = 0; cam.py = 0;
+    let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+    for (const p of sheet.parts) for (const f of solids(p)) for (const v of f) { const r = rot(...v); x0 = Math.min(x0, r[0]); x1 = Math.max(x1, r[0]); y0 = Math.min(y0, r[1]); y1 = Math.max(y1, r[1]); }
+    Object.assign(cam, save);
+    const open = panel.classList.contains("on") && W > 900, ox = open ? -190 : 0;
+    const L = 40, R = W - (open ? 420 : 40), T = 150, B = H - 150;
+    const s = Math.min((R - L) / (x1 - x0), (B - T) / (y1 - y0 + 1.2)) * 0.95;
+    const ux = (L + R) / 2, uy = (T + B) / 2 + 20;
+    return { s, ox, px: (ux - W / 2 - ox) / s - (x0 + x1) / 2, py: (H / 2 - uy) / s - (y0 + y1) / 2 };
+  }
+  function animate(to, dur, then) { anim = { from: { ...cam }, to, t0: performance.now(), dur, then }; tick(); }
+  let queued = false;
+  function tick() { if (!queued) { queued = true; requestAnimationFrame(loop); } }
+  function loop(now) {
+    queued = false; let more = false;
+    if (anim) {
+      const k = Math.min(1, (now - anim.t0) / anim.dur), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      for (const key in anim.to) cam[key] = anim.from[key] + (anim.to[key] - anim.from[key]) * e;
+      if (k >= 1) { const t = anim.then; anim = null; if (t) t(); } else more = true;
+    }
+    if (token && !token.done) more = true;
+    draw();
+    if (more || anim) tick();
+  }
+  function centerOn(p, scale) { const r = rot(p.at[0], topY(p) / 2, p.at[1]); return { s: scale, px: -r[0], py: -r[1] }; }
+  function load(id) { sheet = SHEETS[id]; selected = null; hoverId = null; stopTrace(true); setHud(); history.replaceState(null, "", location.pathname + location.search + "#" + id); }
+  function drillInto(p) {
+    stopTrace(true);
+    animate({ ...centerOn(p, cam.s * 3.2), alpha: 0 }, 380, () => {
+      path.push(p.drill); load(p.drill); showSheetIndex();
+      const f = fitParams(); Object.assign(cam, { s: f.s * 0.8, px: f.px, py: f.py, ox: f.ox, alpha: 0 });
+      animate({ ...f, alpha: 1 }, 380);
+    });
+  }
+  function goBackTo(i) {
+    if (i >= path.length - 1) return;
+    const leaving = path[i + 1];
+    animate({ s: cam.s * 0.6, alpha: 0 }, 320, () => {
+      path = path.slice(0, i + 1); load(path[path.length - 1]);
+      const parent = sheet.parts.find(p => p.drill === leaving);
+      if (parent) { selected = parent.id; showPartSummary(parent); } else closePanel();
+      const f = fitParams();
+      if (parent) Object.assign(cam, { ...centerOn(parent, f.s * 3.2), ox: f.ox, alpha: 0 }); else Object.assign(cam, { ...f, alpha: 0 });
+      animate({ ...f, alpha: 1 }, 380);
+    });
+  }
+  function activate(p) { if (p.drill) { selected = p.id; drillInto(p); return; } selected = p.id; showPart(p); draw(); }
+
+  /* ---------------- traces ---------------- */
+  function startTrace(t) { stopTrace(true); trace = t; stepIdx = 0; document.getElementById("cap").classList.add("on"); setHud(); showStep(); }
+  function stopTrace(silent) {
+    clearInterval(playTimer); playTimer = null; const pb = document.getElementById("play"); pb.setAttribute("aria-pressed", "false"); pb.textContent = "PLAY";
+    trace = null; token = null; document.getElementById("cap").classList.remove("on");
+    if (!silent) { setHud(); draw(); }
+  }
+  function showStep() {
+    const st = trace.steps[stepIdx];
+    document.getElementById("capn").textContent = `TRACE ${trace.label} · STEP ${String(stepIdx + 1).padStart(2, "0")} OF ${String(trace.steps.length).padStart(2, "0")}`;
+    document.getElementById("capt").innerHTML = md(st.text);
+    token = null;
+    if (st.link) { const l = sheet.links.find(x => x.key === st.link); if (l) token = { pts: route(l), t0: performance.now(), dur: 900 }; }
+    const focus = st.part || st.link.split(">")[1], p = sheet.byId[focus];
+    selected = focus;
+    if (p && !p.drill) showPart(p); else if (p) showPartSummary(p);
+    tick();
+  }
+  function step(d) { if (!trace) return; stepIdx = Math.max(0, Math.min(trace.steps.length - 1, stepIdx + d)); showStep(); }
+  document.getElementById("prev").onclick = () => step(-1);
+  document.getElementById("next").onclick = () => step(1);
+  document.getElementById("end").onclick = () => stopTrace();
+  document.getElementById("play").onclick = ev => {
+    const b = ev.currentTarget;
+    if (playTimer) { clearInterval(playTimer); playTimer = null; b.setAttribute("aria-pressed", "false"); b.textContent = "PLAY"; return; }
+    b.setAttribute("aria-pressed", "true"); b.textContent = "PAUSE";
+    playTimer = setInterval(() => { if (!trace || stepIdx >= trace.steps.length - 1) { clearInterval(playTimer); playTimer = null; b.setAttribute("aria-pressed", "false"); b.textContent = "PLAY"; return; } step(1); }, 2800);
+  };
+
+  /* ---------------- pointer input ---------------- */
+  function hull(pts) {
+    pts = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+    const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]), lo = [], up = [];
+    for (const p of pts) { while (lo.length >= 2 && cross(lo[lo.length - 2], lo[lo.length - 1], p) <= 0) lo.pop(); lo.push(p); }
+    for (let i = pts.length - 1; i >= 0; i--) { const p = pts[i]; while (up.length >= 2 && cross(up[up.length - 2], up[up.length - 1], p) <= 0) up.pop(); up.push(p); }
+    return lo.slice(0, -1).concat(up.slice(0, -1));
+  }
+  function inPoly(x, y, poly) {
+    let inside = false;
+    for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) { const [xi, yi] = poly[i], [xj, yj] = poly[j];
+      if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) inside = !inside; }
+    return inside;
+  }
+  function pick(x, y) {
+    let best = null, bz = -1e9;
+    for (const p of sheet.parts) {
+      const pts = []; for (const f of solids(p)) for (const v of f) pts.push(P(...v));
+      const z = P(p.at[0], topY(p), p.at[1])[2], lb = p._label;
+      const onLabel = lb && x >= lb[0] && x <= lb[0] + lb[2] && y >= lb[1] && y <= lb[1] + lb[3];
+      if ((onLabel || inPoly(x, y, hull(pts.map(q => [q[0], q[1]])))) && z > bz) { best = p; bz = z; }
+    }
+    return best;
+  }
+  let drag = null;
+  canvas.addEventListener("pointerdown", ev => {
+    canvas.focus(); canvas.setPointerCapture(ev.pointerId);
+    drag = { x: ev.offsetX, y: ev.offsetY, part: pick(ev.offsetX, ev.offsetY), moved: false, pan: ev.shiftKey || ev.button === 2 };
+    canvas.classList.add("dragging");
+  });
+  canvas.addEventListener("pointermove", ev => {
+    if (!drag) { const p = pick(ev.offsetX, ev.offsetY), id = p ? p.id : null; canvas.classList.toggle("over", !!p); if (id !== hoverId) { hoverId = id; draw(); } return; }
+    const dx = ev.offsetX - drag.x, dy = ev.offsetY - drag.y;
+    if (!drag.moved && Math.hypot(dx, dy) < 4) return;
+    drag.moved = true; drag.x = ev.offsetX; drag.y = ev.offsetY;
+    if (drag.part && !drag.pan) {
+      const a = cam.yaw, sb = Math.max(0.15, Math.sin(cam.pitch)), u = dx / cam.s, v = dy / (cam.s * sb);
+      drag.part.at = [drag.part.at[0] + u * Math.cos(a) - v * Math.sin(a), drag.part.at[1] + u * Math.sin(a) + v * Math.cos(a)];
+    } else if (drag.pan) { cam.px += dx / cam.s; cam.py -= dy / cam.s; }
+    else { cam.yaw += dx * 0.006; cam.pitch = Math.max(0.05, Math.min(1.52, cam.pitch + dy * 0.006)); }
+    draw();
+  });
+  canvas.addEventListener("pointerup", () => {
+    canvas.classList.remove("dragging");
+    if (drag && !drag.moved) { if (drag.part) activate(drag.part); else if (!trace) closePanel(); }
+    drag = null;
+  });
+  canvas.addEventListener("contextmenu", ev => ev.preventDefault());
+  canvas.addEventListener("wheel", ev => {
+    ev.preventDefault();
+    const ns = Math.max(4, Math.min(400, cam.s * Math.exp(-ev.deltaY * 0.0015))), mx = ev.offsetX, my = ev.offsetY;
+    const wx = (mx - W / 2 - cam.ox) / cam.s - cam.px, wy = -(my - H / 2) / cam.s - cam.py;
+    cam.px = (mx - W / 2 - cam.ox) / ns - wx; cam.py = -(my - H / 2) / ns - wy; cam.s = ns; draw();
+  }, { passive: false });
+  canvas.addEventListener("dblclick", ev => { const p = pick(ev.offsetX, ev.offsetY); if (p && p.at.join() !== p._home.join()) { p.at = p._home.slice(); draw(); } });
+
+  document.querySelectorAll("[data-view]").forEach(b => b.onclick = () => {
+    const v = b.dataset.view;
+    if (v === "fit") { animate(fitParams(), 400); return; }
+    const [yaw, pitch] = VIEWS[v], save = { yaw: cam.yaw, pitch: cam.pitch };
+    cam.yaw = yaw; cam.pitch = pitch; const f = fitParams(); Object.assign(cam, save);
+    animate({ yaw, pitch, ...f }, 500);
+  });
+  document.getElementById("zin").onclick = () => animate({ s: cam.s * 1.25 }, 200);
+  document.getElementById("zout").onclick = () => animate({ s: cam.s / 1.25 }, 200);
+  document.getElementById("index").onclick = () => showSheetIndex();
+  const notesRow = document.getElementById("notes");
+  (D.notes || []).forEach(n => { const b = document.createElement("button"); b.textContent = n.button || n.title.toUpperCase(); b.onclick = () => showNote(n); notesRow.appendChild(b); });
+
+  document.addEventListener("keydown", ev => {
+    if (ev.target.tagName === "INPUT") return;
+    if (ev.key === "Escape") { if (trace) stopTrace(); else if (panel.classList.contains("on")) closePanel(); else if (path.length > 1) goBackTo(path.length - 2); }
+    else if (trace && ev.key === "ArrowRight") step(1);
+    else if (trace && ev.key === "ArrowLeft") step(-1);
+    else if (document.activeElement === canvas && ev.key === "Tab") {
+      ev.preventDefault(); const ids = sheet.parts.map(p => p.id), i = ids.indexOf(selected);
+      const n = sheet.parts[(i + (ev.shiftKey ? -1 : 1) + ids.length) % ids.length]; selected = n.id; n.drill ? showPartSummary(n) : showPart(n); draw();
+    } else if (document.activeElement === canvas && ev.key === "Enter" && selected) activate(sheet.byId[selected]);
+  });
+  function resize() { W = canvas.clientWidth; H = canvas.clientHeight; canvas.width = Math.round(W * devicePixelRatio); canvas.height = Math.round(H * devicePixelRatio); }
+  window.addEventListener("resize", () => { resize(); draw(); });
+
+  /* ---------------- audit (used by scripts/inspect_drawing.py) ---------------- */
+  function runAudit() {
+    const rects = sheet.parts.map(p => ({ id: p.id, r: p._label })), overlaps = [], outside = [], hud = [];
+    const inter = (a, b) => Math.max(0, Math.min(a[0] + a[2], b[0] + b[2]) - Math.max(a[0], b[0])) * Math.max(0, Math.min(a[1] + a[3], b[1] + b[3]) - Math.max(a[1], b[1]));
+    for (let i = 0; i < rects.length; i++) for (let j = i + 1; j < rects.length; j++) { const a = inter(rects[i].r, rects[j].r); if (a > 16) overlaps.push([rects[i].id, rects[j].id, Math.round(a)]); }
+    const zones = [["header", [0, 0, 720, 118]], ["controls", [W - 400, 0, 400, 118]], ["title block", [W - 390, H - 140, 390, 140]], ["trace bar", [0, H - 60, 560, 60]]];
+    for (const { id, r } of rects) {
+      if (r[0] < 0 || r[1] < 0 || r[0] + r[2] > W || r[1] + r[3] > H) outside.push(id);
+      for (const [name, z] of zones) if (inter(r, z) > 16) hud.push([id, name]);
+    }
+    const fpOverlaps = [];
+    const box = p => { const { w, d } = dims(p); return [p.at[0] - w / 2, p.at[1] - d / 2, w, d]; };
+    for (let i = 0; i < sheet.parts.length; i++) for (let j = i + 1; j < sheet.parts.length; j++) if (inter(box(sheet.parts[i]), box(sheet.parts[j])) > 0) fpOverlaps.push([sheet.parts[i].id, sheet.parts[j].id]);
+    auditReport.sheet = { id: sheet.id, ref: sheet.ref, parts: sheet.parts.length, links: sheet.links.length, traces: sheet.traces.length,
+      labelOverlaps: overlaps, labelsOutsideCanvas: outside, labelsUnderHud: hud, footprintOverlaps: fpOverlaps, viewport: [W, H] };
+    const pre = document.createElement("pre"); pre.id = "audit"; pre.className = "sr"; pre.textContent = JSON.stringify(auditReport); document.body.appendChild(pre);
+  }
+
+  /* ---------------- start ---------------- */
+  (function init() {
+    const want = location.hash.slice(1);
+    if (SHEETS[want]) { const chain = [want]; while (PARENT[chain[0]]) chain.unshift(PARENT[chain[0]].sheet); path = chain; }
+    load(path[path.length - 1]);
+    resize();
+    Object.assign(cam, fitParams());
+    draw();
+    if (query.get("trace")) { const t = sheet.traces.find(x => x.id === query.get("trace")); if (t) { startTrace(t); stepIdx = Math.min(+(query.get("step") || 1) - 1, t.steps.length - 1); showStep(); } }
+    if (query.get("part") && sheet.byId[query.get("part")]) { const p = sheet.byId[query.get("part")]; selected = p.id; p.drill ? showPartSummary(p) : showPart(p); }
+    if (AUDIT) { cam.ox = 0; draw(); runAudit(); }
+    else draw();
+  })();
+})();
+
+</script>
+</body>
+</html>
